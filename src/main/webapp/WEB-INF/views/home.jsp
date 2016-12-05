@@ -15,6 +15,8 @@
 <form name="form1" action="home" onsubmit="return validateAll()" method="get">
 <br>First Name: <input type="text" name="firstname">
 <br>Last Name:<input type="text" name="lastname">
+<br>City:<input type="text" name="city">
+<br>State:<input type="text" name="state">
 <br>Email:<input type="email" name="email">
 <br>UserName:<input type="text" name="username">
 <br>Password:<input type="password" name="password">
@@ -34,6 +36,8 @@ function validate() {
     var un = document.forms["form1"]["username"].value;
     var psw = document.forms["form1"]["password"].value;
 	var pswVal = document.forms["form1"]["passwordVal"].value;
+	var cy = document.forms["form1"]["city"].value;
+	var st = document.forms["form1"]["state"].value;
     if (fn == "") {
         alert("First Name must be filled out");
         return false;
@@ -45,6 +49,12 @@ function validate() {
     	return false;
     } else if (un == "") {
     	alert("Username must be filled out");
+    	return false;
+    } else if (cy == "") {
+    	alert("City must be filled out");
+    	return false;
+    } else if (st == "") {
+    	alert("State must be filled out");
     	return false;
     	}else if (psw == "" || pswVal == "") {
     alert("Please enter password");
