@@ -6,9 +6,78 @@
 </head>
 <body>
 <h1>
-	Hello world!  
+	Welcome to Jolly Jaunt!   
 </h1>
 
-<P>  The time on the server is ${serverTime}. </P>
+<h2>
+	Registration
+</h2>
+<form name="form1" action="home" onsubmit="return validateAll()" method="get">
+<br>First Name: <input type="text" name="firstname">
+<br>Last Name:<input type="text" name="lastname">
+<br>Email:<input type="email" name="email">
+<br>UserName:<input type="text" name="username">
+<br>Password:<input type="password" name="password">
+<br>Re-enter Password:<input type="password" name="passwordVal">
+<br><input type="submit" value="Submit Registration">
+
+</form>
+<script>
+function validateAll(){
+	return validate() && validatePassword();
+}
+
+function validate() {
+    var fn = document.forms["form1"]["firstname"].value;
+    var ln = document.forms["form1"]["lastname"].value;
+    var em = document.forms["form1"]["email"].value;
+    var un = document.forms["form1"]["username"].value;
+    var psw = document.forms["form1"]["password"].value;
+	var pswVal = document.forms["form1"]["passwordVal"].value;
+    if (fn == "") {
+        alert("First Name must be filled out");
+        return false;
+    } else if (ln == "") {
+    	alert("Last Name must be filled out");
+    	return false;
+   	} else if (em == "") {
+    	alert("Email must be filled out");
+    	return false;
+    } else if (un == "") {
+    	alert("Username must be filled out");
+    	return false;
+    	}else if (psw == "" || pswVal == "") {
+    alert("Please enter password");
+      	return false;
+    }else if (psw != pswVal) {
+    	alert("Please re-enter password");
+	return false;
+	} else if (validateName(fn) == false || validateName(ln)==false)
+		alert("Please enter valid name");
+    return false;
+}
+
+function validateName(name) {
+	var re = [a-zA-Z];
+	return re.test(name);
+}
+ 
+function validatePassword()
+{
+  var password1 = document.form1.password.value;
+    //has at least 8 char
+  if (password1 === null || password1.length < 8) {
+    alert("Password must be at least 8 characters");
+    return false;
+  }
+  
+  //has at least 1 uppercase
+  if (password1.toLowerCase() === password1) {
+    alert("Password must contain at least one uppercase letter");
+    return false;
+  }
+}
+    </script>
+
 </body>
 </html>
