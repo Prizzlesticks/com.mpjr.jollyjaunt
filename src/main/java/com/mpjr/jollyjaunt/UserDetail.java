@@ -8,7 +8,23 @@ public class UserDetail {
 	private String city;
 	private String state;
 	private	String email;
-	private int tripid;
+	
+	
+	
+	
+	
+	public UserDetail( int userid, String username, String firstname, String lastname, String city, String state,
+			String email) {
+		super();
+		this.userid = userid;
+		this.username = username;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.city = city;
+		this.state = state;
+		this.email = email;
+		
+	}
 	public int getUserid() {
 		return userid;
 	}
@@ -30,9 +46,7 @@ public class UserDetail {
 	public String getEmail() {
 		return email;
 	}
-	public int getTripid() {
-		return tripid;
-	}
+	
 	public void setUserid(int userid) {
 		this.userid = userid;
 	}
@@ -54,9 +68,7 @@ public class UserDetail {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public void setTripid(int tripid) {
-		this.tripid = tripid;
-	} 
+	
 	
 	
 	

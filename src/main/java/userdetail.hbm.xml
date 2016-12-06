@@ -3,18 +3,18 @@
 "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-<class name="com.mpjr.jollyjaunt" table="user_detail">
-	<id name="user_id" column="user_id" type="int">
+<class name="com.mpjr.jollyjaunt.UserDetail" table="user_detail">
+	<id name="userid" column="user_id" type="int">
 		<generator class="increment"></generator>
 	</id>
-	<property name="user name" column="user_name" type="string"></property>
-	<property name="first name" column="user_first" type="string"></property>
-	<property name="last name" column="user_last" type="string"></property>
+	<property name="username" column="user_name" type="string"></property>
+	<property name="firstname" column="user_first" type="string"></property>
+	<property name="lastname" column="user_last" type="string"></property>
 	<property name="city" column="user_city" type="string"></property>
 	<property name="state" column="user_state" type="string"></property>
 	<property name="email" column="user_email" 
 		type="string"></property>
-	<property name="trip id" column="trip_id" type="int"></property>
+	
 	
 </class>
 </hibernate-mapping>

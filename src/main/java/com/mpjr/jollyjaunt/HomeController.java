@@ -23,28 +23,18 @@ public class HomeController {
 		return "home";
 	}
 	
-	@RequestMapping(value = "/home", method = RequestMethod.GET)
-	public String register(Model model, HttpServletRequest request) {
 	
-	model.addAttribute("firstname",request.getParameter("firstname"));
-	model.addAttribute("lastname", request.getParameter("lastname"));
-	model.addAttribute("email", request.getParameter("email"));
-	model.addAttribute("username", request.getParameter("username"));
-	
-		
-		return "tripInfo";
-	}
-	
+	/*
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String addNewUser(Model model) {
 		
 		return "newUser";
 		
-	}
+	}*/
 	
-	@RequestMapping(value = "", method = RequestMethod.GET)
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String addNewUser(Model model, HttpServletRequest request) {
-		UserDetail ud = new UserDetail();
+		
 		
 		String username = request.getParameter("username");
 		String firstname = request.getParameter("firstname");
@@ -52,6 +42,8 @@ public class HomeController {
 		String city = request.getParameter("city");
 		String state = request.getParameter("state");
 		String email = request.getParameter("email");
+		
+		UserDetail ud = new UserDetail(0, firstname, lastname, city, state, email, username);
 		
 		ud.setUsername(username);
 		ud.setFirstname(firstname);
@@ -62,7 +54,14 @@ public class HomeController {
 		
 		DAO.addUserDetail(ud);
 		
-		return "";
-	//this is not mapped yet to anything and therefore not testable yet
+		model.addAttribute("username", username);
+		model.addAttribute("firstname",firstname);
+		model.addAttribute("lastname", lastname);
+		model.addAttribute("city", city);
+		model.addAttribute("state", state);
+		model.addAttribute("email", email);
+		
+		return "tripInfo";
+	
 }
 }
