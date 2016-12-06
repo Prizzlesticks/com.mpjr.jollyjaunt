@@ -1,13 +1,14 @@
 package com.mpjr.jollyjaunt;
 
 public class Routes {
-	private Legs legs;
+		String route = "";
 
-	public Legs getLegs() {
-		return legs;
-	}
+		public String getData() {
+			return route;
+		}
 
-	public void setLegs(Legs legs) {
-		this.legs = legs;
-	}
+		public void setData(String data) {
+			this.route = data;
+		}
+		
 }
