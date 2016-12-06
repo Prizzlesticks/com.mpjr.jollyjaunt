@@ -24,14 +24,6 @@ public class HomeController {
 	}
 	
 	
-	/*
-	@RequestMapping(value = "/home", method = RequestMethod.GET)
-	public String addNewUser(Model model) {
-		
-		return "newUser";
-		
-	}*/
-	
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String addNewUser(Model model, HttpServletRequest request) {
 		
