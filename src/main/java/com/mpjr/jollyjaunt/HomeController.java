@@ -38,12 +38,14 @@ public class HomeController {
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String addNewUser(Model model) {
 		
+
 // HEAD 
 		//model.addAttribute("serverTime", formattedDate );
 		//model.addAttribute("dirCheck", Google.getDir());
 //=======
 		return "newUser";
 //>>>>>>> bcc0ff39c738d7193adba112ff9f149dd9255c3b
+
 		
 	}
 	

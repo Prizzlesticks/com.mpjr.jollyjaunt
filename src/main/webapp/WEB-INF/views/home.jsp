@@ -9,10 +9,13 @@
 	Welcome to Jolly Jaunt!   
 </h1>
 
+
 <!--   HEAD -->
 <P>  The time on the server is ${serverTime}. </P>
 <p> ${dirCheck} </p>
 =======
+=======
+>>>>>>> bcc0ff39c738d7193adba112ff9f149dd9255c3b
 <h2>
 	Registration
 </h2>
@@ -93,6 +96,9 @@ function validatePassword()
 }
     </script>
 
+<!--   <<<<<<< HEAD
 >>>>>>> bcc0ff39c738d7193adba112ff9f149dd9255c3b
+======= -->
+
 </body>
 </html>
