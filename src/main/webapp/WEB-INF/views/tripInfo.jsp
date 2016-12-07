@@ -9,7 +9,7 @@
 <body>
 <h1>Let's plan your trip!</h1>
 
-<form name="form2" action="tripInfo" onsubmit="return validate()" method="get">
+<form name="form2" action="events" onsubmit="return validate()" method="get">
 <br>Starting Point: <input type="text" name="origin">
 <br>Destination:<input type="text" name="destination">
 <br>Start Date:<input type="text" name="startdate">
@@ -40,13 +40,6 @@ function validate() {
     	}
    }
 </script>
-${firstname}
-${lastname}
-${email}
-${username}
-${ password}
-
-
 
 </body>
 </html>
