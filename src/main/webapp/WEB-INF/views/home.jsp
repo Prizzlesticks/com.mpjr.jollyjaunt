@@ -88,12 +88,7 @@ function validatePassword()
   }
 }
 
- 
-
 </script>
   
-
-
-
 </body>
 </html>

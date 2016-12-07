@@ -9,7 +9,11 @@
 <body>
 <h1>Let's plan your trip!</h1>
 
-<form name="form2" action="tripInfo" onsubmit="return validate()" method="post">
+
+
+
+<form name="form2" action="events" onsubmit="return validate()" method="get">
+
 <br>Starting Point: <input type="text" name="origin">
 <br>
 <br>Destination:<input type="text" name="destination">
@@ -166,12 +170,19 @@ function validate() {
     	} else if (ed == "") {
     	alert("Enter trip end date");
     	return false;
+<<<<<<< HEAD
     	}-->
     	 
     	    
    }
 </script>
 
+
+
+    	}
+   
+   }
+</script>
 
 
 </body>

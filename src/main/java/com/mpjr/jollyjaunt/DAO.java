@@ -1,6 +1,5 @@
 package com.mpjr.jollyjaunt;
 
-
 	import java.util.List;
 
 
@@ -15,7 +14,6 @@ import org.hibernate.HibernateException;
 	import org.hibernate.Query;
 
 	
-
 	public class DAO {
 
 		private static SessionFactory factory;
@@ -74,5 +72,18 @@ import org.hibernate.HibernateException;
 			hibernateSession.close();
 			return i;
 		}	
+		
+		public static String getUserId() {
+			UserDetail ui = null;
+			String ui2 = ui.getUsername();
+			if (factory == null)
+				setupFactory();
+			Session hibernateSession = factory.openSession();
+			hibernateSession.getTransaction().begin();
+			
+			hibernateSession.getTransaction().commit();
+			hibernateSession.close();
+			return ui2;
+		}
 	
 }
