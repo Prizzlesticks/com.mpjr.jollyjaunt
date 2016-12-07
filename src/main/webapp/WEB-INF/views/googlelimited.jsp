@@ -35,47 +35,14 @@
     </style>
   </head>
   <body>
-    <div id="floating-panel">
-    <b>Start: </b>
-    <select id="start">
-      <option value="detroit, mi">Detroit</option>
-      <option value="chicago, il">Chicago</option>
-      <option value="cleavland, oh">Cleavland</option>
-      <option value="pittsburgh, pa">Pittsburgh</option>
-      <option value="new york, ny">New York</option>
-      <option value="st louis, mo">St Louis</option>
-      <option value="joplin, mo">Joplin, MO</option>
-      <option value="oklahoma city, ok">Oklahoma City</option>
-      <option value="amarillo, tx">Amarillo</option>
-      <option value="gallup, nm">Gallup, NM</option>
-      <option value="flagstaff, az">Flagstaff, AZ</option>
-      <option value="winona, az">Winona</option>
-      <option value="kingman, az">Kingman</option>
-      <option value="barstow, ca">Barstow</option>
-      <option value="san bernardino, ca">San Bernardino</option>
-      <option value="los angeles, ca">Los Angeles</option>
-    </select>
-    <b>End: </b>
-    <select id="end">
-      <option value="detroit, mi">Detroit</option>
-      <option value="chicago, il">Chicago</option>
-      <option value="cleavland, oh">Cleavland</option>
-      <option value="pittsburgh, pa">Pittsburgh</option>
-      <option value="new york, ny">New York</option>
-      <option value="st louis, mo">St Louis</option>
-      <option value="joplin, mo">Joplin, MO</option>
-      <option value="oklahoma city, ok">Oklahoma City</option>
-      <option value="amarillo, tx">Amarillo</option>
-      <option value="gallup, nm">Gallup, NM</option>
-      <option value="flagstaff, az">Flagstaff, AZ</option>
-      <option value="winona, az">Winona</option>
-      <option value="kingman, az">Kingman</option>
-      <option value="barstow, ca">Barstow</option>
-      <option value="san bernardino, ca">San Bernardino</option>
-      <option value="los angeles, ca">Los Angeles</option>
-    </select>
-    </div>
-    <div id="map"></div>
+    Your Starting point is ${origin} <br>
+    Your End point is ${destination}
+    <div id="map" Style= "height:450px; width:600px; align:right; border:5px solid black;"></div>
+     
+    <script> 
+        var link = "http://www.google.com/maps/dir/" + "${origin}" + "/" + "${destination}";
+    </script>
+    For Full Directions and Voice Mapping <script>document.write('<a href="' + link + '" target = blank;>click here</a>');</script>
     <script>
       function initMap() {
         var directionsService = new google.maps.DirectionsService;
@@ -86,17 +53,17 @@
         });
         directionsDisplay.setMap(map);
 
-        var onChangeHandler = function() {
+ //       var onChangeHandler = function() {
           calculateAndDisplayRoute(directionsService, directionsDisplay);
-        };
-        document.getElementById('start').addEventListener('change', onChangeHandler);
-        document.getElementById('end').addEventListener('change', onChangeHandler);
+ //       };
+ //       document.getElementById('start').getParameter('form2', 'origin');
+ //       document.getElementById('end').getParameter('form2', 'destination');
       }
 
       function calculateAndDisplayRoute(directionsService, directionsDisplay) {
         directionsService.route({
-          origin: document.getElementById('start').value,
-          destination: document.getElementById('end').value,
+        	origin: "${origin}",
+            destination: "${destination}",
           travelMode: 'DRIVING'
         }, function(response, status) {
           if (status === 'OK') {

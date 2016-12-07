@@ -62,8 +62,10 @@ public class HomeController {
 		return "googleview";
 }
 	
-	@RequestMapping(value = "/Google2", method = RequestMethod.GET)
-	public String getDir(Model model) {
+	@RequestMapping(value = "/tripInfo", method = RequestMethod.GET)
+	public String getDir(Model model, HttpServletRequest request) {
+		model.addAttribute("origin", request.getParameter("origin"));
+		model.addAttribute("destination", request.getParameter("destination"));
 		return "googlelimited";
 	}
 }
