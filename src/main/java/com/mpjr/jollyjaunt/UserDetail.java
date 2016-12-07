@@ -25,6 +25,7 @@ public class UserDetail {
 		this.email = email;
 		
 	}
+	
 	public int getUserid() {
 		return userid;
 	}
