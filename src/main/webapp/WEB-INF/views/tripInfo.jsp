@@ -38,6 +38,7 @@ function validate() {
     	alert("Enter trip end date");
     	return false;
     	}
+   
    }
 </script>
 

@@ -57,10 +57,17 @@ public class HomeController {
 
 		return "tripInfo";
 	}
-
+	
 	@RequestMapping(value = "/Google1", method = RequestMethod.GET)
 	public String buildMap(Model model) {
 		return "googleview";
+}
+	
+	@RequestMapping(value = "/tripInfo", method = RequestMethod.GET)
+	public String getDir(Model model, HttpServletRequest request) {
+		model.addAttribute("origin", request.getParameter("origin"));
+		model.addAttribute("destination", request.getParameter("destination"));
+		return "googlelimited";
 	}
 
 	@RequestMapping(value = "/events", method = RequestMethod.GET)
