@@ -56,8 +56,14 @@ public class HomeController {
 		return "tripInfo";
 	
 }
+	
 	@RequestMapping(value = "/Google1", method = RequestMethod.GET)
 	public String buildMap(Model model) {
 		return "googleview";
+}
+	
+	@RequestMapping(value = "/Google2", method = RequestMethod.GET)
+	public String getDir(Model model) {
+		return "googlelimited";
 	}
 }
