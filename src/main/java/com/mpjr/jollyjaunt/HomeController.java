@@ -85,7 +85,9 @@ public class HomeController {
 		String startdate=sy+"-"+sm+"-"+sd;
 		String enddate=ey+"-"+em+"-"+ed;;
 		
-		TripDetail td = new TripDetail(0,enddate, origin, destination, startdate, 0);
+
+		TripDetail td = new TripDetail(0,0, origin, destination, startdate, enddate);
+
 		
 		
 		UserDetail i	;

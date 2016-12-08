@@ -41,9 +41,11 @@
 	  console.log('Family Name: ' + profile.getFamilyName());
 	  //console.log('Image URL: ' + profile.getImageUrl());
 	  console.log('Email: ' + profile.getEmail());
-	} 
+  }
+  }
+  </script>
 }
-</script>
 
+  
 </body>
 </html>

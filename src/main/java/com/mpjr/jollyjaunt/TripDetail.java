@@ -2,23 +2,34 @@ package com.mpjr.jollyjaunt;
 
 public class TripDetail {
 	private int tripid;
-	private String origin;
+	private int userid;
+
+    private String origin;
 	private	String destination;
 	private String startdate;
 	private String enddate;
-	private int userid;
+	UserDetail UserDetail;
 	
-	public TripDetail(int tripid, String origin, String destination, String startdate, String enddate, int userid) {
+	public TripDetail(int tripid, int userid,String origin, String destination, String startdate, String enddate ) {
+		
 		super();
 		this.tripid = tripid;
+		this.userid=userid;
 		this.origin = origin;
 		this.destination = destination;
 		this.startdate = startdate;
 		this.enddate = enddate;
+			}
+	
+
+	public int getUserid() {
+		return userid;
+	}
+
+	public void setUserid(int userid) {
 		this.userid = userid;
 	}
-	
-	
+
 	public int getTripid() {
 		return tripid;
 	}
@@ -35,9 +46,7 @@ public class TripDetail {
 		return enddate;
 	}
 	
-	public int getUserid() {
-		return userid;
-	}
+	
 	public void setTripid(int tripid) {
 		this.tripid = tripid;
 	}
@@ -53,8 +62,6 @@ public class TripDetail {
 	public void setEnddate(String enddate) {
 		this.enddate = enddate;
 	} 
-	public void setUserid(int userid) {
-		this.userid = userid;
-	}
+	
 	
 }
