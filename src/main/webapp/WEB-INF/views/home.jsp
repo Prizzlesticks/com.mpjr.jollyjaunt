@@ -2,7 +2,9 @@
 <%@ page session="false" %>
 <html>
 <head>
-	<title>Home</title>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<title>Login</title>
+	<meta name="google-signin-client_id" content="38140008096-c2ja3pde0uk539sv4j3j0cmuvfmsoamr.apps.googleusercontent.com">
 </head>
 <body>
 <h1>
@@ -10,84 +12,38 @@
 </h1>
 
 <h2>
-	Registration
+	Please Log in
 </h2>
-<form name="form1" action="home" onsubmit="return validateAll()" method="get">
-<br>First Name: <input type="text" name="firstname">
-<br>Last Name:<input type="text" name="lastname">
-<br>City:<input type="text" name="city">
-<br>State:<input type="text" name="state">
-<br>Email:<input type="email" name="email">
-<br>UserName:<input type="text" name="username">
-<br>Password:<input type="password" name="password">
-<br>Re-enter Password:<input type="password" name="passwordVal">
-<br><input type="submit" value="Submit Registration">
 
-</form>
+<div class="g-signin2" data-onsuccess="onSignIn"></div>
+<a href="#" onclick="signOut();">Sign out</a>
 <script>
-function validateAll(){
-	return validate() && validatePassword();
-}
-
-function validate() {
-    var fn = document.forms["form1"]["firstname"].value;
-    var ln = document.forms["form1"]["lastname"].value;
-    var em = document.forms["form1"]["email"].value;
-    var un = document.forms["form1"]["username"].value;
-    var psw = document.forms["form1"]["password"].value;
-	var pswVal = document.forms["form1"]["passwordVal"].value;
-	var cy = document.forms["form1"]["city"].value;
-	var st = document.forms["form1"]["state"].value;
-    if (fn == "") {
-        alert("First Name must be filled out");
-        return false;
-    } else if (ln == "") {
-    	alert("Last Name must be filled out");
-    	return false;
-   	} else if (em == "") {
-    	alert("Email must be filled out");
-    	return false;
-    } else if (un == "") {
-    	alert("Username must be filled out");
-    	return false;
-    } else if (cy == "") {
-    	alert("City must be filled out");
-    	return false;
-    } else if (st == "") {
-    	alert("State must be filled out");
-    	return false;
-    	}else if (psw == "" || pswVal == "") {
-    alert("Please enter password");
-      	return false;
-    }else if (psw != pswVal) {
-    	alert("Please re-enter password");
-	return false;
-	} else if (validateName(fn) == false || validateName(ln)==false)
-		alert("Please enter valid name");
-    return false;
-}
-
-function validateName(name) {
-	var re = [a-zA-Z];
-	return re.test(name);
-}
- 
-function validatePassword()
-{
-  var password1 = document.form1.password.value;
-    //has at least 8 char
-  if (password1 === null || password1.length < 8) {
-    alert("Password must be at least 8 characters");
-    return false;
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
   }
-  
-  //has at least 1 uppercase
-  if (password1.toLowerCase() === password1) {
-    alert("Password must contain at least one uppercase letter");
-    return false;
-  }
+</script>
+
+<script>
+  function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  //console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  //console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail());
+  if (auth2.isSignedIn.get()) {
+	  var profile = auth2.currentUser.get().getBasicProfile();
+	 // console.log('ID: ' + profile.getId());
+	  console.log('Full Name: ' + profile.getName());
+	  console.log('Given Name: ' + profile.getGivenName());
+	  console.log('Family Name: ' + profile.getFamilyName());
+	  //console.log('Image URL: ' + profile.getImageUrl());
+	  console.log('Email: ' + profile.getEmail());
+	} 
 }
-    </script>
+</script>
 
 </body>
 </html>

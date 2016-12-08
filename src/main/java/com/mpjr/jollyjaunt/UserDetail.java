@@ -9,9 +9,9 @@ public class UserDetail {
 	private String state;
 	private	String email;
 	
-	
-	
-	
+	public UserDetail() {
+		;
+	}
 	
 	public UserDetail( int userid, String username, String firstname, String lastname, String city, String state,
 			String email) {
@@ -25,6 +25,7 @@ public class UserDetail {
 		this.email = email;
 		
 	}
+	
 	public int getUserid() {
 		return userid;
 	}
