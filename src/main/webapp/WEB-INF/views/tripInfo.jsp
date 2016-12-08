@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>Let's plan your trip!</h1>
-
+<h2>UserID: ${sessionScope.userid }</h2>
 <form name="form2" action="events" onsubmit="return validate()" method="get">
 <br>Starting Point: <input type="text" name="origin">
 <br>Destination:<input type="text" name="destination">

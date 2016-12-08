@@ -9,6 +9,7 @@ import java.net.URL;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,34 +28,31 @@ public class HomeController {
 		return "home";
 	}
 
+//	@RequestMapping(value = "/home", method = RequestMethod.GET)
+//	public String createUser(Model model, HttpServletRequest request) {
+//		UserDetail user = new UserDetail(); 
+//		model.addAttribute(user);
+//		return "account";
+//	}
+	
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String addNewUser(Model model, HttpServletRequest request) {
 
-		String username = request.getParameter("username");
-		String firstname = request.getParameter("firstname");
-		String lastname = request.getParameter("lastname");
-		String city = request.getParameter("city");
-		String state = request.getParameter("state");
-		String email = request.getParameter("email");
-
-		UserDetail ud = new UserDetail(0, firstname, lastname, city, state, email, username);
-
-		ud.setUsername(username);
-		ud.setFirstname(firstname);
-		ud.setLastname(lastname);
-		ud.setCity(city);
-		ud.setState(state);
-		ud.setEmail(email);
-
-		DAO.addUserDetail(ud);
-
-		model.addAttribute("username", username);
-		model.addAttribute("firstname", firstname);
-		model.addAttribute("lastname", lastname);
-		model.addAttribute("city", city);
-		model.addAttribute("state", state);
+		UserDetail user = new UserDetail();
+		//get the info from parameters & set user details
+		String email = user.getEmail();
+		String name = user.getFirstname();
+		
+		int userid = DAO.addUserDetail(user);
+		
+		model.addAttribute("userid", userid);
 		model.addAttribute("email", email);
+		model.addAttribute("name", name);	
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("userid", userid);
 
+		//going to return account first
 		return "tripInfo";
 	}
 	
