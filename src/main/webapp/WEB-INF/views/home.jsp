@@ -17,6 +17,13 @@
 
 <div class="g-signin2" data-onsuccess="onSignIn"></div>
 <a href="#" onclick="signOut();">Sign out</a>
+
+Please log in and then click below to access your account:
+<form name = "variable" action="home">
+	<input type="hidden" name = "fullname"/>
+	<input type="hidden" name = "email"/>
+    <input type="submit" value="Continue" />
+</form>
 <script>
   function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
@@ -31,20 +38,27 @@
   var profile = googleUser.getBasicProfile();
   //console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
   console.log('Name: ' + profile.getName());
+  document.forms["variable"]["fullname"].value = profile.getName();
   //console.log('Image URL: ' + profile.getImageUrl());
   console.log('Email: ' + profile.getEmail());
+  document.forms["variable"]["email"].value = profile.getEmail();
   if (auth2.isSignedIn.get()) {
 	  var profile = auth2.currentUser.get().getBasicProfile();
 	 // console.log('ID: ' + profile.getId());
-	  console.log('Full Name: ' + profile.getName());
-	  console.log('Given Name: ' + profile.getGivenName());
-	  console.log('Family Name: ' + profile.getFamilyName());
+	  console.log('Full Name: ' + profile.getName()); 
+	  document.forms["variable"]["fullname"].value = profile.getName();
+	 // document.forms["variable"]["fullname"] = profile.getName(); 
+	  //console.log('Given Name: ' + profile.getGivenName());
+	  //console.log('Family Name: ' + profile.getFamilyName());
 	  //console.log('Image URL: ' + profile.getImageUrl());
 	  console.log('Email: ' + profile.getEmail());
+	  document.forms["variable"]["fullname"].value = profile.getEmail();
+	  
   }
   }
+  
   </script>
-}
+
 
   
 </body>

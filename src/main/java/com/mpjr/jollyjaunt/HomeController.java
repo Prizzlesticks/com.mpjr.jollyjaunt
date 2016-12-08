@@ -6,9 +6,9 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.List;
 
-import javax.servlet.http.Cookie;
+
+//import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -43,35 +43,41 @@ public class HomeController {
 
 		UserDetail user = new UserDetail();
 		//get the info from parameters & set user details
-		String email = user.getEmail();
-		String name = user.getFirstname();
+		//String email = user.getEmail();
 		
+		
+		
+		String fullname = request.getParameter("fullname");
+		user.setFullname(fullname);
+		String email = request.getParameter("email");
+		user.setEmail(email);
 		int userid = DAO.addUserDetail(user);
-		
-		String firstname = request.getParameter("firstname");
-		String lastname = request.getParameter("lastname");
 
 		model.addAttribute("userid", userid);
-		model.addAttribute("email", email);
-		model.addAttribute("name", name);	
+		model.addAttribute("email", email);	
+		model.addAttribute("fullname", fullname);
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("userid", userid);
 
 		//going to return account first
-		return "tripInfo";
+		return "account";
 	}
 	
 	@RequestMapping(value = "/Google1", method = RequestMethod.GET)
 	public String buildMap(Model model) {
 		return "googleview";
 }
+	
+	@RequestMapping(value = "/account", method = RequestMethod.GET)
+	public String account(Model model) {
+		return "tripInfo";
+}
 
-	@RequestMapping(value = "/tripInfo", method = RequestMethod.POST)
+	@RequestMapping(value = "/tripInfo", method = RequestMethod.GET)
 	public String addtripDetil(Model model, HttpServletRequest request) {
 		
-		//int userid =Integer.parseInt( request.getParameter("userid"));
-		
+		String title = request.getParameter("title");
 		String origin = request.getParameter("origin");
 		String destination = request.getParameter("destination");
 		String sy=request.getParameter("year_start");
@@ -86,39 +92,37 @@ public class HomeController {
 		String enddate=ey+"-"+em+"-"+ed;;
 		
 
-		TripDetail td = new TripDetail(0,0, origin, destination, startdate, enddate);
+		TripDetail td = new TripDetail();
 
-		
-		
-		UserDetail i	;
-		 
-		//td.setUserid(DAO.getUserId(i));
+		String userid = request.getSession().getAttribute("userid").toString();
+		int id1 = Integer.parseInt(userid);
+		td.setUserid(id1);
 		td.setOrigin(origin);
 		td.setDestination(destination);
 		td.setStartdate(startdate);
 		td.setEnddate(enddate);
-		DAO. addTripDetail(td);		
+		DAO.addTripDetail(td);		
 		
-		
-		/*model.addAttribute("origin", origin);
+		model.addAttribute("title", title);
+		model.addAttribute("origin", origin);
 		model.addAttribute("destination",destination);
 		model.addAttribute("startdate", startdate);
-		model.addAttribute("enddate",enddate);*/
+		model.addAttribute("enddate",enddate);
 		
 		
-		return "home";
+		return "googlelimited";
 	
 }
 	
 
 
 
-	@RequestMapping(value = "/tripInfo", method = RequestMethod.GET)
-	public String getDir(Model model, HttpServletRequest request) {
-		model.addAttribute("origin", request.getParameter("origin"));
-		model.addAttribute("destination", request.getParameter("destination"));
-		return "googlelimited";
-	}
+//	@RequestMapping(value = "/tripInfo", method = RequestMethod.GET)
+//	public String getDir(Model model, HttpServletRequest request) {
+//		model.addAttribute("origin", request.getParameter("origin"));
+//		model.addAttribute("destination", request.getParameter("destination"));
+//		return "googlelimited";
+//	}
 
 	@RequestMapping(value = "/events", method = RequestMethod.GET)
 	public String getEvents(Model model/* , @RequestParam("city") String city */) {

@@ -9,10 +9,12 @@
 <body>
 <h1>Let's plan your trip!</h1>
 
-<h2>UserID: ${sessionScope.userid }</h2>
+<h2></h2>
 
 <form name="form2" action="events" onsubmit="return validate()" method="get">
 
+<br>Trip Name: <input type="text" name="title">
+<br>
 <br>Starting Point: <input type="text" name="origin">
 <br>
 <br>Destination:<input type="text" name="destination">
@@ -20,17 +22,14 @@
 <br>
 
 
-Start Date : Year
-<<<<<<< HEAD
- 
-  <select id="year_start"   name="year_start" /> 
-          
+Start Date : Year 
+  <select id="year_start"   name="year_start">        
     <option value=2016>2016</option>       
     <option value=2017>2017</option>       
     <option value=2018>2018</option>    
   </select> / Month
  
-  <select id="month_start"  name="month_start" /> 
+  <select id="month_start"  name="month_start"> 
     <option value=1>1</option>       
     <option value=2>2</option>       
     <option value=3>3</option>       
@@ -45,7 +44,7 @@ Start Date : Year
     <option value=12>12</option>      
   </select> / Day
  
-  <select id="day_start" name="day_start" /> 
+  <select id="day_start" name="day_start"> 
      <option value=1>1</option>       
     <option value=2>2</option>       
     <option value=3>3</option>       
@@ -83,13 +82,14 @@ Start Date : Year
 <br><br>
 End Date: Year
   
-  <select id="year_end"  name="year_end" />        
+  <select id="year_end"  name = "year_end">        
     <option value=2016>2016</option>       
     <option value=2017>2017</option>       
     <option value=2018>2018</option>       
-  </select> /Month
-
-  <select id="month_end"  name="month_end" /> 
+  </select> 
+  
+  /Month
+  <select id="month_end"  name="month_end"> 
    <option value=1>1</option>       
     <option value=2>2</option>       
     <option value=3>3</option>       
@@ -136,126 +136,7 @@ End Date: Year
     <option value=29>29</option>       
     <option value=30>30</option>       
     <option value=31>31</option>       
-  </select>  (yyyy/mm/dd)
-
-=======
- 
-  <select id="year_start"   name="year_start" /> 
-          
-    <option value=2016>2016</option>       
-    <option value=2017>2017</option>       
-    <option value=2018>2018</option>    
-  </select> / Month
- 
-  <select id="month_start"  name="month_start" /> 
-    <option value=1>1</option>       
-    <option value=2>2</option>       
-    <option value=3>3</option>       
-    <option value=4>4</option>       
-    <option value=5>5</option>       
-    <option value=6>6</option>       
-    <option value=7>7</option>       
-    <option value=8>8</option>       
-    <option value=9>9</option>       
-    <option value=10>10</option>       
-    <option value=11>11</option>       
-    <option value=12>12</option>      
-  </select> / Day
- 
-  <select id="day_start" name="day_start" /> 
-     <option value=1>1</option>       
-    <option value=2>2</option>       
-    <option value=3>3</option>       
-    <option value=4>4</option>       
-    <option value=5>5</option>       
-    <option value=6>6</option>       
-    <option value=7>7</option>       
-    <option value=8>8</option>       
-    <option value=9>9</option>       
-    <option value=10>10</option>       
-    <option value=11>11</option>       
-    <option value=12>12</option>       
-    <option value=13>13</option>       
-    <option value=14>14</option>       
-    <option value=15>15</option>       
-    <option value=16>16</option>       
-    <option value=17>17</option>       
-    <option value=18>18</option>       
-    <option value=19>19</option>       
-    <option value=20>20</option>       
-    <option value=21>21</option>       
-    <option value=22>22</option>       
-    <option value=23>23</option>       
-    <option value=24>24</option>       
-    <option value=25>25</option>       
-    <option value=26>26</option>       
-    <option value=27>27</option>       
-    <option value=28>28</option>       
-    <option value=29>29</option>       
-    <option value=30>30</option>       
-    <option value=31>31</option>       
-  </select> (yyyy/mm/dd)
-  
-  
-<br><br>
-End Date: Year
-  
-  <select id="year_end"  name="year_end" />        
-    <option value=2016>2016</option>       
-    <option value=2017>2017</option>       
-    <option value=2018>2018</option>       
-  </select> /Month
-
-  <select id="month_end"  name="month_end" /> 
-   <option value=1>1</option>       
-    <option value=2>2</option>       
-    <option value=3>3</option>       
-    <option value=4>4</option>       
-    <option value=5>5</option>       
-    <option value=6>6</option>       
-    <option value=7>7</option>       
-    <option value=8>8</option>       
-    <option value=9>9</option>       
-    <option value=10>10</option>       
-    <option value=11>11</option>       
-    <option value=12>12</option>    
-  </select> /Day
-  
-  <select id="day_end" name="day_end" > 
-    <option value=1>1</option>       
-    <option value=2>2</option>       
-    <option value=3>3</option>       
-    <option value=4>4</option>       
-    <option value=5>5</option>       
-    <option value=6>6</option>       
-    <option value=7>7</option>       
-    <option value=8>8</option>       
-    <option value=9>9</option>       
-    <option value=10>10</option>       
-    <option value=11>11</option>       
-    <option value=12>12</option>       
-    <option value=13>13</option>       
-    <option value=14>14</option>       
-    <option value=15>15</option>       
-    <option value=16>16</option>       
-    <option value=17>17</option>       
-    <option value=18>18</option>       
-    <option value=19>19</option>       
-    <option value=20>20</option>       
-    <option value=21>21</option>       
-    <option value=22>22</option>       
-    <option value=23>23</option>       
-    <option value=24>24</option>       
-    <option value=25>25</option>       
-    <option value=26>26</option>       
-    <option value=27>27</option>       
-    <option value=28>28</option>       
-    <option value=29>29</option>       
-    <option value=30>30</option>       
-    <option value=31>31</option>       
-  </select>  (yyyy/mm/dd)
-
->>>>>>> a1f2bb712869f8d92f54dfa4d765d27e5b8a4a16
+  </select>   
 
 
 <br>
@@ -281,30 +162,9 @@ function validate() {
     	alert("Enter a destination");
     	return false;
     	}
-        <!--else if (sd == "" ) {
-    		
-    	alert("Enter trip start date");
-    	return false;
-    	} else if (ed == "") {
-    	alert("Enter trip end date");
-    	return false;
-
-    	} }-->
-=======
-
-    	 
-    	    
-   }
+}
+  	     
 </script>
-
-
-
-    	}
-   
-   }
-
-
-
-
+    	
 </body>
 </html>
