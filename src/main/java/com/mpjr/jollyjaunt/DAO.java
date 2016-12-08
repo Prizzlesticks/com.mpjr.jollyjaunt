@@ -70,17 +70,16 @@ package com.mpjr.jollyjaunt;
 			return i;
 		}	
 		
-		public static String getUserId() {
-			UserDetail ui = null;
-			String ui2 = ui.getUsername();
-			if (factory == null)
-				setupFactory();
-			Session hibernateSession = factory.openSession();
-			hibernateSession.getTransaction().begin();
-			
-			hibernateSession.getTransaction().commit();
-			hibernateSession.close();
-			return ui2;
-		}
+//		public static String getFirstname() {
+//			String ui2 = UserDetail.getFullname();
+//			if (factory == null)
+//				setupFactory();
+//			Session hibernateSession = factory.openSession();
+//			hibernateSession.getTransaction().begin();
+//			
+//			hibernateSession.getTransaction().commit();
+//			hibernateSession.close();
+//			return ui2;
+//		}
 	
 }

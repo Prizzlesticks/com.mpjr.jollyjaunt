@@ -7,6 +7,7 @@
 	<id name="tripid" column="trip_id" type="int">
 		<generator class="increment"></generator>
 	</id>
+	<property name= "title" column="title" type= "string"></property>
 	<property name= "userid" column="user_id" type= "int"></property>
 	<property name="origin" column="origin" type="string"></property>
 	<property name="destination" column="destination" type="string"></property>

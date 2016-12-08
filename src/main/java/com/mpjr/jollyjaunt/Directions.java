@@ -9,7 +9,7 @@ public class Directions {
 		}
 
 		public void setDuration(String duration) {
-			this.duration = duration;
+			Directions.duration = duration;
 		}
 
 	

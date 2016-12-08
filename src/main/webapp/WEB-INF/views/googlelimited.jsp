@@ -5,36 +5,13 @@
     <meta charset="utf-8">
     <title>Directions service</title>
     <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
+    
       #map {
         height: 100%;
       }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-      #floating-panel {
-        position: absolute;
-        width: 600;
-        height: 450;
-        border:0;
-        top: 10px;
-        left: 25%;
-        z-index: 5;
-        background-color: #fff;
-        padding: 5px;
-        border: 1px solid #999;
-        text-align: center;
-        font-family: 'Roboto','sans-serif';
-        line-height: 30px;
-        padding-left: 10px;
-      }
     </style>
   </head>
-  <body>
+  <body style= text-align:left;>
     Your Starting point is ${origin} <br>
     Your End point is ${destination}
     <div id="map" Style= "height:450px; width:600px; align:right; border:5px solid black;"></div>
@@ -53,11 +30,7 @@
         });
         directionsDisplay.setMap(map);
 
- //       var onChangeHandler = function() {
           calculateAndDisplayRoute(directionsService, directionsDisplay);
- //       };
- //       document.getElementById('start').getParameter('form2', 'origin');
- //       document.getElementById('end').getParameter('form2', 'destination');
       }
 
       function calculateAndDisplayRoute(directionsService, directionsDisplay) {
