@@ -1,17 +1,19 @@
 package com.mpjr.jollyjaunt;
 
-
 	import java.util.List;
 
-	import org.hibernate.HibernateException;
+
+
+import org.hibernate.HibernateException;
 	import org.hibernate.Session;
 	import org.hibernate.SessionFactory;
 	import org.hibernate.Transaction;
 	import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 	import org.hibernate.cfg.Configuration;
 	import org.hibernate.service.ServiceRegistry;
-	
+	import org.hibernate.Query;
 
+	
 	public class DAO {
 
 		private static SessionFactory factory;
@@ -43,6 +45,22 @@ package com.mpjr.jollyjaunt;
 			hibernateSession.close();
 			return i;
 		}	
+		public static int getUserId(UserDetail em){
+			if (factory == null)
+				setupFactory();
+			Session hibernateSession = factory.openSession();
+			hibernateSession.getTransaction().begin();
+			String email = em.getEmail();
+		    String hql = "from UserDetail where email ="+email;
+			UserDetail found = hibernateSession.createQuery(hql,UserDetail.class).getSingleResult();
+			
+			int i =found.getUserid();
+			hibernateSession.getTransaction().commit();
+			hibernateSession.close();
+				return i;
+			
+			
+		}
 		
 		public static int addTripDetail(TripDetail t) {
 			if (factory == null)

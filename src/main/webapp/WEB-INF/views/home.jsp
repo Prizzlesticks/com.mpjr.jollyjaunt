@@ -87,7 +87,8 @@ function validatePassword()
     return false;
   }
 }
-    </script>
 
+</script>
+  
 </body>
 </html>
