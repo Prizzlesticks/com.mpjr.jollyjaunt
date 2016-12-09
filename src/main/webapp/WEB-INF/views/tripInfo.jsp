@@ -11,7 +11,7 @@
 
 <h2></h2>
 
-<form name="form2" action="events" onsubmit="return validate()" method="get">
+<form name="form2" action="tripInfo" onsubmit="return validate()" method="get">
 
 <br>Trip Name: <input type="text" name="title">
 <br>
