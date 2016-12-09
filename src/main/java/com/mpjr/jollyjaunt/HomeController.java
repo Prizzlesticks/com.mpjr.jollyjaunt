@@ -185,7 +185,7 @@ public class HomeController {
 	
 	@RequestMapping(value = "/routemapevents", method = RequestMethod.GET)
 	public String getDir(Model model, HttpServletRequest request) {
-		
+	
 		return "routemapevents";
 	}
 	
