@@ -8,14 +8,25 @@ public class TripDetail {
 	private	String destination;
 	private String startdate;
 	private String enddate;
+	private String arrivaldate;
 	//UserDetail UserDetail;
 	
+	public String getArrivaldate() {
+		return arrivaldate;
+	}
+
+
+	public void setArrivedate(String arrivaldate) {
+		this.arrivaldate = arrivaldate;
+	}
+
+
 	public TripDetail() {
 	;
 	}
 	
 	
-	public TripDetail(int tripid, int userid,String title,String origin, String destination, String startdate, String enddate ) {
+	public TripDetail(int tripid, int userid,String title,String origin, String destination, String startdate, String enddate, String arrivaldate ) {
 		
 		super();
 		this.tripid = tripid;
@@ -25,6 +36,7 @@ public class TripDetail {
 		this.destination = destination;
 		this.startdate = startdate;
 		this.enddate = enddate;
+		this.arrivaldate = arrivaldate;
 			}
 
 	public int getTripid() {
