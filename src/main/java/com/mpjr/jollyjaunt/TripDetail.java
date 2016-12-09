@@ -20,6 +20,7 @@ public class TripDetail {
 		super();
 		this.tripid = tripid;
 		this.userid=userid;
+		this.title=title;
 		this.origin = origin;
 		this.destination = destination;
 		this.startdate = startdate;

@@ -70,8 +70,13 @@ public class HomeController {
 		HttpSession session = request.getSession();
 		session.setAttribute("userid", userid);
 
+		List<TripDetail> trips = DAO.getAllTrips();
+		model.addAttribute("triplist", trips);
+		
 		//going to return account first
 		return "account";
+		
+		
 		}
 	}
 	
