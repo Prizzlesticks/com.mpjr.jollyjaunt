@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-
+import java.util.List;
 
 //import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.google.gson.Gson;
+
 
 /**
  * Handles requests for the application home page.
@@ -59,6 +60,13 @@ public class HomeController {
 		session.setAttribute("userid", userid);
 
 		//going to return account first
+		
+		//add existing trips to account if account exists
+		//get the list of trips from DAO
+				List<TripDetail> trips = DAO.getAllTrips();
+				
+				//add this list to the model
+				model.addAttribute("tripList", trips);
 		return "account";
 	}
 	
@@ -73,7 +81,7 @@ public class HomeController {
 }
 
 	@RequestMapping(value = "/tripInfo", method = RequestMethod.GET)
-	public String addtripDetil(Model model, HttpServletRequest request) {
+	public String addtripDetail(Model model, HttpServletRequest request) {
 		
 		String title = request.getParameter("title");
 		String cityStart = request.getParameter("cityStart");
@@ -180,5 +188,5 @@ public class HomeController {
 		
 		return "routemapevents";
 	}
-
+	
 }

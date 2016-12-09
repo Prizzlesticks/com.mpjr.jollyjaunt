@@ -11,7 +11,26 @@ Welcome ${fullname}
 
 Click a trip ID to open a saved trip or click new trip!
 
-Your trips (variable coming)
+Your saved trips:
+
+<table border="1">
+	<tr>
+		<th>Trip Name</th>
+		<th>Origin</th>
+		<th>Destination</th>
+		<th>Start Date</th>
+		<th>End Date</th>
+	</tr>
+<c:forEach items="${tripList }" var="trip">
+	<tr>
+		<td>${trip.name }</td>
+		<td>${trip.origin }</td>
+		<td>${trip.destination }</td>
+		<td>${trip.start }: ${trip.end }</td>
+		
+	</tr>
+</c:forEach>
+</table>
 
 <form action="account" method = "GET">
     <input type="submit" value="Start a NEW Trip" />

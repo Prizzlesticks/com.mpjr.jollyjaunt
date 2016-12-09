@@ -8,7 +8,10 @@ package com.mpjr.jollyjaunt;
 	import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 	import org.hibernate.cfg.Configuration;
 	import org.hibernate.service.ServiceRegistry;
-	import org.hibernate.Query;
+
+
+
+import org.hibernate.Query;
 
 	
 	public class DAO {
@@ -68,7 +71,20 @@ package com.mpjr.jollyjaunt;
 			hibernateSession.getTransaction().commit();
 			hibernateSession.close();
 			return i;
-		}	
+		}
+
+		public static List<TripDetail> getAllTrips() {
+				if (factory == null)
+					setupFactory();
+				Session hibernateSession = factory.openSession();
+				hibernateSession.getTransaction().begin();
+				List<TripDetail> trips = hibernateSession.createQuery("FROM TripDetail").list();
+				hibernateSession.getTransaction().commit();
+				hibernateSession.close();
+				return trips;
+		}
+			
+		
 		
 //		public static String getFirstname() {
 //			String ui2 = UserDetail.getFullname();
