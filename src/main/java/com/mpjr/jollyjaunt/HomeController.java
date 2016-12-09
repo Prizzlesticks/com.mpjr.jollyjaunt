@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.List;
 
 //import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -42,9 +43,14 @@ public class HomeController {
 	public String addNewUser(Model model, HttpServletRequest request,HttpServletResponse response) {
 		String fullname = request.getParameter("fullname");
 		String email = request.getParameter("email");
+		
+		
 		if (!(DAO.getUserId(email) == 0) ) {
 			//pull user information from db
 			String userid = Integer.toString(DAO.getUserId(email));
+			
+			List<TripDetail> trips = DAO.getAllTrips(userid);
+			model.addAttribute("triplist", trips);
 			
 			HttpSession session = request.getSession();
 			session.setAttribute("userid", userid);
@@ -62,15 +68,15 @@ public class HomeController {
 		
 		user.setEmail(email);
 		int userid = DAO.addUserDetail(user);
-
+		
 		model.addAttribute("userid", userid);
 		model.addAttribute("email", email);	
 		model.addAttribute("fullname", fullname);
-		
 		HttpSession session = request.getSession();
 		session.setAttribute("userid", userid);
-
-		List<TripDetail> trips = DAO.getAllTrips();
+		String useridstring = Integer.toString(userid);
+		
+		List<TripDetail> trips = DAO.getAllTrips(useridstring);
 		model.addAttribute("triplist", trips);
 		
 		//going to return account first
