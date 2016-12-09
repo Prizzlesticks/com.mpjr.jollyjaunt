@@ -58,8 +58,6 @@ Please log in and then click below to access your account:
   }
   
   </script>
-
-
   
 </body>
 </html>

@@ -30,13 +30,6 @@ public class HomeController {
 	public String register(Model model) {
 		return "home";
 	}
-
-//	@RequestMapping(value = "/home", method = RequestMethod.GET)
-//	public String createUser(Model model, HttpServletRequest request) {
-//		UserDetail user = new UserDetail(); 
-//		model.addAttribute(user);
-//		return "account";
-//	}
 	
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String addNewUser(Model model, HttpServletRequest request,HttpServletResponse response) {
@@ -96,6 +89,7 @@ public class HomeController {
 
 		String userid = request.getSession().getAttribute("userid").toString();
 		int id1 = Integer.parseInt(userid);
+		td.setTitle(title);
 		td.setUserid(id1);
 		td.setOrigin(origin);
 		td.setDestination(destination);
@@ -110,7 +104,7 @@ public class HomeController {
 		model.addAttribute("enddate",enddate);
 		
 		
-		return "googlelimited";
+		return "events";
 	
 }
 	
