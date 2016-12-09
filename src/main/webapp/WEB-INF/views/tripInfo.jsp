@@ -139,8 +139,8 @@ End Date: Year
   </select>   
 
 
-<br><input type="radio" name="choice" value="yes">
-<br><input type="radio" name="choice" value="no">
+<br><input type="radio" name="choice" value="yes">Yes
+<br><input type="radio" name="choice" value="no">No
 <br>
 <br><input type="submit" value="Get Event List">
 </form>

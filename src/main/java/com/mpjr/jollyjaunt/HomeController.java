@@ -107,7 +107,7 @@ public class HomeController {
 		model.addAttribute("startdate", startdate);
 		model.addAttribute("enddate",enddate);
 		
-		if (request.getParameter("choice")=="yes") {
+		if (request.getParameter("choice").equals("yes")) {
 		
 		String url = "https://app.ticketmaster.com/discovery/v2/events.json?city="+ destination +"&startDateTime="+ startdate +"T15:00:00Z&endDateTime="+ enddate +"T15:00:00Z&apikey=UA08AxXZd7TGbabcIQ4jEMVFE6BiLQ1d";
 		
@@ -157,10 +157,10 @@ public class HomeController {
 		}
 		model.addAttribute("eventInfo", eventInfo);
 		//model.addAttribute("name", name);
-		} else {
-			
-		}
 		return "events";
+		} else {
+			return "googlelimited";
+		}
 }
 	
 	@RequestMapping(value = "/googlelimited", method = RequestMethod.GET)
