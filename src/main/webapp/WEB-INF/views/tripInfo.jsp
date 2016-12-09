@@ -11,7 +11,7 @@
 
 <h2></h2>
 
-<form name="form2" action="events" onsubmit="return validate()" method="get">
+<form name="form2" action="tripInfo" onsubmit="return validate()" method="get">
 
 <br>Trip Name: <input type="text" name="title">
 <br>
@@ -139,8 +139,8 @@ End Date: Year
   </select>   
 
 
-<br><input type="radio" name="choice" value="yes">
-<br><input type="radio" name="choice" value="no">
+<br><input type="radio" name="choice" value="yes">Yes
+<br><input type="radio" name="choice" value="no">No
 <br>
 <br><input type="submit" value="Get Event List">
 </form>
