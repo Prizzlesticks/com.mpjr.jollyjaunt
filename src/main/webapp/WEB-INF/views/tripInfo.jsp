@@ -144,19 +144,10 @@ End Date: Year
 <br>
 <br><input type="submit" value="Get Event List">
 </form>
-<!-- <form action="googlelimited" method="get">
-<input type="submit" value="Get Summary Without Event List">
-</form> -->
 <script>
 function validate() {
 	var sp = document.forms["form2"]["origin"].value;
     var d = document.forms["form2"]["destination"].value;
-    <!--var sd = document.forms["form2"]["startdate"].value;
-    var ed = document.forms["form2"]["enddate"].value;
-    
-    var d = new Date();
-    var n = d.toLocaleDateString();-->
-   
     
     if (sp == "") {
         alert("Enter trip location starting point");
