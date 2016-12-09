@@ -85,6 +85,18 @@ import org.hibernate.Query;
 		}
 			
 		
+
+		public static int addEventDetail(EventDetail e) {
+			if (factory == null)
+				setupFactory();
+			Session hibernateSession = factory.openSession();
+			hibernateSession.getTransaction().begin();
+			int i = (Integer) hibernateSession.save(e);
+			hibernateSession.getTransaction().commit();
+			hibernateSession.close();
+			return i;
+		}	
+		
 		
 //		public static String getFirstname() {
 //			String ui2 = UserDetail.getFullname();
