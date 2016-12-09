@@ -6,7 +6,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.List;
 
 //import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -191,7 +190,14 @@ public class HomeController {
 	
 	@RequestMapping(value = "/routemapevents", method = RequestMethod.GET)
 	public String getDir(Model model, HttpServletRequest request) {
-	
+		String origin = request.getParameter("origin");
+		String destination = request.getParameter("destination");
+		String[] events = request.getParameterValues("event");
+		
+		model.addAttribute("events", events);
+		model.addAttribute("destination", destination);
+		model.addAttribute("origin", origin);
+		
 		return "routemapevents";
 	}
 	
