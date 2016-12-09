@@ -72,7 +72,7 @@ public class HomeController {
 		return "tripInfo";
 }
 
-	@RequestMapping(value = "/events", method = RequestMethod.GET)
+	@RequestMapping(value = "/tripInfo", method = RequestMethod.GET)
 	public String addtripDetil(Model model, HttpServletRequest request) {
 		
 		String title = request.getParameter("title");
@@ -95,6 +95,7 @@ public class HomeController {
 		String userid = request.getSession().getAttribute("userid").toString();
 		int id1 = Integer.parseInt(userid);
 		td.setUserid(id1);
+		td.setTitle(title);
 		td.setOrigin(origin);
 		td.setDestination(destination);
 		td.setStartdate(startdate);
@@ -108,7 +109,7 @@ public class HomeController {
 		model.addAttribute("enddate",enddate);
 		
 		if (request.getParameter("choice").equals("yes")) {
-		
+		destination = destination.toLowerCase();
 		String url = "https://app.ticketmaster.com/discovery/v2/events.json?city="+ destination +"&startDateTime="+ startdate +"T15:00:00Z&endDateTime="+ enddate +"T15:00:00Z&apikey=UA08AxXZd7TGbabcIQ4jEMVFE6BiLQ1d";
 		
 		//city toLowerCase
