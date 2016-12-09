@@ -16,7 +16,7 @@ public class TripDetail {
 	}
 
 
-	public void setArrivedate(String arrivaldate) {
+	public void setArrivaldate(String arrivaldate) {
 		this.arrivaldate = arrivaldate;
 	}
 
