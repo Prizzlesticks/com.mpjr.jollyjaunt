@@ -9,14 +9,21 @@
 </head>
 <body>
 <h1>Events</h1>
-<ul>
-<%-- <c:forEach var="event" items="${eventInfo.getEmb().getEvents().get().getName()}" >
-<li>${event}</li>
-</c:forEach> --%>
+<form name="eventform" action="googlelimited" method="get">
+<%-- get local date works ${eventInfo.getEmb().getEvents().get(0).getDates().getStart().getLocalDate()} --%>
 <c:forEach var="i" begin="0" end="${eventInfo.getEmb().getEvents().size()-1}">
-Event <c:out value="${eventInfo.getEmb().getEvents().get(i).getName()}"></c:out>
+<input type="checkbox" name="event" value="${eventInfo.getEmb().getEvents().get(i).getName()}">Event: 
+<a href="${eventInfo.getEmb().getEvents().get(i).getUrl()}" target=blank>
+${eventInfo.getEmb().getEvents().get(i).getName()}</a>
+
+<br>
+Date: ${eventInfo.getEmb().getEvents().get(i).getDates().getStart().getLocalDate()}
+<br>
+Venue: ${eventInfo.getEmb().getEvents().get(i).get_embedded().getVenues().get(0).getName()}
+<br>
 <br>
 </c:forEach>
-</ul>
+<input type="submit" value="Add events to trip">
+</form>
 </body>
 </html>

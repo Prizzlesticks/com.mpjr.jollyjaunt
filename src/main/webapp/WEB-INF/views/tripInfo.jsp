@@ -139,11 +139,14 @@ End Date: Year
   </select>   
 
 
+<br><input type="radio" name="choice" value="yes">
+<br><input type="radio" name="choice" value="no">
 <br>
-<br>
-<br><input type="submit" value="Submit Registration">
-
+<br><input type="submit" value="Get Event List">
 </form>
+<!-- <form action="googlelimited" method="get">
+<input type="submit" value="Get Summary Without Event List">
+</form> -->
 <script>
 function validate() {
 	var sp = document.forms["form2"]["origin"].value;
