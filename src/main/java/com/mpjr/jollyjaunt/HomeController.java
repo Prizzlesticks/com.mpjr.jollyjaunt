@@ -45,8 +45,6 @@ public class HomeController {
 		//get the info from parameters & set user details
 		//String email = user.getEmail();
 		
-		
-		
 		String fullname = request.getParameter("fullname");
 		user.setFullname(fullname);
 		String email = request.getParameter("email");
@@ -74,7 +72,7 @@ public class HomeController {
 		return "tripInfo";
 }
 
-	@RequestMapping(value = "/tripInfo", method = RequestMethod.GET)
+	@RequestMapping(value = "/events", method = RequestMethod.GET)
 	public String addtripDetil(Model model, HttpServletRequest request) {
 		
 		String title = request.getParameter("title");
@@ -89,7 +87,7 @@ public class HomeController {
 		String ed=request.getParameter("day_end");
 		
 		String startdate=sy+"-"+sm+"-"+sd;
-		String enddate=ey+"-"+em+"-"+ed;;
+		String enddate=ey+"-"+em+"-"+ed;
 		
 
 		TripDetail td = new TripDetail();
@@ -109,61 +107,48 @@ public class HomeController {
 		model.addAttribute("startdate", startdate);
 		model.addAttribute("enddate",enddate);
 		
+		if (request.getParameter("choice")=="yes") {
 		
-		return "googlelimited";
-	
-}
-	
-
-
-
-//	@RequestMapping(value = "/tripInfo", method = RequestMethod.GET)
-//	public String getDir(Model model, HttpServletRequest request) {
-//		model.addAttribute("origin", request.getParameter("origin"));
-//		model.addAttribute("destination", request.getParameter("destination"));
-//		return "googlelimited";
-//	}
-
-	@RequestMapping(value = "/events", method = RequestMethod.GET)
-	public String getEvents(Model model/* , @RequestParam("city") String city */) {
-
+		String url = "https://app.ticketmaster.com/discovery/v2/events.json?city="+ destination +"&startDateTime="+ startdate +"T15:00:00Z&endDateTime="+ enddate +"T15:00:00Z&apikey=UA08AxXZd7TGbabcIQ4jEMVFE6BiLQ1d";
+		
+		//city toLowerCase
+		//String city = "detroit";
+		//String dateStart = "2016-12-10";
+		//String dateEnd = "2016-12-15";
 		URL urlObj;
-		// city = "detroit";
-		String url = "https://app.ticketmaster.com/discovery/v2/events.json?city=detroit&apikey=UA08AxXZd7TGbabcIQ4jEMVFE6BiLQ1d";
 		EventInfo eventInfo = null;
-		//String name = "";
-
+			
 		try {
 			urlObj = new URL(url);
-
+			
 			HttpURLConnection con = (HttpURLConnection) urlObj.openConnection();
 			con.setRequestMethod("GET");
-
+			
 			int code = con.getResponseCode();
-
+			
 			if (code == 200) {
-				BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+				BufferedReader in = new BufferedReader(
+						new InputStreamReader(con.getInputStream()));
 				String inputLine;
 				StringBuffer response = new StringBuffer();
-
+				
 				while ((inputLine = in.readLine()) != null) {
 					response.append(inputLine);
-					// System.out.println(inputLine);
+					//System.out.println(inputLine);
 				}
 				in.close();
-
-				// parse json
-
+				
+				//parse json
+				
 				Gson gson = new Gson();
 				eventInfo = gson.fromJson(response.toString(), EventInfo.class);
-				// for (int i=0; i<eventInfo.getEmb().getEvents().size(); i++) {
-				// name = name + eventInfo.getEmb().getEvents().get(i).getName()
-				// + "<br>";
-				// }
+//				for (int i=0; i<eventInfo.getEmb().getEvents().size(); i++) {
+//				name = name + eventInfo.getEmb().getEvents().get(i).getName() + "<br>";
+//				}
 			} else {
-
+				
 			}
-
+			
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -171,9 +156,17 @@ public class HomeController {
 			e.printStackTrace();
 		}
 		model.addAttribute("eventInfo", eventInfo);
-		// model.addAttribute("name", name);
+		//model.addAttribute("name", name);
+		} else {
+			
+		}
 		return "events";
+}
+	
+	@RequestMapping(value = "/googlelimited", method = RequestMethod.GET)
+	public String getDir(Model model, HttpServletRequest request) {
+		
+		return "googlelimited";
 	}
-
 
 }
