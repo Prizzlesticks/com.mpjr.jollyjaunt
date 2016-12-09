@@ -138,7 +138,7 @@ End Date: Year
     <option value=31>31</option>       
   </select>   
 
-
+Look up events at your destination during your trip?
 <br><input type="radio" name="choice" value="yes">Yes
 <br><input type="radio" name="choice" value="no">No
 <br>

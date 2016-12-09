@@ -113,11 +113,11 @@ public class HomeController {
 
 		
 		//String url = "https://app.ticketmaster.com/discovery/v2/events.json?city=chicago&startDateTime=2016-12-20T15:00:00Z&endDateTime=2017-01-01T15:00:00Z&apikey=UA08AxXZd7TGbabcIQ4jEMVFE6BiLQ1d";
+	
+		String[] parts = destination.split(",");
+		String city = parts[0].toLowerCase();
 
-		
-
-		destination = destination.toLowerCase();
-		String url = "https://app.ticketmaster.com/discovery/v2/events.json?city="+ destination +"&startDateTime="+ startdate +"T15:00:00Z&endDateTime="+ enddate +"T15:00:00Z&apikey=UA08AxXZd7TGbabcIQ4jEMVFE6BiLQ1d";
+		String url = "https://app.ticketmaster.com/discovery/v2/events.json?city="+ city +"&startDateTime="+ startdate +"T15:00:00Z&endDateTime="+ enddate +"T15:00:00Z&apikey=UA08AxXZd7TGbabcIQ4jEMVFE6BiLQ1d";
 
 		
 		//city toLowerCase
