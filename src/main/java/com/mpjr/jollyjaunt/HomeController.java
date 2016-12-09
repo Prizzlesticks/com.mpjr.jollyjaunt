@@ -76,8 +76,12 @@ public class HomeController {
 	public String addtripDetil(Model model, HttpServletRequest request) {
 		
 		String title = request.getParameter("title");
-		String origin = request.getParameter("origin");
-		String destination = request.getParameter("destination");
+		String cityStart = request.getParameter("cityStart");
+		String stateStart = request.getParameter("stateStart");
+		String cityEnd = request.getParameter("cityEnd");
+		String stateEnd = request.getParameter("stateEnd");
+		String origin = cityStart+", "+stateStart;
+		String destination = cityEnd + ", " + stateEnd;
 		String sy=request.getParameter("year_start");
 		String sm=request.getParameter("month_start");
 		String sd=request.getParameter("day_start");
@@ -114,10 +118,9 @@ public class HomeController {
 		
 		//String url = "https://app.ticketmaster.com/discovery/v2/events.json?city=chicago&startDateTime=2016-12-20T15:00:00Z&endDateTime=2017-01-01T15:00:00Z&apikey=UA08AxXZd7TGbabcIQ4jEMVFE6BiLQ1d";
 	
-		String[] parts = destination.split(",");
-		String city = parts[0].toLowerCase();
+		
 
-		String url = "https://app.ticketmaster.com/discovery/v2/events.json?city="+ city +"&startDateTime="+ startdate +"T15:00:00Z&endDateTime="+ enddate +"T15:00:00Z&apikey=UA08AxXZd7TGbabcIQ4jEMVFE6BiLQ1d";
+		String url = "https://app.ticketmaster.com/discovery/v2/events.json?city="+ cityEnd +"&startDateTime="+ startdate +"T15:00:00Z&endDateTime="+ enddate +"T15:00:00Z&apikey=UA08AxXZd7TGbabcIQ4jEMVFE6BiLQ1d";
 
 		
 		//city toLowerCase
@@ -168,14 +171,14 @@ public class HomeController {
 		//model.addAttribute("name", name);
 		return "events";
 		} else {
-			return "googlelimited";
+			return "routemap";
 		}
 }
 	
-	@RequestMapping(value = "/googlelimited", method = RequestMethod.GET)
+	@RequestMapping(value = "/routemapevents", method = RequestMethod.GET)
 	public String getDir(Model model, HttpServletRequest request) {
 		
-		return "googlelimited";
+		return "routemapevents";
 	}
 
 }

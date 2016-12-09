@@ -15,9 +15,13 @@
 
 <br>Trip Name: <input type="text" name="title">
 <br>
-<br>Starting Point: <input type="text" name="origin">
+<br>Starting Point:
+<br><input type="text" name="cityStart">
+<br><input type="text" name="stateStart">
 <br>
-<br>Destination:<input type="text" name="destination">
+<br>Destination:
+<br><input type="text" name="cityEnd">
+<br><input type="text" name="stateEnd">
 <br>
 <br>
 
@@ -146,13 +150,17 @@ Look up events at your destination during your trip?
 </form>
 <script>
 function validate() {
-	var sp = document.forms["form2"]["origin"].value;
-    var d = document.forms["form2"]["destination"].value;
+	var sc = document.forms["form2"]["cityStart"].value;
+	var ss = document.forms["form2"]["stateStart"].value;
+	var ec = document.forms["form2"]["cityEnd"].value;
+	var es = document.forms["form2"]["stateEnd"].value;
     
-    if (sp == "") {
+    if (sc == "" || ss=="") {
         alert("Enter trip location starting point");
         return false;
-        } else if (d == "") {
+        } else if (ec == "" || es=="") {
+        	alert("Enter trip location ending point");
+        }else if (d == "") {
     	alert("Enter a destination");
     	return false;
     	}
