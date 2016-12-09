@@ -177,14 +177,7 @@ public class HomeController {
 	
 	@RequestMapping(value = "/routemapevents", method = RequestMethod.GET)
 	public String getDir(Model model, HttpServletRequest request) {
-		
-		String[] events = request.getParameterValues("event");
-		String origin = request.getParameter("origin");
-		String destination = request.getParameter("destination");
-		
-		model.addAttribute("origin", origin);
-		model.addAttribute("destination", destination);
-		model.addAttribute("events", events);
+	
 		return "routemapevents";
 	}
 

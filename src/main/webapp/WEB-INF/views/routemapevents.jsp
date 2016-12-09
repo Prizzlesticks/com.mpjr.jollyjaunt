@@ -15,7 +15,7 @@
 	Your Starting point is ${origin}
 	<br> Your End point is ${destination}
 	<div id="map"
-		Style="height: 450px; width: 600px; align: right; border: 5px solid black;"></div>
+		Style="height: 300px; width: 400px; align: right; border: 5px solid black;"></div>
 
 	<script>
 		var link = "http://www.google.com/maps/dir/" + "${origin}" + "/"

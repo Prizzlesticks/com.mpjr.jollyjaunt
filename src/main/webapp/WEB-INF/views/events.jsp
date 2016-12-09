@@ -21,10 +21,9 @@ Date: ${eventInfo.getEmb().getEvents().get(i).getDates().getStart().getLocalDate
 <br>
 Venue: ${eventInfo.getEmb().getEvents().get(i).get_embedded().getVenues().get(0).getName()}
 <br>
+</c:forEach>
 <input type="hidden" name="origin">
 <input type="hidden" name="destination">
-<br>
-</c:forEach>
 <input type="submit" value="Add events to trip">
 </form>
 <script>
