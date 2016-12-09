@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1>Events</h1>
-<form name="eventform" action="googlelimited" method="get">
+<form name="eventform" action="routemapevents" method="get">
 <%-- get local date works ${eventInfo.getEmb().getEvents().get(0).getDates().getStart().getLocalDate()} --%>
 <c:forEach var="i" begin="0" end="${eventInfo.getEmb().getEvents().size()-1}">
 <input type="checkbox" name="event" value="${eventInfo.getEmb().getEvents().get(i).getName()}">Event: 
