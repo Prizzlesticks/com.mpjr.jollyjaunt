@@ -41,14 +41,26 @@ public class HomeController {
 	
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String addNewUser(Model model, HttpServletRequest request,HttpServletResponse response) {
-
+		String fullname = request.getParameter("fullname");
+		String email = request.getParameter("email");
+		if (!(DAO.getUserId(email) == 0) ) {
+			//pull user information from db
+			String userid = Integer.toString(DAO.getUserId(email));
+			
+			HttpSession session = request.getSession();
+			session.setAttribute("userid", userid);
+			model.addAttribute("userid", userid);
+			model.addAttribute("email", email);	
+			model.addAttribute("fullname", fullname);
+			
+			return "account";
+			
+		} else { 
 		UserDetail user = new UserDetail();
+		user.setFullname(fullname);
 		//get the info from parameters & set user details
 		//String email = user.getEmail();
 		
-		String fullname = request.getParameter("fullname");
-		user.setFullname(fullname);
-		String email = request.getParameter("email");
 		user.setEmail(email);
 		int userid = DAO.addUserDetail(user);
 
@@ -60,14 +72,8 @@ public class HomeController {
 		session.setAttribute("userid", userid);
 
 		//going to return account first
-		
-		//add existing trips to account if account exists
-		//get the list of trips from DAO
-				List<TripDetail> trips = DAO.getAllTrips();
-				
-				//add this list to the model
-				model.addAttribute("tripList", trips);
 		return "account";
+		}
 	}
 	
 	@RequestMapping(value = "/Google1", method = RequestMethod.GET)

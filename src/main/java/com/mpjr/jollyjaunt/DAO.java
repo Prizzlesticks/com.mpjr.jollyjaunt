@@ -45,21 +45,31 @@ import org.hibernate.Query;
 			hibernateSession.close();
 			return i;
 		}	
-		public static int getUserId(UserDetail em){
+		public static int getUserId(String em){
 			if (factory == null)
 				setupFactory();
 			Session hibernateSession = factory.openSession();
 			hibernateSession.getTransaction().begin();
-			String email = em.getEmail();
-		    String hql = "from UserDetail where email ="+email;
-			UserDetail found = hibernateSession.createQuery(hql,UserDetail.class).getSingleResult();
+		    String hql = "from UserDetail where email ="+ "'"+ em +"'";
+		    
+		    org.hibernate.query.Query<UserDetail> q = hibernateSession.createQuery(hql,UserDetail.class);
+		    if (q.getResultList().isEmpty()) {
+		    	return 0; 
+		
+		    } 
+		    	
+		    System.out.println("***********" + q + "*******************");
+			UserDetail found = q.getSingleResult();
+			System.out.println("***********" + found + "*******************");
 			
-			int i =found.getUserid();
+			int i = 0;
+			if (found != null) {
+			i =found.getUserid();
 			hibernateSession.getTransaction().commit();
 			hibernateSession.close();
+			
+			} 
 				return i;
-			
-			
 		}
 		
 		public static int addTripDetail(TripDetail t) {
