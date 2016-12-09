@@ -61,7 +61,7 @@
 	</script>
 
 	<!-- listing events chosen by user -->
-	Your Trip Events:
+	<br>Your Trip Events:
 	<br>
 	<ul>
 		<c:forEach var="ev" items="${events}">

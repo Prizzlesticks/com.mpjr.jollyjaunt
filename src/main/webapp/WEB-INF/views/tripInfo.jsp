@@ -16,12 +16,12 @@
 <br>Trip Name: <input type="text" name="title">
 <br>
 <br>Starting Point:
-<br><input type="text" name="cityStart">
-<br><input type="text" name="stateStart">
+<br>City<input type="text" name="cityStart">
+<br>State<input type="text" name="stateStart">
 <br>
 <br>Destination:
-<br><input type="text" name="cityEnd">
-<br><input type="text" name="stateEnd">
+<br>City<input type="text" name="cityEnd">
+<br>State<input type="text" name="stateEnd">
 <br>
 <br>
 
@@ -142,7 +142,7 @@ End Date: Year
     <option value=31>31</option>       
   </select>   
 
-Look up events at your destination during your trip?
+<br>Look up events at your destination during your trip?
 <br><input type="radio" name="choice" value="yes">Yes
 <br><input type="radio" name="choice" value="no">No
 <br>
