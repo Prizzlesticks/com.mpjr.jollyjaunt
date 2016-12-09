@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.List;
 
 //import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -98,6 +99,7 @@ public class HomeController {
 		String stateStart = request.getParameter("stateStart");
 		String cityEnd = request.getParameter("cityEnd");
 		String stateEnd = request.getParameter("stateEnd");
+		String arrivaldate = request.getParameter("arrivaldate");
 		String origin = cityStart+", "+stateStart;
 		String destination = cityEnd + ", " + stateEnd;
 		String sy=request.getParameter("year_start");
@@ -122,6 +124,7 @@ public class HomeController {
 		td.setDestination(destination);
 		td.setStartdate(startdate);
 		td.setEnddate(enddate);
+		td.setArrivaldate(arrivaldate);
 		
 		DAO.addTripDetail(td);		
 		
@@ -138,7 +141,7 @@ public class HomeController {
 	
 		
 
-		String url = "https://app.ticketmaster.com/discovery/v2/events.json?city="+ cityEnd +"&startDateTime="+ startdate +"T15:00:00Z&endDateTime="+ enddate +"T15:00:00Z&apikey=UA08AxXZd7TGbabcIQ4jEMVFE6BiLQ1d";
+		String url = "https://app.ticketmaster.com/discovery/v2/events.json?city="+ cityEnd +"&startDateTime="+ arrivaldate +"T15:00:00Z&endDateTime="+ enddate +"T15:00:00Z&apikey=UA08AxXZd7TGbabcIQ4jEMVFE6BiLQ1d";
 
 		
 		//city toLowerCase

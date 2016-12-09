@@ -13,7 +13,7 @@
 	<property name="destination" column="destination" type="string"></property>
 	<property name="startdate" column="startdate" type="string"></property>
 	<property name="enddate" column="enddate" type="string"></property>
-	
+	<property name="arrivaldate" column="arrival" type="string"></property>
 	
 </class>
 </hibernate-mapping>
