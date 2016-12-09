@@ -168,14 +168,14 @@ public class HomeController {
 		//model.addAttribute("name", name);
 		return "events";
 		} else {
-			return "googlelimited";
+			return "routemap";
 		}
 }
 	
-	@RequestMapping(value = "/googlelimited", method = RequestMethod.GET)
+	@RequestMapping(value = "/routemapevents", method = RequestMethod.GET)
 	public String getDir(Model model, HttpServletRequest request) {
 		
-		return "googlelimited";
+		return "routemapevents";
 	}
 
 }
