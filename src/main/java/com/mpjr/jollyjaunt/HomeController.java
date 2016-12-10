@@ -104,7 +104,6 @@ public class HomeController {
 		String stateStart = request.getParameter("stateStart");
 		String cityEnd = request.getParameter("cityEnd");
 		String stateEnd = request.getParameter("stateEnd");
-		String arrivaldate = request.getParameter("arrivaldate");
 		String origin = cityStart+", "+stateStart;
 		String destination = cityEnd + ", " + stateEnd;
 		String sy=request.getParameter("year_start");
@@ -115,8 +114,13 @@ public class HomeController {
 		String em=request.getParameter("month_end");
 		String ed=request.getParameter("day_end");
 		
+		String ya=request.getParameter("year_arrive");
+		String ma=request.getParameter("month_arrive");
+		String da=request.getParameter("day_arrive");
+		
 		String startdate=sy+"-"+sm+"-"+sd;
 		String enddate=ey+"-"+em+"-"+ed;
+		String arrivaldate= ya + "-" + ma + "-" + da;
 		
 
 		TripDetail td = new TripDetail();
@@ -203,8 +207,8 @@ public class HomeController {
 	
 	@RequestMapping(value = "/routemapevents", method = RequestMethod.GET)
 	public String getDir(Model model, HttpServletRequest request) {
-		String origin = request.getParameter("origin");
-		String destination = request.getParameter("destination");
+		String origin = TripDetail.getOrigin();
+		String destination = TripDetail.getDestination();
 		String[] events = request.getParameterValues("event");
 		
 		model.addAttribute("events", events);

@@ -4,8 +4,8 @@ public class TripDetail {
 	private int tripid;
 	private int userid;
 	private String title;
-    private String origin;
-	private	String destination;
+    private static String origin;
+	private static	String destination;
 	private String startdate;
 	private String enddate;
 	private String arrivaldate;
@@ -32,8 +32,8 @@ public class TripDetail {
 		this.tripid = tripid;
 		this.userid=userid;
 		this.title=title;
-		this.origin = origin;
-		this.destination = destination;
+		TripDetail.origin = origin;
+		TripDetail.destination = destination;
 		this.startdate = startdate;
 		this.enddate = enddate;
 		this.arrivaldate = arrivaldate;
@@ -51,11 +51,11 @@ public class TripDetail {
 		return title;
 	}
 
-	public String getOrigin() {
+	public static String getOrigin() {
 		return origin;
 	}
 
-	public String getDestination() {
+	public static String getDestination() {
 		return destination;
 	}
 
@@ -80,11 +80,11 @@ public class TripDetail {
 	}
 
 	public void setOrigin(String origin) {
-		this.origin = origin;
+		TripDetail.origin = origin;
 	}
 
 	public void setDestination(String destination) {
-		this.destination = destination;
+		TripDetail.destination = destination;
 	}
 
 	public void setStartdate(String startdate) {

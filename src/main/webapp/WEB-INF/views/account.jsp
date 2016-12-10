@@ -19,15 +19,19 @@ Your saved trips:
 		<th>Trip Name</th>
 		<th>Origin</th>
 		<th>Destination</th>
-		<th>Start Date/EndDate</th>
+		<th>Start Date</th>
+		<th>EndDate</th>
+		<th>Trip Start</th>
 		
 	</tr>
 <c:forEach items="${triplist}" var="trip">
 	<tr>
-		<td>${trip.title }</td>
-		<td>${trip.origin }</td>
-		<td>${trip.destination }</td>
-		<td>${trip.startdate:  }/${trip.enddate }</td>
+		<td>${trip.title}</td>
+		<td>${trip.origin}</td>
+		<td>${trip.destination}</td>
+		<td>${trip.startdate}</td>
+		<td>${trip.enddate}</td>
+		<td>${trip.arrivaldate}</td>
 		
 	</tr>
 </c:forEach>

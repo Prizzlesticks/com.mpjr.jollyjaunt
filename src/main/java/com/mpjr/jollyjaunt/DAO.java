@@ -64,7 +64,7 @@ import org.hibernate.Query;
 			
 			int i = 0;
 			if (found != null) {
-			i =found.getUserid();
+			i =UserDetail.getUserid();
 			hibernateSession.getTransaction().commit();
 			hibernateSession.close();
 			
@@ -83,17 +83,16 @@ import org.hibernate.Query;
 			return i;
 		}
 
-		public static List<TripDetail> getAllTrips(String userid) {
+		public static List<TripDetail> getAllTrips(String useridstring) {
 				if (factory == null)
 					setupFactory();
 				Session hibernateSession = factory.openSession();
 				hibernateSession.getTransaction().begin();
-				List<TripDetail> trips = hibernateSession.createQuery("FROM TripDetail where user_id =" + userid).list();
+				List<TripDetail> trips = hibernateSession.createQuery("FROM TripDetail where user_id =" + useridstring).list();
 				hibernateSession.getTransaction().commit();
 				hibernateSession.close();
 				return trips;
 		}
-			
 		
 
 		public static int addEventDetail(EventDetail e) {
@@ -105,7 +104,9 @@ import org.hibernate.Query;
 			hibernateSession.getTransaction().commit();
 			hibernateSession.close();
 			return i;
-		}	
+		}
+
+		
 		
 		
 //		public static String getFirstname() {

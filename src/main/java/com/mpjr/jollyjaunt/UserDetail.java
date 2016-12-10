@@ -1,7 +1,7 @@
 package com.mpjr.jollyjaunt;
 
 public class UserDetail {
-	private int userid;
+	private static int userid;
 	private String fullname;
 	private	String email;
 	
@@ -11,12 +11,12 @@ public class UserDetail {
 	
 	public UserDetail( int userid, String fullname, String email) {
 		super();
-		this.userid = userid;
+		UserDetail.userid = userid;
 		this.fullname = fullname;
 		this.email = email;
 		}
 
-	public int getUserid() {
+	public static int getUserid() {
 		return userid;
 	}
 
