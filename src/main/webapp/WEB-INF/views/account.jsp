@@ -22,7 +22,7 @@ Your saved trips:
 		<th>Start Date</th>
 		<th>EndDate</th>
 		<th>Trip Start</th>
-		
+		<th>Event Details</th>
 	</tr>
 <c:forEach items="${triplist}" var="trip">
 	<tr>
@@ -32,7 +32,9 @@ Your saved trips:
 		<td>${trip.startdate}</td>
 		<td>${trip.enddate}</td>
 		<td>${trip.arrivaldate}</td>
-		
+		<td><form action="eventdetail" method = "GET">
+			<input type="submit" value="View" />
+		</form></td>
 	</tr>
 </c:forEach>
 </table>

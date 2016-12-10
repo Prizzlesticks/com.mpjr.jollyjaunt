@@ -9,6 +9,13 @@ public class EventDetail {
 	private int eventid;
 	
 	
+	public EventDetail() {
+		super();
+	
+	}
+
+
+
 	public EventDetail(int trip_id, String events, String city, String date, int eventid) {
 		super();
 		this.trip_id = trip_id;

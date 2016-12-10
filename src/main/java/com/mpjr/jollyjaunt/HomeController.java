@@ -218,4 +218,9 @@ public class HomeController {
 		return "routemapevents";
 	}
 	
+	@RequestMapping(value = "/eventdetail", method = RequestMethod.GET)
+	public String getEventDetails(Model model) {
+		return "eventdetail";
+}
+	
 }

@@ -94,7 +94,17 @@ import org.hibernate.Query;
 				return trips;
 		}
 		
-
+		public static List<EventDetail> getTripEvents(String tripidstring) {
+			if (factory == null)
+				setupFactory();
+			Session hibernateSession = factory.openSession();
+			hibernateSession.getTransaction().begin();
+			List<EventDetail> events = hibernateSession.createQuery("FROM EventDetail where trip_id =" + tripidstring).list();
+			hibernateSession.getTransaction().commit();
+			hibernateSession.close();
+			return events;
+	}
+		
 		public static int addEventDetail(EventDetail e) {
 			if (factory == null)
 				setupFactory();
