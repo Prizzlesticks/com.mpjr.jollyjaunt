@@ -2,18 +2,20 @@
 <!DOCTYPE hibernate-mapping PUBLIC
 "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- hibernate-mapping to trip_detail table in MySQL -->
 <hibernate-mapping>
-<class name="com.mpjr.jollyjaunt.TripDetail" table="trip_detail">
-	<id name="tripid" column="trip_id" type="int">
-		<generator class="increment"></generator>
-	</id>
-	<property name= "title" column="title" type= "string"></property>
-	<property name= "userid" column="user_id" type= "int"></property>
-	<property name="origin" column="origin" type="string"></property>
-	<property name="destination" column="destination" type="string"></property>
-	<property name="startdate" column="startdate" type="string"></property>
-	<property name="enddate" column="enddate" type="string"></property>
-	<property name="arrivaldate" column="arrivaldate" type="string"></property>
-	
-</class>
+
+	<class name="com.mpjr.jollyjaunt.TripDetail" table="trip_detail">
+		<id name="tripid" column="trip_id" type="int">
+			<generator class="increment"></generator>
+		</id>
+		<property name="title" column="title" type="string"></property>
+		<property name="userid" column="user_id" type="int"></property>
+		<property name="origin" column="origin" type="string"></property>
+		<property name="destination" column="destination" type="string"></property>
+		<property name="startdate" column="startdate" type="string"></property>
+		<property name="enddate" column="enddate" type="string"></property>
+		<property name="arrivaldate" column="arrivaldate" type="string"></property>
+	</class>
+
 </hibernate-mapping>

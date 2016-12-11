@@ -2,14 +2,15 @@
 <!DOCTYPE hibernate-mapping PUBLIC
 "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- hibernate-mapping to user_detail table in MySQL -->
 <hibernate-mapping>
-<class name="com.mpjr.jollyjaunt.UserDetail" table="user_detail">
-	<id name="userid" column="user_id" type="int">
-		<generator class="increment"></generator>
-	</id>
-	<property name="fullname" column="fullname" type="string"></property>	
-	<property name="email" column="email" type="string"></property>
-	
-	
-</class>
+
+	<class name="com.mpjr.jollyjaunt.UserDetail" table="user_detail">
+		<id name="userid" column="user_id" type="int">
+			<generator class="increment"></generator>
+		</id>
+		<property name="fullname" column="fullname" type="string"></property>
+		<property name="email" column="email" type="string"></property>
+	</class>
+
 </hibernate-mapping>

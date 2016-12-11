@@ -2,6 +2,7 @@ package com.mpjr.jollyjaunt;
 
 import java.util.List;
 
+//class created to access venue list from ticketmaster API
 public class Embed {
 	private List<Venue> venues;
 

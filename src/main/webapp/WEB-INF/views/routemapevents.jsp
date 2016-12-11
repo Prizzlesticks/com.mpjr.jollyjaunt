@@ -11,7 +11,11 @@
 }
 </style>
 </head>
+<!--View route on map based on origin and destinations selected  -->
+<!--Link to google maps for full directions/mapping -->
+<!--View events selected/submitted from the events view page -->
 <body style="text-align: left;">
+	<h1>View Your Route</h1>
 	Your Starting point is ${origin}
 	<br> Your End point is ${destination}
 	<div id="map"
@@ -21,7 +25,8 @@
 		var link = "http://www.google.com/maps/dir/" + "${origin}" + "/"
 				+ "${destination}";
 	</script>
-	For Full Directions and Voice Mapping
+	<h2>For Full Directions and Voice Mapping</h2>
+
 	<script>
 		document.write('<a href="' + link + '" target = blank;>click here</a>');
 	</script>
@@ -60,8 +65,9 @@
 		
 	</script>
 
-	<!-- listing events chosen by user -->
-	<br>Your Trip Events:
+	<!-- listing events chosen by user from events view page-->
+	<br>
+	<h3>Your Trip Events:</h3>
 	<br>
 	<ul>
 		<c:forEach var="ev" items="${events}">

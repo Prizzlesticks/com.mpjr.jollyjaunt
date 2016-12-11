@@ -2,16 +2,17 @@
 <!DOCTYPE hibernate-mapping PUBLIC
 "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- hibernate-mapping to events table in MySQL -->
 <hibernate-mapping>
-<class name="com.mpjr.jollyjaunt.Eventdetail" table="events">
-	<id name="eventid" column="eventid" type="int">
-		<generator class="increment"></generator>
-	</id>
-	<property name="events" column="events" type="string"></property>	
-	<property name="tripid" column="trip_id" type="string"></property>
-	<property name="city" column="city" type="string"></property>
-	<property name="date" column="date" type="string"></property>
-	
-	
-</class>
+
+	<class name="com.mpjr.jollyjaunt.EventDetail" table="events">
+		<id name="eventid" column="eventid" type="int">
+			<generator class="increment"></generator>
+		</id>
+		<property name="events" column="events" type="string"></property>
+		<property name="tripid" column="trip_id" type="string"></property>
+		<property name="city" column="city" type="string"></property>
+		<property name="date" column="date" type="string"></property>
+	</class>
+
 </hibernate-mapping>
