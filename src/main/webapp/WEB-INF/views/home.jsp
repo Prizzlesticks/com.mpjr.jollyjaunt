@@ -51,7 +51,6 @@
 				console.log('Email: ' + profile.getEmail());
 				document.forms["variable"]["fullname"].value = profile
 						.getEmail();
-
 			}
 		}
 	</script>

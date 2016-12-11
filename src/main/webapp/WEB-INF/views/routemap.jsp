@@ -22,9 +22,9 @@
 
 	<script>
 		var link = "http://www.google.com/maps/dir/" + "${origin}" + "/"
-				+ "${destination}" + "|" + "${destination2}" + "|"
-				+ "${destination3}" + "${destination4}" + "|"
-				+ "${destination5}" + "|" + "${destination6}";
+				+ "${destination}" + "/" + "${destination2}" + "/"
+				+ "${destination3}" + "/" + "${destination4}" + "/"
+				+ "${destination5}" + "/" + "${destination6}";
 	</script>
 
 	<h2>For Full Directions and Voice Mapping</h2>
@@ -49,9 +49,12 @@
 		}
 		//map of route based on input (using google maps)
 		function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+			waypts = [ "${destination2}" , "${destination3}", "${destination4}", "${destination5}", "${destination6}" ];
 			directionsService.route({
 				origin : "${origin}",
 				destination : "${destination}",
+				waypoints: waypts,
+				optimizeWaypoints: true,
 				travelMode : 'DRIVING'
 			}, function(response, status) {
 				if (status === 'OK') {
