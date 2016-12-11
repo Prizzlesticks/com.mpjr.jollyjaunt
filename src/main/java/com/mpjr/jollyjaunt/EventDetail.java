@@ -3,7 +3,7 @@ package com.mpjr.jollyjaunt;
 //creates event detail fields, instance variables, constructors and getters/setters 
 public class EventDetail {
 
-	private int trip_id;
+	private int tripid;
 	private String events;
 	private String city;
 	private String date;
@@ -13,9 +13,9 @@ public class EventDetail {
 		super();
 	}
 
-	public EventDetail(int trip_id, String events, String city, String date, int eventid) {
+	public EventDetail(int tripid, String events, String city, String date, int eventid) {
 		super();
-		this.trip_id = trip_id;
+		this.tripid = tripid;
 		this.events = events;
 		this.city = city;
 		this.date = date;
@@ -30,12 +30,12 @@ public class EventDetail {
 		this.eventid = eventid;
 	}
 
-	public int getTrip_id() {
-		return trip_id;
+	public int getTripid() {
+		return tripid;
 	}
 
-	public void setTrip_id(int trip_id) {
-		this.trip_id = trip_id;
+	public void setTripid(int tripid) {
+		this.tripid = tripid;
 	}
 
 	public String getEvents() {

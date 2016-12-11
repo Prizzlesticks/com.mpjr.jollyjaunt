@@ -101,13 +101,12 @@ public class DAO {
 
 	// method to retrieve all events listed in database assoc. with particular
 	// trip
-	public static List<EventDetail> getTripEvents(String tripidstring) {
+	public static List<EventDetail> getTripEvents(int tripid) {
 		if (factory == null)
 			setupFactory();
 		Session hibernateSession = factory.openSession();
 		hibernateSession.getTransaction().begin();
-		List<EventDetail> events = hibernateSession.createQuery("FROM EventDetail where trip_id =" + tripidstring)
-				.list();
+		List<EventDetail> events = hibernateSession.createQuery("FROM EventDetail where trip_id =" + tripid).list();
 		hibernateSession.getTransaction().commit();
 		hibernateSession.close();
 		return events;

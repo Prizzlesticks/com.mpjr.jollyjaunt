@@ -55,8 +55,9 @@ public class HomeController {
 
 			// if userid/email in db, show all trips assoc. with user in account
 			// view
-			List<TripDetail> trips = DAO.getAllTrips(userid);
-			model.addAttribute("triplist", trips);
+			
+			//List<TripDetail> trips = DAO.getAllTrips(userid);
+			//model.addAttribute("triplist", trips);
 
 			return "account";
 
@@ -79,8 +80,9 @@ public class HomeController {
 			session.setAttribute("userid", userid);
 			String useridstring = Integer.toString(userid);
 			// this will show no saved trips, just trip table
-			List<TripDetail> trips = DAO.getAllTrips(userid);
-			model.addAttribute("triplist", trips);
+			
+			//List<TripDetail> trips = DAO.getAllTrips(userid);
+			//model.addAttribute("triplist", trips);
 
 			// going to return account first
 			return "account";
