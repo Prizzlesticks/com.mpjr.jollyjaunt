@@ -19,9 +19,29 @@
 <br>City<input type="text" name="cityStart">
 <br>State<input type="text" name="stateStart">
 <br>
-<br>Destination:
+<br>Destination1:
 <br>City<input type="text" name="cityEnd">
 <br>State<input type="text" name="stateEnd">
+<br>
+<br>Destination2:
+<br>City<input type="text" name="cityEnd2">
+<br>State<input type="text" name="stateEnd2">
+<br>
+<br>Destination3:
+<br>City<input type="text" name="cityEnd3">
+<br>State<input type="text" name="stateEnd3">
+<br>
+<br>Destination4:
+<br>City<input type="text" name="cityEnd4">
+<br>State<input type="text" name="stateEnd4">
+<br>
+<br>Destination5:
+<br>City<input type="text" name="cityEnd5">
+<br>State<input type="text" name="stateEnd5">
+<br>
+<br>Destination6:
+<br>City<input type="text" name="cityEnd6">
+<br>State<input type="text" name="stateEnd6">
 <br>
 <br>
 

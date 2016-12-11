@@ -13,14 +13,15 @@
 </head>
 <body style="text-align: left;">
 	Your Starting point is ${origin}
-	<br> Your End point is ${destination}
+	<br> Your First End point is ${destination}
 	<div id="map"
 		Style="height: 300px; width: 400px; align: right; border: 5px solid black;"></div>
 
 	<script>
 		var link = "http://www.google.com/maps/dir/" + "${origin}" + "/"
-				+ "${destination}";
+				+ "${destination}"+ "|" + "${destination2}"+ "|" + "${destination3}"+ "${destination4}"+ "|" + "${destination5}"+ "|" + "${destination6}";
 	</script>
+
 	For Full Directions and Voice Mapping
 	<script>
 		document.write('<a href="' + link + '" target = blank;>click here</a>');

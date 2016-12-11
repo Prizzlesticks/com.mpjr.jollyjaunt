@@ -10,15 +10,6 @@ public class TripDetail {
 	private String enddate;
 	private String arrivaldate;
 	//UserDetail UserDetail;
-	
-	public String getArrivaldate() {
-		return arrivaldate;
-	}
-
-
-	public void setArrivaldate(String arrivaldate) {
-		this.arrivaldate = arrivaldate;
-	}
 
 
 	public TripDetail() {
@@ -93,6 +84,14 @@ public class TripDetail {
 
 	public void setEnddate(String enddate) {
 		this.enddate = enddate;
+	}
+	public String getArrivaldate() {
+		return arrivaldate;
+	}
+
+
+	public void setArrivaldate(String arrivaldate) {
+		this.arrivaldate = arrivaldate;
 	}
 	
 }

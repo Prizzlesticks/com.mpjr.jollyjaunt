@@ -47,16 +47,18 @@ public class HomeController {
 		
 		if (!(DAO.getUserId(email) == 0) ) {
 			//pull user information from db
-			String userid = Integer.toString(DAO.getUserId(email));
+			int userid = (DAO.getUserId(email));
 			
-			List<TripDetail> trips = DAO.getAllTrips(userid);
-			model.addAttribute("triplist", trips);
+			
 			
 			HttpSession session = request.getSession();
 			session.setAttribute("userid", userid);
 			model.addAttribute("userid", userid);
 			model.addAttribute("email", email);	
 			model.addAttribute("fullname", fullname);
+			
+			List<TripDetail> trips = DAO.getAllTrips(userid);
+			model.addAttribute("triplist", trips);
 			
 			return "account";
 			
@@ -76,7 +78,7 @@ public class HomeController {
 		session.setAttribute("userid", userid);
 		String useridstring = Integer.toString(userid);
 		
-		List<TripDetail> trips = DAO.getAllTrips(useridstring);
+		List<TripDetail> trips = DAO.getAllTrips(userid);
 		model.addAttribute("triplist", trips);
 		
 		//going to return account first
@@ -103,9 +105,24 @@ public class HomeController {
 		String cityStart = request.getParameter("cityStart");
 		String stateStart = request.getParameter("stateStart");
 		String cityEnd = request.getParameter("cityEnd");
+		String cityEnd2 = request.getParameter("cityEnd2");
+		String cityEnd3 = request.getParameter("cityEnd3");
+		String cityEnd4 = request.getParameter("cityEnd4");
+		String cityEnd5 = request.getParameter("cityEnd5");
+		String cityEnd6 = request.getParameter("cityEnd6");
 		String stateEnd = request.getParameter("stateEnd");
+		String stateEnd2 = request.getParameter("stateEnd2");
+		String stateEnd3 = request.getParameter("stateEnd3");
+		String stateEnd4 = request.getParameter("stateEnd4");
+		String stateEnd5 = request.getParameter("stateEnd5");
+		String stateEnd6 = request.getParameter("stateEnd6");
 		String origin = cityStart+", "+stateStart;
 		String destination = cityEnd + ", " + stateEnd;
+		String destination2 = cityEnd2 + ", " + stateEnd2;
+		String destination3 = cityEnd3 + ", " + stateEnd3;
+		String destination4 = cityEnd4 + ", " + stateEnd4;
+		String destination5 = cityEnd5 + ", " + stateEnd5;
+		String destination6 = cityEnd6 + ", " + stateEnd6;
 		String sy=request.getParameter("year_start");
 		String sm=request.getParameter("month_start");
 		String sd=request.getParameter("day_start");
@@ -140,8 +157,14 @@ public class HomeController {
 		model.addAttribute("title", title);
 		model.addAttribute("origin", origin);
 		model.addAttribute("destination",destination);
+		model.addAttribute("destination2",destination2);
+		model.addAttribute("destination3",destination3);
+		model.addAttribute("destination4",destination4);
+		model.addAttribute("destination5",destination5);
+		model.addAttribute("destination6",destination6);
 		model.addAttribute("startdate", startdate);
 		model.addAttribute("enddate",enddate);
+		model.addAttribute("arrivaldate", arrivaldate);
 		
 		if (request.getParameter("choice").equals("yes")) {
 

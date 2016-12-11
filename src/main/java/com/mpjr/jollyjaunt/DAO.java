@@ -83,12 +83,15 @@ import org.hibernate.Query;
 			return i;
 		}
 
-		public static List<TripDetail> getAllTrips(String useridstring) {
+		public static List<TripDetail> getAllTrips(int userid) {
 				if (factory == null)
 					setupFactory();
 				Session hibernateSession = factory.openSession();
 				hibernateSession.getTransaction().begin();
-				List<TripDetail> trips = hibernateSession.createQuery("FROM TripDetail where user_id =" + useridstring).list();
+				List<TripDetail> trips = hibernateSession.createQuery("FROM TripDetail where user_id =" + userid).list();
+				
+				
+				
 				hibernateSession.getTransaction().commit();
 				hibernateSession.close();
 				return trips;
