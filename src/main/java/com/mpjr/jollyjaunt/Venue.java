@@ -1,5 +1,6 @@
 package com.mpjr.jollyjaunt;
 
+//class created to access venue name information from ticketmaster API
 public class Venue {
 	private String name;
 

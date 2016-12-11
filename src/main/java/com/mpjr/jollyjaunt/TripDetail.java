@@ -1,34 +1,34 @@
 package com.mpjr.jollyjaunt;
 
+//creates trip detail fields, instance variables, constructors and getters/setters 
 public class TripDetail {
 	private int tripid;
 	private int userid;
 	private String title;
-    private static String origin;
-	private static	String destination;
+	private static String origin;
+	private static String destination;
 	private String startdate;
 	private String enddate;
 	private String arrivaldate;
-	//UserDetail UserDetail;
-
+	// UserDetail UserDetail;
 
 	public TripDetail() {
-	;
+		;
 	}
-	
-	
-	public TripDetail(int tripid, int userid,String title,String origin, String destination, String startdate, String enddate, String arrivaldate ) {
-		
+
+	public TripDetail(int tripid, int userid, String title, String origin, String destination, String startdate,
+			String enddate, String arrivaldate) {
+
 		super();
 		this.tripid = tripid;
-		this.userid=userid;
-		this.title=title;
+		this.userid = userid;
+		this.title = title;
 		TripDetail.origin = origin;
 		TripDetail.destination = destination;
 		this.startdate = startdate;
 		this.enddate = enddate;
 		this.arrivaldate = arrivaldate;
-			}
+	}
 
 	public int getTripid() {
 		return tripid;
@@ -85,14 +85,13 @@ public class TripDetail {
 	public void setEnddate(String enddate) {
 		this.enddate = enddate;
 	}
+
 	public String getArrivaldate() {
 		return arrivaldate;
 	}
 
-
 	public void setArrivaldate(String arrivaldate) {
 		this.arrivaldate = arrivaldate;
 	}
-	
+
 }
-	

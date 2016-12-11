@@ -6,10 +6,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Select Trip Information</title>
 </head>
+<!--View of form to input trip information, option to go to events page if selected  -->
 <body>
 <h1>Let's plan your trip!</h1>
-
-<h2></h2>
 
 <form name="form2" action="tripInfo" onsubmit="return validate()" method="get">
 
@@ -218,7 +217,8 @@ End Date: Year
     <option value=30>30</option>       
     <option value=31>31</option>       
   </select> (yyyy/mm/dd)
-
+  
+<!-- If yes is selected and submit pressed, goes to events view -->
 <br>Look up events at your destination during your trip?
 <br><input type="radio" name="choice" value="yes">Yes
 <br><input type="radio" name="choice" value="no">No

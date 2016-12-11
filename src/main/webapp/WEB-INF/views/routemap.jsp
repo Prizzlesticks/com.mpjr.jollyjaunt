@@ -11,7 +11,10 @@
 }
 </style>
 </head>
+<!--View route on map based on origin and destinations selected  -->
+<!-- Link to google maps for full directions/mapping -->
 <body style="text-align: left;">
+	<h1>View Your Route</h1>
 	Your Starting point is ${origin}
 	<br> Your First End point is ${destination}
 	<div id="map"
@@ -19,14 +22,17 @@
 
 	<script>
 		var link = "http://www.google.com/maps/dir/" + "${origin}" + "/"
-				+ "${destination}"+ "|" + "${destination2}"+ "|" + "${destination3}"+ "${destination4}"+ "|" + "${destination5}"+ "|" + "${destination6}";
+				+ "${destination}" + "|" + "${destination2}" + "|"
+				+ "${destination3}" + "${destination4}" + "|"
+				+ "${destination5}" + "|" + "${destination6}";
 	</script>
 
-	For Full Directions and Voice Mapping
+	<h2>For Full Directions and Voice Mapping</h2>
 	<script>
 		document.write('<a href="' + link + '" target = blank;>click here</a>');
 	</script>
 	<script>
+	//initial map
 		function initMap() {
 			var directionsService = new google.maps.DirectionsService;
 			var directionsDisplay = new google.maps.DirectionsRenderer;
@@ -41,7 +47,7 @@
 
 			calculateAndDisplayRoute(directionsService, directionsDisplay);
 		}
-
+		//map of route based on input (using google maps)
 		function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 			directionsService.route({
 				origin : "${origin}",

@@ -1,11 +1,11 @@
 package com.mpjr.jollyjaunt;
 
+//class created to access name of event, information from ticketmaster API
 public class Name {
 	private String name;
 	private String url;
 	private Dates dates;
 	private Embed _embedded;
-
 
 	public String getUrl() {
 		return url;
@@ -22,7 +22,7 @@ public class Name {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	public Dates getDates() {
 		return dates;
 	}
