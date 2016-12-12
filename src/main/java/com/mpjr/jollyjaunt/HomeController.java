@@ -241,8 +241,8 @@ public class HomeController {
 	// handles requests for routemapevents application page
 	@RequestMapping(value = "/routemapevents", method = RequestMethod.GET)
 	public String getDir(Model model, HttpServletRequest request) {
-		String origin = TripDetail.getOrigin();
-		String destination = TripDetail.getDestination();
+		String origin = request.getParameter("origin");
+		String destination = request.getParameter("destination");
 		String[] events = request.getParameterValues("event");
 
 		model.addAttribute("events", events);
