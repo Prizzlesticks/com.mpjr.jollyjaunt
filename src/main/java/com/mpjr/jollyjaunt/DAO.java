@@ -92,7 +92,7 @@ public class DAO {
 			setupFactory();
 		Session hibernateSession = factory.openSession();
 		hibernateSession.getTransaction().begin();
-		List<TripDetail> trips = hibernateSession.createQuery("FROM TripDetail where user_id =" + userid).list();
+		List<TripDetail> trips = hibernateSession.createQuery("FROM TripDetail where userid =" + userid).list();
 
 		hibernateSession.getTransaction().commit();
 		hibernateSession.close();
@@ -106,7 +106,7 @@ public class DAO {
 			setupFactory();
 		Session hibernateSession = factory.openSession();
 		hibernateSession.getTransaction().begin();
-		List<EventDetail> events = hibernateSession.createQuery("FROM EventDetail where trip_id =" + tripid).list();
+		List<EventDetail> events = hibernateSession.createQuery("FROM EventDetail where tripid =" + tripid).list();
 		hibernateSession.getTransaction().commit();
 		hibernateSession.close();
 		return events;
