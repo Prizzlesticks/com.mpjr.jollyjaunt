@@ -26,8 +26,10 @@ import com.google.gson.Gson;
 public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String register(Model model) {
-		return "home";
-	}
+		
+			return "home";
+
+}
 
 	// @RequestMapping(value = "/home", method = RequestMethod.GET)
 	// public String createUser(Model model, HttpServletRequest request) {
@@ -43,7 +45,7 @@ public class HomeController {
 		String email = request.getParameter("email");
 
 		// pull user information from db, retrieve userid if email on file
-		if (!(DAO.getUserId(email) == 0)) {
+		if ((DAO.getUserId(email) != 0)) {
 
 			int userid = (DAO.getUserId(email));
 
@@ -56,8 +58,8 @@ public class HomeController {
 			// if userid/email in db, show all trips assoc. with user in account
 			// view
 			
-			//List<TripDetail> trips = DAO.getAllTrips(userid);
-			//model.addAttribute("triplist", trips);
+			List<TripDetail> trips = DAO.getAllTrips(userid);
+			model.addAttribute("triplist", trips);
 
 			return "account";
 
@@ -242,7 +244,7 @@ public class HomeController {
 	@RequestMapping(value = "/routemapevents", method = RequestMethod.GET)
 	public String getDir(Model model, HttpServletRequest request) {
 		String origin = request.getParameter("origin");
-		String destination = request.getParameter("destination");
+		String destination = request.getParameter("");
 		String[] events = request.getParameterValues("event");
 
 		model.addAttribute("events", events);
