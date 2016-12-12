@@ -107,6 +107,7 @@ public class HomeController {
 	@RequestMapping(value = "/tripInfo", method = RequestMethod.GET)
 	public String addtripDetail(Model model, HttpServletRequest request) {
 		// takes in user input of trip info (title, origin, dest,dates,etc)
+		
 		String title = request.getParameter("title");
 		String cityStart = request.getParameter("cityStart");
 		String stateStart = request.getParameter("stateStart");
@@ -129,6 +130,8 @@ public class HomeController {
 		String destination4 = cityEnd4 + ", " + stateEnd4;
 		String destination5 = cityEnd5 + ", " + stateEnd5;
 		String destination6 = cityEnd6 + ", " + stateEnd6;
+		
+		
 		String sy = request.getParameter("year_start");
 		String sm = request.getParameter("month_start");
 		String sd = request.getParameter("day_start");
@@ -171,7 +174,7 @@ public class HomeController {
 		model.addAttribute("startdate", startdate);
 		model.addAttribute("enddate", enddate);
 		model.addAttribute("arrivaldate", arrivaldate);
-
+		
 		// option to choose events, if yes, goes to events page which shows
 		// events listed in destination choices (through ticketmaster API)
 		if (request.getParameter("choice").equals("yes")) {
@@ -228,6 +231,7 @@ public class HomeController {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+		
 			model.addAttribute("eventInfo", eventInfo);
 			// model.addAttribute("name", name);
 			return "events";

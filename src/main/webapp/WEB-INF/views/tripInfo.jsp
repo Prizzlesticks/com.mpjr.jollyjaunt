@@ -159,7 +159,7 @@ End Date: Year
     <option value=29>29</option>       
     <option value=30>30</option>       
     <option value=31>31</option>       
-  </select>   
+  </select> (yyyy/mm/dd)  
   
   <br><br>
   What date do you want to begin searching for events?
