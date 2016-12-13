@@ -108,21 +108,51 @@
 		}
 		//map of route based on input (using google maps)
 		function calculateAndDisplayRoute(directionsService, directionsDisplay) {
-			waypts = [ "${destination2}" , "${destination3}", "${destination4}", "${destination5}", "${destination6}" ];
-			waypoints = [ ]; 
-			for (var i = 0; i < wayptsArray.length; i++) {
-		          if (waypts[i] != ","){
-		            waypoints.push({
-		              location: wayptsArray[i].value,
-		              stopover: true
-		            });
-		          }
-		        }
+			//waypts = [ "${destination2}" , "${destination3}", "${destination4}", "${destination5}", "${destination6}" ];
+			var ways= [ ]; 
+// 			for (var i = 0; i < wayptsArray.length; i++) {
+// 		          if (waypts[i] != ", "){
+// 		            ways.push({
+// 		              location: wayptsArray[i].value,
+// 		              stopover: true
+// 		            });
+// 		          }
+// 		        }
+			if ("${destination2}" !== ", "){
+				ways.push({
+					location: "${destination2}",
+					stopover: true
+				});
+			}
+			if ("${destination3}" !== ", "){
+				ways.push({
+					location: "${destination3}",
+					stopover: true
+				});
+			}
+			if ("${destination4}" !== ", "){
+				ways.push({
+					location: "${destination4}",
+					stopover: true
+				});
+			}
+			if ("${destination5}" !== ", "){
+				ways.push({
+					location: "${destination5}",
+					stopover: true
+				});
+			}
+			if ("${destination6}" !== ", "){
+				ways.push({
+					location: "${destination6}",
+					stopover: true
+				});
+			}
 			directionsService.route({
 				origin : "${origin}",
 				destination : "${destination}",
-				waypoints: waypoints,
-				optimizeWaypoints: true,
+				waypoints: ways,
+				//optimizeWaypoints: false,
 				travelMode : 'DRIVING'
 			}, function(response, status) {
 		          if (status === 'OK') {

@@ -14,11 +14,11 @@
 
 <br>Trip Name: <input type="text" name="title">
 <br>
-<br>Starting Point:
+<br>Starting City:
 <br>City<input type="text" name="cityStart">
 <br>State<input type="text" name="stateStart">
 <br>
-<br>Destination1:
+<br>Ending City:
 <br>City<input type="text" name="cityEnd">
 <br>State<input type="text" name="stateEnd">
 <br>
