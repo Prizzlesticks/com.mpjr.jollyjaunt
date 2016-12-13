@@ -222,31 +222,37 @@ function validate() {
 	var ec6 = document.forms["form2"]["cityEnd6"].value;
 	var es6 = document.forms["form2"]["stateEnd6"].value;
 	var  letters = /^[A-Za-z]+$/;  
+	var message="";
 	   
 	
     if (sc == "" || ss==""|| !(sc.value.match(letters)) || !(sc.value.match(letters))) {
-        alert("Enter trip location starting point");
+    	message +="Enter trip location starting point. \n";
         return false;
         } else if (ec == "" || es==""||!(ec.value.match(letters)) || !(es.value.match(letters))) {
-        	alert("Enter trip location ending point");
+        	message +="Enter trip location ending point. \n";
+        	return false;
         }else if (ec2 == "" || es2 == " " ||!(ec2.value.match(letters)) || !(es2.value.match(letters))) {
-    	alert("Enter a valid city");
+        	message +="Enter valid Stop1. \n";
     	return false;
     	}else if (ec3 == "" || es3 == " "||!(ec3.value.match(letters)) || !(es3.value.match(letters))) {
-        	alert("Enter a valid city");
+    		message +="Enter valid Stop2. \n";
         	return false;
           }else if (ec4	 == "" || es4 == " "||!(ec4.value.match(letters)) || !(es4.value.match(letters))) {
-        	alert("Enter a valid city");
+        	  message +="Enter valid Stop3. \n";
         	return false;
 			}else if (ec5 == "" || es5 == " "||!(ec5.value.match(letters)) || !(es5.value.match(letters))) {
-	        	alert("Enter a valid city");
+				message +="Enter valid Stop4. \n";
 	        	return false;
 				}else if (ec6 == "" || ec6 == " "||!(ec6.value.match(letters)) || !(es6.value.match(letters))) {
-		        	alert("Enter a valid city");
+					message +="Enter valid Stop5. \n";
 		        	return false;
 
-	
-	}
+		        	if(message !==""){
+		        		alert(message);
+		        	}
+		        	return valid;
+				}
+		}
 </script>
     	
 </body>
