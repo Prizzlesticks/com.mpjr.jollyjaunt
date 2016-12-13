@@ -99,10 +99,7 @@
 			var directionsDisplay = new google.maps.DirectionsRenderer;
 			var map = new google.maps.Map(document.getElementById('map'), {
 				zoom : 7,
-				center : {
-					lat : 41.85,
-					lng : -87.65
-				}
+				
 			});
 			directionsDisplay.setMap(map);
 
@@ -112,14 +109,7 @@
 		function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 			//waypts = [ "${destination2}" , "${destination3}", "${destination4}", "${destination5}", "${destination6}" ];
 			var ways= [ ]; 
-// 			for (var i = 0; i < wayptsArray.length; i++) {
-// 		          if (waypts[i] != ", "){
-// 		            ways.push({
-// 		              location: wayptsArray[i].value,
-// 		              stopover: true
-// 		            });
-// 		          }
-// 		        }
+
 			if ("${destination2}" !== ", "){
 				ways.push({
 					location: "${destination2}",
@@ -151,11 +141,13 @@
 				});
 			}
 			directionsService.route({
+				
 				origin : "${origin}",
 				destination : "${destination}",
 				waypoints: ways,
 				//optimizeWaypoints: false,
-				travelMode : 'DRIVING'
+				travelMode : 'DRIVING',
+				
 			}, function(response, status) {
 		          if (status === 'OK') {
 		            directionsDisplay.setDirections(response);
