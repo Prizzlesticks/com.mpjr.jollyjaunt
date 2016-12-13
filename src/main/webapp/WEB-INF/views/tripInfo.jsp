@@ -14,31 +14,33 @@
 
 <br>Trip Name: <input type="text" name="title">
 <br>
-<br>Starting Point:
+<h2>Starting and Ending Locations</h2>
+<br>Starting City:
 <br>City<input type="text" name="cityStart">
 <br>State<input type="text" name="stateStart">
 <br>
-<br>Destination1:
+<br>Ending City:
 <br>City<input type="text" name="cityEnd">
 <br>State<input type="text" name="stateEnd">
 <br>
-<br>Destination2:
+<h2>Additional Stops You'ld Like to Make</h2>
+<br>Stop 1:
 <br>City<input type="text" name="cityEnd2">
 <br>State<input type="text" name="stateEnd2">
 <br>
-<br>Destination3:
+<br>Stop 2:
 <br>City<input type="text" name="cityEnd3">
 <br>State<input type="text" name="stateEnd3">
 <br>
-<br>Destination4:
+<br>Stop 3:
 <br>City<input type="text" name="cityEnd4">
 <br>State<input type="text" name="stateEnd4">
 <br>
-<br>Destination5:
+<br>Stop 4:
 <br>City<input type="text" name="cityEnd5">
 <br>State<input type="text" name="stateEnd5">
 <br>
-<br>Destination6:
+<br>Stop 5:
 <br>City<input type="text" name="cityEnd6">
 <br>State<input type="text" name="stateEnd6">
 <br>
@@ -99,7 +101,7 @@ Start Date : Year
     <option value=29>29</option>       
     <option value=30>30</option>       
     <option value=31>31</option>       
-  </select> (yyyy/mm/dd)
+  </select> 
   
   
 <br><br>
@@ -159,7 +161,7 @@ End Date: Year
     <option value=29>29</option>       
     <option value=30>30</option>       
     <option value=31>31</option>       
-  </select> (yyyy/mm/dd)  
+  </select>   
   
   <br><br>
   What date do you want to begin searching for events?
@@ -216,7 +218,7 @@ End Date: Year
     <option value=29>29</option>       
     <option value=30>30</option>       
     <option value=31>31</option>       
-  </select> (yyyy/mm/dd)
+  </select> 
   
 <!-- If yes is selected and submit pressed, goes to events view -->
 <br>Look up events at your destination during your trip?
