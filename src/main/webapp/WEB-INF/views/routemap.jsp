@@ -3,12 +3,49 @@
 <html>
 <head>
 <style>
-#directions-panel {
+      #right-panel {
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+
+      #right-panel select, #right-panel input {
+        font-size: 15px;
+      }
+
+      #right-panel select {
+        width: 100%;
+      }
+
+      #right-panel i {
+        font-size: 12px;
+      }
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+        float: left;
+        width: 70%;
+        height: 100%;
+      }
+      #right-panel {
+        margin: 20px;
+        border-width: 2px;
+        width: 20%;
+        height: 400px;
+        float: left;
+        text-align: left;
+        padding-top: 0;
+      }
+      #directions-panel {
         margin-top: 10px;
         background-color: #FFEE77;
         padding: 10px;
       }
-</style>
+    </style>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 <meta charset="utf-8">
 <title>Directions service</title>
@@ -22,8 +59,8 @@
 <!-- Link to google maps for full directions/mapping -->
 <body style="text-align: left;">
 	<h1>View Your Route</h1>
-	Your Starting point is ${origin}
-	<br> Your First End point is ${destination}
+	<div id= Right-Panel;>Your Starting point is ${origin}
+	<br> Your First End point is ${destination}</div>
 	<div id="map"
 		Style="height: 300px; width: 400px; align: right; border: 5px solid black;"></div>
 
