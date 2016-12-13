@@ -4,6 +4,7 @@
 <head>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <title>Login</title>
+<link rel="stylesheet" type="text/css" href="resources/homelooks.css">
 <meta name="google-signin-client_id"
 	content="38140008096-c2ja3pde0uk539sv4j3j0cmuvfmsoamr.apps.googleusercontent.com">
 </head>

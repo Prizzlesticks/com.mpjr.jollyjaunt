@@ -233,6 +233,8 @@ public class HomeController {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			catch(NullPointerException e){
+				System.out.println("Enter the valid city");}
 		
 			model.addAttribute("eventInfo", eventInfo);
 			// model.addAttribute("name", name);
@@ -261,9 +263,15 @@ public class HomeController {
 
 	// handles requests for eventdetail page
 	@RequestMapping(value = "/eventdetail", method = RequestMethod.GET)
-	public String getEventDetails(Model model) {
-		return "eventdetail"; // displays name, city, date for each event of
-								// trip
+	public String getEventDetails(Model model,HttpServletRequest request) {
+		 // displays name, city, date for each event of trip
+		String[] events = request.getParameterValues("event");
+		String[] date = request.getParameterValues("date");
+		String[] city = request.getParameterValues("venue");
+		model.addAttribute("events");
+		model.addAttribute("date");
+		model.addAttribute("city");
+		return "eventdetail";
 
 	}
 
