@@ -233,18 +233,41 @@ function validate() {
 	var ss = document.forms["form2"]["stateStart"].value;
 	var ec = document.forms["form2"]["cityEnd"].value;
 	var es = document.forms["form2"]["stateEnd"].value;
-    
-    if (sc == "" || ss=="") {
+	var ec2 = document.forms["form2"]["cityEnd2"].value;
+	var es2 = document.forms["form2"]["stateEnd2"].value;
+	var ec3 = document.forms["form2"]["cityEnd3"].value;
+	var es3 = document.forms["form2"]["stateEnd3"].value;
+	var ec4 = document.forms["form2"]["cityEnd4"].value;
+	var es4 = document.forms["form2"]["stateEnd4"].value;
+	var ec5 = document.forms["form2"]["cityEnd5"].value;
+	var es5 = document.forms["form2"]["stateEnd5"].value;
+	var ec6 = document.forms["form2"]["cityEnd6"].value;
+	var es6 = document.forms["form2"]["stateEnd6"].value;
+	var  letters = /^[A-Za-z]+$/;  
+	   
+	
+    if (sc == "" || ss==""|| !(sc.value.match(letters)) || !(sc.value.match(letters))) {
         alert("Enter trip location starting point");
         return false;
-        } else if (ec == "" || es=="") {
+        } else if (ec == "" || es==""||!(ec.value.match(letters)) || !(es.value.match(letters))) {
         	alert("Enter trip location ending point");
-        }else if (d == "") {
-    	alert("Enter a destination");
+        }else if (ec2 == "" || es2 == " " ||!(ec2.value.match(letters)) || !(es2.value.match(letters))) {
+    	alert("Enter a valid city");
     	return false;
-    	}
+    	}else if (ec3 == "" || es3 == " "||!(ec3.value.match(letters)) || !(es3.value.match(letters))) {
+        	alert("Enter a valid city");
+        	return false;
+          }else if (ec4	 == "" || es4 == " "||!(ec4.value.match(letters)) || !(es4.value.match(letters))) {
+        	alert("Enter a valid city");
+        	return false;
+			}else if (ec5 == "" || es5 == " "||!(ec5.value.match(letters)) || !(es5.value.match(letters))) {
+	        	alert("Enter a valid city");
+	        	return false;
+				}else if (ec6 == "" || ec6 == " "||!(ec6.value.match(letters)) || !(es6.value.match(letters))) {
+		        	alert("Enter a valid city");
+		        	return false;
+				}
 }
-  	     
 </script>
     	
 </body>
