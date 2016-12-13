@@ -60,13 +60,12 @@
 <body style="text-align: left;">
 	<h1>View Your Route</h1>
 	<div id= Right-Panel;>Your Starting point is ${origin}
-	<br> Your First End point is ${destination}</div>
+	<br> Your End point is ${destination}</div>
 	<div id="map"
 		Style="height: 300px; width: 400px; align: right; border: 5px solid black;"></div>
 
 	<script>
-		var link = "http://www.google.com/maps/dir/" + "${origin}" + "/"
-				+ "${destination}" + "/";
+		var link = "http://www.google.com/maps/dir/" + "${origin}" + "/";
 
 				if ("${destination2}" !== ", "){
 					link += "${destination2}" + "/";
@@ -81,6 +80,9 @@
 					link += "${destination5}" + "/";
 				}if ("${destination6}" !== ", "){
 					link += "${destination6}" + "/";
+				}
+				if ("${destination}" !== ", "){
+					link += "${destination}" + "/";
 				}
 				
 	</script>
