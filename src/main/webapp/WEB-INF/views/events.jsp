@@ -18,8 +18,11 @@
 	<form name="eventform" action="routemapevents" onsubmit="return "
 		method="get">
 		<%-- get local date works ${eventInfo.getEmb().getEvents().get(0).getDates().getStart().getLocalDate()} --%>
+		
 		<c:forEach var="i" begin="0"
 			end="${eventInfo.getEmb().getEvents().size()-1}">
+${destination}: 
+<br>
 			<input type="checkbox" name="event"
 				value="${eventInfo.getEmb().getEvents().get(i).getName()}">Event: 
 <a href="${eventInfo.getEmb().getEvents().get(i).getUrl()}" target=blank>
@@ -31,10 +34,97 @@ Date: ${eventInfo.getEmb().getEvents().get(i).getDates().getStart().getLocalDate
 Venue: ${eventInfo.getEmb().getEvents().get(i).get_embedded().getVenues().get(0).getName()}
 <br>
 		</c:forEach>
-		<input type="hidden" name="origin"> <input type="hidden"
-			name="destination"> <input type="submit"
-			value="Add events to trip">
+		
+		<c:forEach var="i" begin="0"
+			end="${eventInfo2.getEmb().getEvents().size()-1}">
+${destination2}: 
+<br>
+			<input type="checkbox" name="event"
+				value="${eventInfo2.getEmb().getEvents().get(i).getName()}">Event: 
+<a href="${eventInfo2.getEmb().getEvents().get(i).getUrl()}" target=blank>
+				${eventInfo2.getEmb().getEvents().get(i).getName()}</a>
+
+			<br>
+Date: ${eventInfo2.getEmb().getEvents().get(i).getDates().getStart().getLocalDate()}
+<br>
+Venue: ${eventInfo2.getEmb().getEvents().get(i).get_embedded().getVenues().get(0).getName()}
+<br>
+		</c:forEach>
+		
+		<c:forEach var="i" begin="0"
+			end="${eventInfo3.getEmb().getEvents().size()-1}">
+${destination3}: 
+<br>
+			<input type="checkbox" name="event"
+				value="${eventInfo3.getEmb().getEvents().get(i).getName()}">Event: 
+<a href="${eventInfo3.getEmb().getEvents().get(i).getUrl()}" target=blank>
+				${eventInfo3.getEmb().getEvents().get(i).getName()}</a>
+
+			<br>
+Date: ${eventInfo3.getEmb().getEvents().get(i).getDates().getStart().getLocalDate()}
+<br>
+Venue: ${eventInfo3.getEmb().getEvents().get(i).get_embedded().getVenues().get(0).getName()}
+<br>
+		</c:forEach>
+		
+		<c:forEach var="i" begin="0"
+			end="${eventInfo4.getEmb().getEvents().size()-1}">
+${destination4}:
+<br>
+			<input type="checkbox" name="event"
+				value="${eventInfo4.getEmb().getEvents().get(i).getName()}">Event: 
+<a href="${eventInfo4.getEmb().getEvents().get(i).getUrl()}" target=blank>
+				${eventInfo4.getEmb().getEvents().get(i).getName()}</a>
+
+			<br>
+Date: ${eventInfo4.getEmb().getEvents().get(i).getDates().getStart().getLocalDate()}
+<br>
+Venue: ${eventInfo4.getEmb().getEvents().get(i).get_embedded().getVenues().get(0).getName()}
+<br>
+		</c:forEach>
+		
+		<c:forEach var="i" begin="0"
+			end="${eventInfo5.getEmb().getEvents().size()-1}">
+${destination5}:
+<br>
+			<input type="checkbox" name="event"
+				value="${eventInfo5.getEmb().getEvents().get(i).getName()}">Event: 
+<a href="${eventInfo5.getEmb().getEvents().get(i).getUrl()}" target=blank>
+				${eventInfo5.getEmb().getEvents().get(i).getName()}</a>
+
+			<br>
+Date: ${eventInfo5.getEmb().getEvents().get(i).getDates().getStart().getLocalDate()}
+<br>
+Venue: ${eventInfo5.getEmb().getEvents().get(i).get_embedded().getVenues().get(0).getName()}
+<br>
+		</c:forEach>
+		
+		<c:forEach var="i" begin="0"
+			end="${eventInfo6.getEmb().getEvents().size()-1}">
+${destination6}:
+<br>
+			<input type="checkbox" name="event"
+				value="${eventInfo6.getEmb().getEvents().get(i).getName()}">Event: 
+<a href="${eventInfo6.getEmb().getEvents().get(i).getUrl()}" target=blank>
+				${eventInfo6.getEmb().getEvents().get(i).getName()}</a>
+
+			<br>
+Date: ${eventInfo6.getEmb().getEvents().get(i).getDates().getStart().getLocalDate()}
+<br>
+Venue: ${eventInfo6.getEmb().getEvents().get(i).get_embedded().getVenues().get(0).getName()}
+<br>
+		</c:forEach>
+		
+		<input type="hidden" name="origin" value="${origin}"> 
+		<input type="hidden" name="destination" value="${destination}">
+		<input type="hidden" name="destination2" value="${destination2}">
+		<input type="hidden" name="destination3" value="${destination3}">
+		<input type="hidden" name="destination4" value="${destination4}">
+		<input type="hidden" name="destination5" value="${destination5}">
+		<input type="hidden" name="destination6" value="${destination6}"> 
+		<input type="submit" value="Add events to trip">
 	</form>
+	
 	<script>
 		function getOriginDestination() {
 			document.forms["eventform"]["origin"].value = $

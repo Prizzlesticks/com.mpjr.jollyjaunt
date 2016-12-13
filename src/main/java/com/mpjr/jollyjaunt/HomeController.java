@@ -26,17 +26,10 @@ import com.google.gson.Gson;
 public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String register(Model model) {
-		
-			return "home";
 
-}
+		return "home";
 
-	// @RequestMapping(value = "/home", method = RequestMethod.GET)
-	// public String createUser(Model model, HttpServletRequest request) {
-	// UserDetail user = new UserDetail();
-	// model.addAttribute(user);
-	// return "account";
-	// }
+	}
 
 	// handles requests for the application account page
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
@@ -51,13 +44,14 @@ public class HomeController {
 
 			HttpSession session = request.getSession();
 			session.setAttribute("userid", userid);
+
 			model.addAttribute("userid", userid);
 			model.addAttribute("email", email);
 			model.addAttribute("fullname", fullname);
 
 			// if userid/email in db, show all trips assoc. with user in account
 			// view
-			
+
 			List<TripDetail> trips = DAO.getAllTrips(userid);
 			model.addAttribute("triplist", trips);
 
@@ -82,11 +76,10 @@ public class HomeController {
 			session.setAttribute("userid", userid);
 			String useridstring = Integer.toString(userid);
 			// this will show no saved trips, just trip table
-			
-			//List<TripDetail> trips = DAO.getAllTrips(userid);
-			//model.addAttribute("triplist", trips);
 
-			// going to return account first
+			// List<TripDetail> trips = DAO.getAllTrips(userid);
+			// model.addAttribute("triplist", trips);
+
 			return "account";
 
 		}
@@ -109,7 +102,7 @@ public class HomeController {
 	@RequestMapping(value = "/tripInfo", method = RequestMethod.GET)
 	public String addtripDetail(Model model, HttpServletRequest request) {
 		// takes in user input of trip info (title, origin, dest,dates,etc)
-		
+
 		String title = request.getParameter("title");
 		String cityStart = request.getParameter("cityStart");
 		String stateStart = request.getParameter("stateStart");
@@ -132,8 +125,46 @@ public class HomeController {
 		String destination4 = cityEnd4 + ", " + stateEnd4;
 		String destination5 = cityEnd5 + ", " + stateEnd5;
 		String destination6 = cityEnd6 + ", " + stateEnd6;
-		
-		
+
+		cityEnd = cityEnd.toLowerCase();
+		cityEnd2 = cityEnd.toLowerCase();
+		cityEnd3 = cityEnd.toLowerCase();
+		cityEnd4 = cityEnd.toLowerCase();
+		cityEnd5 = cityEnd.toLowerCase();
+		cityEnd6 = cityEnd.toLowerCase();
+
+		// checks for multiple name cities
+		if (cityEnd.contains(" ")) {
+			String[] parts = cityEnd.split(" ");
+			String part2 = parts[1].trim();
+			cityEnd = parts[0] + "%20" + part2;
+		}
+		if (cityEnd2.contains(" ")) {
+			String[] parts = cityEnd2.split(" ");
+			String part2 = parts[1].trim();
+			cityEnd2 = parts[0] + "%20" + part2;
+		}
+		if (cityEnd3.contains(" ")) {
+			String[] parts = cityEnd3.split(" ");
+			String part2 = parts[1].trim();
+			cityEnd3 = parts[0] + "%20" + part2;
+		}
+		if (cityEnd4.contains(" ")) {
+			String[] parts = cityEnd4.split(" ");
+			String part2 = parts[1].trim();
+			cityEnd4 = parts[0] + "%20" + part2;
+		}
+		if (cityEnd5.contains(" ")) {
+			String[] parts = cityEnd5.split(" ");
+			String part2 = parts[1].trim();
+			cityEnd5 = parts[0] + "%20" + part2;
+		}
+		if (cityEnd6.contains(" ")) {
+			String[] parts = cityEnd6.split(" ");
+			String part2 = parts[1].trim();
+			cityEnd6 = parts[0] + "%20" + part2;
+		}
+
 		String sy = request.getParameter("year_start");
 		String sm = request.getParameter("month_start");
 		String sd = request.getParameter("day_start");
@@ -147,8 +178,8 @@ public class HomeController {
 		String da = request.getParameter("day_arrive");
 
 		String startdate = sy + "-" + sm + "-" + sd;
-		String enddate = ey + "-" + em + "-" + ed;
 		String arrivaldate = ya + "-" + ma + "-" + da;
+		String enddate = ey + "-" + em + "-" + ed;
 
 		// creates new trip detail specific to this trip's user input & sets it
 		TripDetail td = new TripDetail();
@@ -162,6 +193,7 @@ public class HomeController {
 		td.setStartdate(startdate);
 		td.setEnddate(enddate);
 		td.setArrivaldate(arrivaldate);
+		
 		// adds trip detail info to database table trip_detail
 		DAO.addTripDetail(td);
 
@@ -176,68 +208,285 @@ public class HomeController {
 		model.addAttribute("startdate", startdate);
 		model.addAttribute("enddate", enddate);
 		model.addAttribute("arrivaldate", arrivaldate);
-		
+
 		// option to choose events, if yes, goes to events page which shows
 		// events listed in destination choices (through ticketmaster API)
 		if (request.getParameter("choice").equals("yes")) {
 
-			// String url =
+			String genre = request.getParameter("genre");
+			if (genre.equals("none")) {
+				;
+			} else {
+				model.addAttribute("genre");
+			}
 			// "https://app.ticketmaster.com/discovery/v2/events.json?city=chicago&startDateTime=2016-12-20T15:00:00Z&endDateTime=2017-01-01T15:00:00Z&apikey=UA08AxXZd7TGbabcIQ4jEMVFE6BiLQ1d";
 
 			// provide events based on city selected, show events from arrival
 			// date through end date
-			String url = "https://app.ticketmaster.com/discovery/v2/events.json?city=" + cityEnd + "&startDateTime="
+			String url = "https://app.ticketmaster.com/discovery/v2/events.json?city=" + cityEnd + "&classificationName="+genre+"&startDateTime="
+					+ arrivaldate + "T15:00:00Z&endDateTime=" + enddate
+					+ "T15:00:00Z&apikey=UA08AxXZd7TGbabcIQ4jEMVFE6BiLQ1d";
+			String url2 = "https://app.ticketmaster.com/discovery/v2/events.json?city=" + cityEnd2 + "&classificationName="+genre+"&startDateTime="
+					+ arrivaldate + "T15:00:00Z&endDateTime=" + enddate
+					+ "T15:00:00Z&apikey=UA08AxXZd7TGbabcIQ4jEMVFE6BiLQ1d";
+			String url3 = "https://app.ticketmaster.com/discovery/v2/events.json?city=" + cityEnd3 + "&classificationName="+genre+"&startDateTime="
+					+ arrivaldate + "T15:00:00Z&endDateTime=" + enddate
+					+ "T15:00:00Z&apikey=UA08AxXZd7TGbabcIQ4jEMVFE6BiLQ1d";
+			String url4 = "https://app.ticketmaster.com/discovery/v2/events.json?city=" + cityEnd4 + "&classificationName="+genre+"&startDateTime="
+					+ arrivaldate + "T15:00:00Z&endDateTime=" + enddate
+					+ "T15:00:00Z&apikey=UA08AxXZd7TGbabcIQ4jEMVFE6BiLQ1d";
+			String url5 = "https://app.ticketmaster.com/discovery/v2/events.json?city=" + cityEnd5 + "&classificationName="+genre+"&startDateTime="
+					+ arrivaldate + "T15:00:00Z&endDateTime=" + enddate
+					+ "T15:00:00Z&apikey=UA08AxXZd7TGbabcIQ4jEMVFE6BiLQ1d";
+			String url6 = "https://app.ticketmaster.com/discovery/v2/events.json?city=" + cityEnd6 + "&classificationName="+genre+"&startDateTime="
 					+ arrivaldate + "T15:00:00Z&endDateTime=" + enddate
 					+ "T15:00:00Z&apikey=UA08AxXZd7TGbabcIQ4jEMVFE6BiLQ1d";
 
-			// city toLowerCase
-			// String city = "detroit";
-			// String dateStart = "2016-12-10";
-			// String dateEnd = "2016-12-15";
 			URL urlObj;
 			EventInfo eventInfo = null;
+			EventInfo eventInfo2 = null;
+			EventInfo eventInfo3 = null;
+			EventInfo eventInfo4 = null;
+			EventInfo eventInfo5 = null;
+			EventInfo eventInfo6 = null;
+			if (cityEnd != null) {
+				try {
+					urlObj = new URL(url);
 
-			try {
-				urlObj = new URL(url);
+					HttpURLConnection con = (HttpURLConnection) urlObj.openConnection();
+					con.setRequestMethod("GET");
 
-				HttpURLConnection con = (HttpURLConnection) urlObj.openConnection();
-				con.setRequestMethod("GET");
+					int code = con.getResponseCode();
 
-				int code = con.getResponseCode();
+					if (code == 200) {
+						BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+						String inputLine;
+						StringBuffer response = new StringBuffer();
 
-				if (code == 200) {
-					BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-					String inputLine;
-					StringBuffer response = new StringBuffer();
+						while ((inputLine = in.readLine()) != null) {
+							response.append(inputLine);
+							// System.out.println(inputLine);
+						}
+						in.close();
 
-					while ((inputLine = in.readLine()) != null) {
-						response.append(inputLine);
-						// System.out.println(inputLine);
+						// parse json data from ticketmaster API
+						Gson gson = new Gson();
+						eventInfo = gson.fromJson(response.toString(), EventInfo.class);
+						// for (int i=0;
+						// i<eventInfo.getEmb().getEvents().size();
+						// i++) {
+						// name = name +
+						// eventInfo.getEmb().getEvents().get(i).getName() +
+						// "<br>";
+						// }
+					} else {
+
 					}
-					in.close();
 
-					// parse json data from ticketmaster API
-					Gson gson = new Gson();
-					eventInfo = gson.fromJson(response.toString(), EventInfo.class);
-					// for (int i=0; i<eventInfo.getEmb().getEvents().size();
-					// i++) {
-					// name = name +
-					// eventInfo.getEmb().getEvents().get(i).getName() + "<br>";
-					// }
-				} else {
-
+				} catch (MalformedURLException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				} catch (NullPointerException e) {
+					System.out.println("Enter the valid city");
 				}
-
-			} catch (MalformedURLException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
 			}
-			catch(NullPointerException e){
-				System.out.println("Enter the valid city");}
-		
+
+			if (cityEnd2 != null) {
+				try {
+					urlObj = new URL(url2);
+
+					HttpURLConnection con = (HttpURLConnection) urlObj.openConnection();
+					con.setRequestMethod("GET");
+
+					int code = con.getResponseCode();
+
+					if (code == 200) {
+						BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+						String inputLine;
+						StringBuffer response = new StringBuffer();
+
+						while ((inputLine = in.readLine()) != null) {
+							response.append(inputLine);
+							// System.out.println(inputLine);
+						}
+						in.close();
+
+						// parse json data from ticketmaster API
+						Gson gson = new Gson();
+						eventInfo2 = gson.fromJson(response.toString(), EventInfo.class);
+
+					} else {
+
+					}
+
+				} catch (MalformedURLException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				} catch (NullPointerException e) {
+					System.out.println("Enter the valid city");
+				}
+			}
+
+			if (cityEnd3 != null) {
+
+				try {
+					urlObj = new URL(url3);
+
+					HttpURLConnection con = (HttpURLConnection) urlObj.openConnection();
+					con.setRequestMethod("GET");
+
+					int code = con.getResponseCode();
+
+					if (code == 200) {
+						BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+						String inputLine;
+						StringBuffer response = new StringBuffer();
+
+						while ((inputLine = in.readLine()) != null) {
+							response.append(inputLine);
+							// System.out.println(inputLine);
+						}
+						in.close();
+
+						// parse json data from ticketmaster API
+						Gson gson = new Gson();
+						eventInfo3 = gson.fromJson(response.toString(), EventInfo.class);
+
+					} else {
+
+					}
+
+				} catch (MalformedURLException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				} catch (NullPointerException e) {
+					System.out.println("Enter the valid city");
+				}
+			}
+			if (cityEnd4 != null) {
+
+				try {
+					urlObj = new URL(url4);
+
+					HttpURLConnection con = (HttpURLConnection) urlObj.openConnection();
+					con.setRequestMethod("GET");
+
+					int code = con.getResponseCode();
+
+					if (code == 200) {
+						BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+						String inputLine;
+						StringBuffer response = new StringBuffer();
+
+						while ((inputLine = in.readLine()) != null) {
+							response.append(inputLine);
+							// System.out.println(inputLine);
+						}
+						in.close();
+
+						// parse json data from ticketmaster API
+						Gson gson = new Gson();
+						eventInfo4 = gson.fromJson(response.toString(), EventInfo.class);
+
+					} else {
+
+					}
+
+				} catch (MalformedURLException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				} catch (NullPointerException e) {
+					System.out.println("Enter the valid city");
+				}
+			}
+			
+			if (cityEnd5 != null) {
+
+				try {
+					urlObj = new URL(url5);
+
+					HttpURLConnection con = (HttpURLConnection) urlObj.openConnection();
+					con.setRequestMethod("GET");
+
+					int code = con.getResponseCode();
+
+					if (code == 200) {
+						BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+						String inputLine;
+						StringBuffer response = new StringBuffer();
+
+						while ((inputLine = in.readLine()) != null) {
+							response.append(inputLine);
+							// System.out.println(inputLine);
+						}
+						in.close();
+
+						// parse json data from ticketmaster API
+						Gson gson = new Gson();
+						eventInfo5 = gson.fromJson(response.toString(), EventInfo.class);
+
+					} else {
+
+					}
+
+				} catch (MalformedURLException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				} catch (NullPointerException e) {
+					System.out.println("Enter the valid city");
+				}
+			}
+			
+			if (cityEnd6 != null) {
+
+				try {
+					urlObj = new URL(url6);
+
+					HttpURLConnection con = (HttpURLConnection) urlObj.openConnection();
+					con.setRequestMethod("GET");
+
+					int code = con.getResponseCode();
+
+					if (code == 200) {
+						BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+						String inputLine;
+						StringBuffer response = new StringBuffer();
+
+						while ((inputLine = in.readLine()) != null) {
+							response.append(inputLine);
+							// System.out.println(inputLine);
+						}
+						in.close();
+
+						// parse json data from ticketmaster API
+						Gson gson = new Gson();
+						eventInfo6 = gson.fromJson(response.toString(), EventInfo.class);
+
+					} else {
+
+					}
+
+				} catch (MalformedURLException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				} catch (NullPointerException e) {
+					System.out.println("Enter the valid city");
+				}
+			}
+
 			model.addAttribute("eventInfo", eventInfo);
-			// model.addAttribute("name", name);
+			model.addAttribute("eventInfo2", eventInfo2);
+			model.addAttribute("eventInfo3", eventInfo3);
+			model.addAttribute("eventInfo4", eventInfo4);
+			model.addAttribute("eventInfo5", eventInfo5);
+			model.addAttribute("eventInfo6", eventInfo6);
+			
 			return "events";
 		} else {
 			return "routemap";
@@ -250,12 +499,22 @@ public class HomeController {
 	@RequestMapping(value = "/routemapevents", method = RequestMethod.GET)
 	public String getDir(Model model, HttpServletRequest request) {
 		String origin = request.getParameter("origin");
-		String destination = request.getParameter("");
+		String destination = request.getParameter("destination");
+		String destination2 = request.getParameter("destination2");
+		String destination3 = request.getParameter("destination3");
+		String destination4 = request.getParameter("destination4");
+		String destination5 = request.getParameter("destination5");
+		String destination6 = request.getParameter("destination6");
 		String[] events = request.getParameterValues("event");
 
 		model.addAttribute("events", events);
-		model.addAttribute("destination", destination);
 		model.addAttribute("origin", origin);
+		model.addAttribute("destination", destination);
+		model.addAttribute("destination2", destination2);
+		model.addAttribute("destination3", destination3);
+		model.addAttribute("destination4", destination4);
+		model.addAttribute("destination5", destination5);
+		model.addAttribute("destination6", destination6);
 
 		return "routemapevents";
 		// shows the route map as well as any events chosen by user
@@ -263,8 +522,8 @@ public class HomeController {
 
 	// handles requests for eventdetail page
 	@RequestMapping(value = "/eventdetail", method = RequestMethod.GET)
-	public String getEventDetails(Model model,HttpServletRequest request) {
-		 // displays name, city, date for each event of trip
+	public String getEventDetails(Model model, HttpServletRequest request) {
+		// displays name, city, date for each event of trip
 		String[] events = request.getParameterValues("event");
 		String[] date = request.getParameterValues("date");
 		String[] city = request.getParameterValues("venue");
