@@ -47,6 +47,7 @@
  	var arrivaldate = ya + "-" + ma + "-" + da;
  	var enddate = ey + "-" + em + "-" + ed;
 	
+ 	//test
  	
  	var valid = true;
  	var  letters = /^[A-Za-z]+$/;  
