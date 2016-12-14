@@ -178,7 +178,7 @@ function validateform() {
 		
 </script>
 
-	<form name="form2" action="tripInfo" onsubmit="return validateform();" method="POST">
+	<form name="form2" action="tripInfo" onsubmit="return validateform()" method="POST">
 
 		<br>Trip Name: <input type="text" name="title"> <br>
 		<h2>Starting and Ending Locations</h2>
