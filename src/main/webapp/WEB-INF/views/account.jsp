@@ -52,7 +52,5 @@
 		<input type="submit" value="Start a NEW Trip" />
 	</form>
 	
-	
-
 </body>
 </html>

@@ -1,7 +1,7 @@
 package com.mpjr.jollyjaunt;
 
 import java.util.List;
-
+//class created to access classification objects from ticketmaster API
 public class Attractions {
 	List<Classifications> classifications;
 

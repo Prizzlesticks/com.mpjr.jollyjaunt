@@ -186,8 +186,7 @@ Venue: ${eventInfo.getEmb().getEvents().get(i).get_embedded().getVenues().get(0)
 </form>
 		</c:forEach>
 	</c:if>
-
-		
+	
 	<form action="events" method="get">
 		<input type="hidden" name="origin" value="${origin}"> 
 		<input type="hidden" name="destination" value="${destination}">
@@ -204,19 +203,6 @@ Venue: ${eventInfo.getEmb().getEvents().get(i).get_embedded().getVenues().get(0)
 					<input type="hidden" name="email" value = "${email}">
 					<input type="submit" value="Return to Account" />
 			</form>
-	<!-- <script>
-		function getOriginDestination() {
-			document.forms["eventform"]["origin"].value = $
-			{
-				origin
-			}
-			;
-			document.forms["eventform"]["destination"].value = $
-			{
-				destination
-			}
-			;
-		}
-	</script> -->
+
 </body>
 </html>

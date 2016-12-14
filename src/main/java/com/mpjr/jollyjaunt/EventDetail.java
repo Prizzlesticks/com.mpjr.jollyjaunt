@@ -1,6 +1,7 @@
 package com.mpjr.jollyjaunt;
 
 //creates event detail fields, instance variables, constructors and getters/setters 
+//EventDetail Pojo
 public class EventDetail {
 
 	private int tripid;

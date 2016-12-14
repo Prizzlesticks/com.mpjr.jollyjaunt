@@ -1,5 +1,5 @@
 package com.mpjr.jollyjaunt;
-
+//class created to access name of segment (genre) from ticketmaster API
 public class Segment {
 	private String name;
 
