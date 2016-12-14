@@ -102,6 +102,8 @@ public class HomeController {
 	@RequestMapping(value = "/tripInfo", method = RequestMethod.GET)
 	public String addtripDetail(Model model, HttpServletRequest request) {
 		// takes in user input of trip info (title, origin, dest,dates,etc)
+		HttpSession session = request.getSession();
+		String userid = session.getAttribute("userid").toString();
 
 		String title = request.getParameter("title");
 		String cityStart = request.getParameter("cityStart");
@@ -127,11 +129,11 @@ public class HomeController {
 		String destination6 = cityEnd6 + ", " + stateEnd6;
 
 		cityEnd = cityEnd.toLowerCase();
-		cityEnd2 = cityEnd.toLowerCase();
-		cityEnd3 = cityEnd.toLowerCase();
-		cityEnd4 = cityEnd.toLowerCase();
-		cityEnd5 = cityEnd.toLowerCase();
-		cityEnd6 = cityEnd.toLowerCase();
+		cityEnd2 = cityEnd2.toLowerCase();
+		cityEnd3 = cityEnd3.toLowerCase();
+		cityEnd4 = cityEnd4.toLowerCase();
+		cityEnd5 = cityEnd5.toLowerCase();
+		cityEnd6 = cityEnd6.toLowerCase();
 
 		// checks for multiple name cities
 		if (cityEnd.contains(" ")) {
@@ -184,7 +186,6 @@ public class HomeController {
 		// creates new trip detail specific to this trip's user input & sets it
 		TripDetail td = new TripDetail();
 
-		String userid = request.getSession().getAttribute("userid").toString();
 		int id1 = Integer.parseInt(userid);
 		td.setUserid(id1);
 		td.setTitle(title);
@@ -193,9 +194,10 @@ public class HomeController {
 		td.setStartdate(startdate);
 		td.setEnddate(enddate);
 		td.setArrivaldate(arrivaldate);
-		
+
 		// adds trip detail info to database table trip_detail
-		DAO.addTripDetail(td);
+		int tripid = DAO.addTripDetail(td);
+		session.setAttribute("tripid", tripid);
 
 		model.addAttribute("title", title);
 		model.addAttribute("origin", origin);
@@ -208,6 +210,7 @@ public class HomeController {
 		model.addAttribute("startdate", startdate);
 		model.addAttribute("enddate", enddate);
 		model.addAttribute("arrivaldate", arrivaldate);
+		
 
 		// option to choose events, if yes, goes to events page which shows
 		// events listed in destination choices (through ticketmaster API)
@@ -496,25 +499,44 @@ public class HomeController {
 	}
 
 	// handles requests for routemapevents application page
-	@RequestMapping(value = "/routemapevents", method = RequestMethod.GET)
-	public String getDir(Model model, HttpServletRequest request) {
+	
+	@RequestMapping(value = "/eventadded", method = RequestMethod.POST)
+	public String addEvent(Model model, HttpServletRequest request) {
+		
+		String tripid = request.getSession().getAttribute("tripid").toString();
+		int id = Integer.parseInt(tripid);
+		String name = request.getParameter("name");
+		String date = request.getParameter("date");
+		String url = request.getParameter("url");
+		String city = request.getParameter("city");
+		
+		EventDetail event = new EventDetail();
+//		event.setCity(request.getParameter("destination"));
+		event.setTripid(id);
+		event.setCity(city);
+		event.setDate(date);
+		event.setEvent(name);
+		
+		DAO.addEventDetail(event);
+
+		model.addAttribute("city", city);
+		model.addAttribute("name", name);
+		model.addAttribute("date", date);
+		model.addAttribute("url", url);
+		return "eventadded";
+	}
+	
+	//CHANGED MAPPING TO EVENTS FROM ROUTEMAPEVENTS
+	
+	@RequestMapping(value = "/events", method = RequestMethod.GET)
+	public String getMapSummary(Model model, HttpServletRequest request) {
 		String origin = request.getParameter("origin");
 		String destination = request.getParameter("destination");
-		String destination2 = request.getParameter("destination2");
-		String destination3 = request.getParameter("destination3");
-		String destination4 = request.getParameter("destination4");
-		String destination5 = request.getParameter("destination5");
-		String destination6 = request.getParameter("destination6");
 		String[] events = request.getParameterValues("event");
-
+		
 		model.addAttribute("events", events);
-		model.addAttribute("origin", origin);
 		model.addAttribute("destination", destination);
-		model.addAttribute("destination2", destination2);
-		model.addAttribute("destination3", destination3);
-		model.addAttribute("destination4", destination4);
-		model.addAttribute("destination5", destination5);
-		model.addAttribute("destination6", destination6);
+		model.addAttribute("origin", origin);
 
 		return "routemapevents";
 		// shows the route map as well as any events chosen by user
@@ -524,12 +546,24 @@ public class HomeController {
 	@RequestMapping(value = "/eventdetail", method = RequestMethod.GET)
 	public String getEventDetails(Model model, HttpServletRequest request) {
 		// displays name, city, date for each event of trip
-		String[] events = request.getParameterValues("event");
-		String[] date = request.getParameterValues("date");
-		String[] city = request.getParameterValues("venue");
-		model.addAttribute("events");
-		model.addAttribute("date");
-		model.addAttribute("city");
+		
+//		HttpSession session = request.getSession();
+//		String tripid = session.getAttribute("tripid").toString();
+//		int id1 = Integer.parseInt(tripid);
+		
+		int id2 = Integer.parseInt(request.getParameter("tripid"));
+		
+		List<EventDetail> events = DAO.getTripEvents(id2);
+		model.addAttribute("eventlist", events);
+		
+//		String[] events = request.getParameterValues("event");
+//		String[] date = request.getParameterValues("date");
+//		String[] city = request.getParameterValues("venue");
+//	
+//		model.addAttribute("events");
+//		model.addAttribute("date");
+//		model.addAttribute("city");
+		
 		return "eventdetail";
 
 	}

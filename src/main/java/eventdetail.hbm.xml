@@ -9,7 +9,7 @@
 		<id name="eventid" column="eventid" type="int">
 			<generator class="increment"></generator>
 		</id>
-		<property name="events" column="events" type="string"></property>
+		<property name="event" column="event" type="string"></property>
 		<property name="tripid" column="trip_id" type="int"></property>
 		<property name="city" column="city" type="string"></property>
 		<property name="date" column="date" type="string"></property>

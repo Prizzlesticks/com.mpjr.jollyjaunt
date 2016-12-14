@@ -15,18 +15,23 @@
 
 		<br>Trip Name: <input type="text" name="title"> <br>
 		<h2>Starting and Ending Locations</h2>
-		<br>Starting City: <br>City<input type="text"
-			name="cityStart"> <br>State<input type="text"
-			name="stateStart"> <br> <br>Ending City: <br>City<input
-			type="text" name="cityEnd"> <br>State<input type="text"
-			name="stateEnd"> <br>
-		<h2>Additional Stops You'ld Like to Make</h2>
-		<br>Stop 1: <br>City<input type="text" name="cityEnd2">
-		<br>State<input type="text" name="stateEnd2"> <br> <br>Stop
-		2: <br>City<input type="text" name="cityEnd3"> <br>State<input
-			type="text" name="stateEnd3"> <br> <br>Stop 3: <br>City<input
-			type="text" name="cityEnd4"> <br>State<input type="text"
-			name="stateEnd4"> <br> <br>Stop 4: <br>City<input
+	<br>Starting City: 
+		<br>City<input type="text" name="cityStart"> 
+		<br>State<input type="text" name="stateStart"> <br> 
+	<br>Ending City: 
+		<br>City<input type="text" name="cityEnd"> 
+		<br>State<input type="text" name="stateEnd"> <br>
+		<h2>Additional Stops You'd Like to Make</h2>
+	<br>Stop 1: <br>City<input type="text" name="cityEnd2">
+			<br>State<input type="text" name="stateEnd2">
+		 <br>
+	<br>Stop 2: 
+			<br>City<input type="text" name="cityEnd3"> 
+			<br>State<input type="text" name="stateEnd3"> 
+		<br> 
+		<br>Stop 3: 
+			<br>City<input type="text" name="cityEnd4"> 
+			<br>State<input type="text" name="stateEnd4"> <br> <br>Stop 4: <br>City<input
 			type="text" name="cityEnd5"> <br>State<input type="text"
 			name="stateEnd5"> <br> <br>Stop 5: <br>City<input
 			type="text" name="cityEnd6"> <br>State<input type="text"
@@ -80,8 +85,8 @@
 			<option value=29>29</option>
 			<option value=30>30</option>
 			<option value=31>31</option>
-		</select> <br>
-		<br> End Date: Year <select id="year_end" name="year_end">
+		</select> <br> <br> End Date: Year <select id="year_end"
+			name="year_end">
 			<option value=2016>2016</option>
 			<option value=2017>2017</option>
 			<option value=2018>2018</option>
@@ -130,9 +135,8 @@
 			<option value=29>29</option>
 			<option value=30>30</option>
 			<option value=31>31</option>
-		</select> <br>
-		<br> What date do you want to begin searching for events? <select
-			id="year_arrive" name="year_arrive">
+		</select> <br> <br> What date do you want to begin searching for
+		events? <select id="year_arrive" name="year_arrive">
 			<option value=2016>2016</option>
 			<option value=2017>2017</option>
 			<option value=2018>2018</option>
@@ -184,76 +188,36 @@
 		</select>
 
 		<!-- If yes is selected and submit pressed, goes to events view -->
-		<br>
-		<br>Look up events at your destination during your trip? <br>
-		<input type="radio" name="choice" value="yes">Yes <br>
-		<input type="radio" name="choice" value="no">No 
-		
-		<br>Genre<select id="genre" name="genre">
-			<option value="arts & theatre">Arts & Theatre 
-			
+		<br> <br>Look up events at your destination during your
+		trip? <br> <input type="radio" name="choice" value="yes">Yes
+		<br> <input type="radio" name="choice" value="no">No <br>Genre<select
+			id="genre" name="genre">
+			<option value="arts & theatre">Arts & Theatre
 			<option value="music">Music
-	
 			<option value="sports">Sports
-	
 			<option value="family">Family
-	
 			<option value="none">Doesn't Matter
+		</select> <br> <br> <input type="submit" value="Get Event List">
 
-		</select>
-<br> <br>
-<input type="submit" value="Get Event List">
+	</form>
+	<script>
+		function validate() {
+			var sc = document.forms["form2"]["cityStart"].value;
+			var ss = document.forms["form2"]["stateStart"].value;
+			var ec = document.forms["form2"]["cityEnd"].value;
+			var es = document.forms["form2"]["stateEnd"].value;
 
-			</form>
-<script>
-function validate() {
-	var sc = document.forms["form2"]["cityStart"].value;
-	var ss = document.forms["form2"]["stateStart"].value;
-	var ec = document.forms["form2"]["cityEnd"].value;
-	var es = document.forms["form2"]["stateEnd"].value;
-	var ec2 = document.forms["form2"]["cityEnd2"].value;
-	var es2 = document.forms["form2"]["stateEnd2"].value;
-	var ec3 = document.forms["form2"]["cityEnd3"].value;
-	var es3 = document.forms["form2"]["stateEnd3"].value;
-	var ec4 = document.forms["form2"]["cityEnd4"].value;
-	var es4 = document.forms["form2"]["stateEnd4"].value;
-	var ec5 = document.forms["form2"]["cityEnd5"].value;
-	var es5 = document.forms["form2"]["stateEnd5"].value;
-	var ec6 = document.forms["form2"]["cityEnd6"].value;
-	var es6 = document.forms["form2"]["stateEnd6"].value;
-	var  letters = /^[A-Za-z]+$/;  
-	var message="";
-	   
-	
-    if (sc == "" || ss==""|| !(sc.value.match(letters)) || !(sc.value.match(letters))) {
-    	message +="Enter trip location starting point. \n";
-        return false;
-        } else if (ec == "" || es==""||!(ec.value.match(letters)) || !(es.value.match(letters))) {
-        	message +="Enter trip location ending point. \n";
-        	return false;
-        }else if (ec2 == "" || es2 == " " ||!(ec2.value.match(letters)) || !(es2.value.match(letters))) {
-        	message +="Enter valid Stop1. \n";
-    	return false;
-    	}else if (ec3 == "" || es3 == " "||!(ec3.value.match(letters)) || !(es3.value.match(letters))) {
-    		message +="Enter valid Stop2. \n";
-        	return false;
-          }else if (ec4	 == "" || es4 == " "||!(ec4.value.match(letters)) || !(es4.value.match(letters))) {
-        	  message +="Enter valid Stop3. \n";
-        	return false;
-			}else if (ec5 == "" || es5 == " "||!(ec5.value.match(letters)) || !(es5.value.match(letters))) {
-				message +="Enter valid Stop4. \n";
-	        	return false;
-				}else if (ec6 == "" || ec6 == " "||!(ec6.value.match(letters)) || !(es6.value.match(letters))) {
-					message +="Enter valid Stop5. \n";
-		        	return false;
-
-		        	if(message !==""){
-		        		alert(message);
-		        	}
-		        	return valid;
-				}
+			if (sc == "" || ss == "") {
+				alert("Enter trip location starting point");
+				return false;
+			} else if (ec == "" || es == "") {
+				alert("Enter trip location ending point");
+			} else if (d == "") {
+				alert("Enter a destination");
+				return false;
+			}
 		}
-</script>
-    	
+	</script>
+
 </body>
 </html>
