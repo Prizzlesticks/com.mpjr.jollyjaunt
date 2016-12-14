@@ -4,7 +4,7 @@ package com.mpjr.jollyjaunt;
 public class EventDetail {
 
 	private int tripid;
-	private String events;
+	private String event;
 	private String city;
 	private String date;
 	private int eventid;
@@ -13,10 +13,10 @@ public class EventDetail {
 		super();
 	}
 
-	public EventDetail(int tripid, String events, String city, String date, int eventid) {
+	public EventDetail(int tripid, String event, String city, String date, int eventid) {
 		super();
 		this.tripid = tripid;
-		this.events = events;
+		this.event = event;
 		this.city = city;
 		this.date = date;
 		this.eventid = eventid;
@@ -38,12 +38,12 @@ public class EventDetail {
 		this.tripid = tripid;
 	}
 
-	public String getEvents() {
-		return events;
+	public String getEvent() {
+		return event;
 	}
 
-	public void setEvents(String events) {
-		this.events = events;
+	public void setEvent(String event) {
+		this.event = event;
 	}
 
 	public String getCity() {

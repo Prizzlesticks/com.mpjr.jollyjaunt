@@ -124,16 +124,4 @@ public class DAO {
 		return i;
 	}
 
-	// public static String getFirstname() {
-	// String ui2 = UserDetail.getFullname();
-	// if (factory == null)
-	// setupFactory();
-	// Session hibernateSession = factory.openSession();
-	// hibernateSession.getTransaction().begin();
-	//
-	// hibernateSession.getTransaction().commit();
-	// hibernateSession.close();
-	// return ui2;
-	// }
-
 }

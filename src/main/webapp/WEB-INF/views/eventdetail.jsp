@@ -24,7 +24,7 @@
 			</tr>
 		</c:forEach>
 	</table>
-	<a href="account">Go Back</a>
+	<a href="home">Go Back</a>
 
 </body>
 </html>

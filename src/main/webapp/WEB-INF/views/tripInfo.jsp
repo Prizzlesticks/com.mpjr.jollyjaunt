@@ -196,8 +196,7 @@ function validateform() {
 			<br>Stop 3: <br>City<input
 			type="text" name="cityEnd4"> <br>State<input type="text"
 			name="stateEnd4"> <br> 
-			<br>Stop 4: <br>City<input
-			type="text" name="cityEnd5"> <br>State<input type="text"
+			<br>Stop 4: <br>City<input type="text" name="cityEnd5"> <br>State<input type="text"
 			name="stateEnd5"> <br> 
 			<br>Stop 5: <br>City<input
 			type="text" name="cityEnd6"> <br>State<input type="text"
@@ -252,8 +251,8 @@ function validateform() {
 			<option value=29>29</option>
 			<option value=30>30</option>
 			<option value=31>31</option>
-		</select> <br>
-		<br> End Date: Year <select id="year_end" name="year_end">
+		</select> <br> <br> End Date: Year <select id="year_end"
+			name="year_end">
 			<option value=2016>2016</option>
 			<option value=2017>2017</option>
 			<option value=2018>2018</option>
@@ -302,9 +301,8 @@ function validateform() {
 			<option value=29>29</option>
 			<option value=30>30</option>
 			<option value=31>31</option>
-		</select> <br>
-		<br> What date do you want to begin searching for events? <select
-			id="year_arrive" name="year_arrive">
+		</select> <br> <br> What date do you want to begin searching for
+		events? <select id="year_arrive" name="year_arrive">
 			<option value=2016>2016</option>
 			<option value=2017>2017</option>
 			<option value=2018>2018</option>
@@ -356,6 +354,7 @@ function validateform() {
 		</select>
 
 		<!-- If yes is selected and submit pressed, goes to events view -->
+
 		<br>
 		<br>Look up events at your destination during your trip? <br>
 		<input type="radio" name="choice" value="choose" checked> Please choose Yes or No <br>
@@ -371,18 +370,14 @@ function validateform() {
 			<option value="arts & theatre">Arts and Theater  
 			
 			<option value="music">Music
-	
 			<option value="sports">Sports
-	
 			<option value="family">Family
-	
 			<option value="none">Doesn't Matter
-
-		</select>
+		</select> <br> <br> <input type="submit" value="Get Event List"> </select>
 <br> <br>
 <input type="submit" value="Get Event List">
 
-			</form>
+</form>
     	
 </body>
 </html>

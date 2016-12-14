@@ -35,6 +35,7 @@
 				<td>${trip.arrivaldate}</td>
 
 				<td><form action="eventdetail" method="GET">
+		<input type="hidden" name="tripid" value = "${trip.tripid}">
 						<input type="submit" value="View" />
 					</form></td>
 			</tr>
