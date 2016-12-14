@@ -135,11 +135,20 @@
 	<br>
 	<h3>Your Trip Events:</h3>
 	<br>
-	<ul>
-		<c:forEach var="ev" items="${events}">
-			<li>${ev}</li>
+	<table border="1">
+		<tr>
+			<th>Event</th>
+			<th>City</th>
+			<th>Date</th>
+		</tr>
+		<c:forEach items="${events}" var="event">
+			<tr>
+				<td>${event.event}</td>
+				<td>${event.city}</td>
+				<td>${event.date}</td>
+			</tr>
 		</c:forEach>
-	</ul>
+	</table>
 
 </body>
 </html>
