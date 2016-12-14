@@ -373,9 +373,7 @@ function validateform() {
 			<option value="sports">Sports
 			<option value="family">Family
 			<option value="none">Doesn't Matter
-		</select> <br> <br> <input type="submit" value="Get Event List"> </select>
-<br> <br>
-<input type="submit" value="Get Event List">
+		</select> <br> <br> <input type="submit" value="Get Event List"> 
 
 </form>
     	
