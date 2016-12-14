@@ -186,8 +186,7 @@ Venue: ${eventInfo.getEmb().getEvents().get(i).get_embedded().getVenues().get(0)
 </form>
 		</c:forEach>
 	</c:if>
-
-		
+	
 	<form action="events" method="get">
 		<input type="hidden" name="origin" value="${origin}"> 
 		<input type="hidden" name="destination" value="${destination}">

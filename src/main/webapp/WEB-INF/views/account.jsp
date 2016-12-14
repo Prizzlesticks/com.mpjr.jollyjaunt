@@ -52,6 +52,7 @@
 		<input type="submit" value="Start a NEW Trip" />
 	</form>
 
+
 	<form action="/" onsubmit="return signOut()" method="get">
 		<input type="submit" value="Sign Out">
 	</form>
@@ -64,5 +65,6 @@
 			});
 		}
 	</script>
+
 </body>
 </html>

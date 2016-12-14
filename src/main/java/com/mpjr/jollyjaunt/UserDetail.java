@@ -1,6 +1,7 @@
 package com.mpjr.jollyjaunt;
 
 //creates user detail fields, instance variables, constructors and getters/setters 
+//UserDetail Pojo
 public class UserDetail {
 	private static int userid;
 	private String fullname;
