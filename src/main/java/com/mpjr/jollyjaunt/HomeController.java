@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.util.Date;
 import java.util.List;
 
 //import javax.servlet.http.Cookie;
@@ -94,17 +96,24 @@ public class HomeController {
 	// handles requests for the trip info page (where user inputs trip info)
 	@RequestMapping(value = "/account", method = RequestMethod.GET)
 	public String account(Model model) {
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG);
+		
+		String formattedDate = dateFormat.format(date);
+		
+		model.addAttribute(formattedDate);
 		return "tripInfo";
 	}
 
 	// handles requests for the application routemap page which shows
 	// route based on destinations selected (can be multiple destinations)
-	@RequestMapping(value = "/tripInfo", method = RequestMethod.GET)
+	@RequestMapping(value = "/tripInfo", method = RequestMethod.POST)
 	public String addtripDetail(Model model, HttpServletRequest request) {
 		// takes in user input of trip info (title, origin, dest,dates,etc)
 		HttpSession session = request.getSession();
 		String userid = session.getAttribute("userid").toString();
 
+		
 		String title = request.getParameter("title");
 		String cityStart = request.getParameter("cityStart");
 		String stateStart = request.getParameter("stateStart");
@@ -217,9 +226,12 @@ public class HomeController {
 		if (request.getParameter("choice").equals("yes")) {
 
 			String genre = request.getParameter("genre");
-			if (genre.equals("none")) {
+			if (genre.equals(" ")){
 				;
-			} else {
+			} else if (genre.equals("none")) {
+				;
+			}		
+			else {
 				model.addAttribute("genre");
 			}
 			// "https://app.ticketmaster.com/discovery/v2/events.json?city=chicago&startDateTime=2016-12-20T15:00:00Z&endDateTime=2017-01-01T15:00:00Z&apikey=UA08AxXZd7TGbabcIQ4jEMVFE6BiLQ1d";
