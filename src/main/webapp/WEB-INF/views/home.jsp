@@ -12,7 +12,7 @@
 <body>
 	<h1>Welcome to Jolly Jaunt!</h1>
 
-	<h2>Please Log in</h2>
+	<h2>Please Log In</h2>
 
 	<div class="g-signin2" data-onsuccess="onSignIn"></div>
 	<a href="#" onclick="signOut();">Sign out</a> Please log in and then
