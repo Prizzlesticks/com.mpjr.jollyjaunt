@@ -164,7 +164,8 @@
  				return false;
  			}
  		        	if(message !== ""){
- 		        		document.getElementById("errorlog").innerHTML = "" + message + "";
+ 		        		//document.getElementById("errorlog").innerHTML = "" + message + "";
+ 		        		alert("message");
  		        	}
  		        	return valid
  				}
