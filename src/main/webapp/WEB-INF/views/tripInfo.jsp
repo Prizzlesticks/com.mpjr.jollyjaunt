@@ -171,42 +171,51 @@ function validateform() {
 				return false;
 			}
 		        	if(message !== ""){
-		        		alert(message);
+		        		document.getElementById("errorlog").innerHTML = "" + message + "";
 		        	}
-		        	return valid;
+		        	return valid
 				}
 		
 </script>
+	<div id="formErrors" class="error"></div>       
 
 	<form name="form2" action="tripInfo" onsubmit="return validateform()" method="POST">
 
 		<br>Trip Name: <input type="text" name="title"> <br>
 		<h2>Starting and Ending Locations</h2>
-		<br>Starting City: <br>City<input type="text"
+			<br>Starting City: <br>City<input type="text"
 			name="cityStart"> <br>State<input type="text"
 			name="stateStart"> <br> 
+			
 			<br>Ending City: <br>City<input
 			type="text" name="cityEnd"> <br>State<input type="text"
 			name="stateEnd"> <br>
-		<h2>Additional Stops You'ld Like to Make</h2>
-		<br>Stop 1: <br>City<input type="text" name="cityEnd2">
-		<br>State<input type="text" name="stateEnd2"> <br> 
-		<br>Stop 2: <br>City<input type="text" name="cityEnd3"> <br>State<input
+			
+			<h2>Additional Stops You'ld Like to Make</h2>
+			<br>Stop 1: <br>City<input type="text" name="cityEnd2">
+			<br>State<input type="text" name="stateEnd2"> <br> 
+			
+			<br>Stop 2: <br>City<input type="text" name="cityEnd3"> <br>State<input
 			type="text" name="stateEnd3"> <br> 
+			
 			<br>Stop 3: <br>City<input
 			type="text" name="cityEnd4"> <br>State<input type="text"
 			name="stateEnd4"> <br> 
+			
 			<br>Stop 4: <br>City<input type="text" name="cityEnd5"> <br>State<input type="text"
 			name="stateEnd5"> <br> 
+			
 			<br>Stop 5: <br>City<input
 			type="text" name="cityEnd6"> <br>State<input type="text"
 			name="stateEnd6"> <br> 
+			
 			<br>Start Date : Year <select
 			id="year_start" name="year_start">
 			<option value=2016>2016</option>
 			<option value=2017>2017</option>
 			<option value=2018>2018</option>
-		</select> / Month <select id="month_start" name="month_start">
+			</select> 
+			 Month <select id="month_start" name="month_start">
 			<option value=01>1</option>
 			<option value=02>2</option>
 			<option value=03>3</option>
@@ -219,7 +228,8 @@ function validateform() {
 			<option value=10>10</option>
 			<option value=11>11</option>
 			<option value=12>12</option>
-		</select> / Day <select id="day_start" name="day_start">
+		</select> 
+			 Day <select id="day_start" name="day_start">
 			<option value=01>1</option>
 			<option value=02>2</option>
 			<option value=03>3</option>
@@ -251,12 +261,13 @@ function validateform() {
 			<option value=29>29</option>
 			<option value=30>30</option>
 			<option value=31>31</option>
-		</select> <br> <br> End Date: Year <select id="year_end"
+		</select> <br> <br> 
+			End Date: Year <select id="year_end"
 			name="year_end">
 			<option value=2016>2016</option>
 			<option value=2017>2017</option>
 			<option value=2018>2018</option>
-		</select> /Month <select id="month_end" name="month_end">
+		</select> Month <select id="month_end" name="month_end">
 			<option value=01>1</option>
 			<option value=02>2</option>
 			<option value=03>3</option>
@@ -269,7 +280,8 @@ function validateform() {
 			<option value=10>10</option>
 			<option value=11>11</option>
 			<option value=12>12</option>
-		</select> /Day <select id="day_end" name="day_end">
+		</select> 
+			Day <select id="day_end" name="day_end">
 			<option value=01>1</option>
 			<option value=02>2</option>
 			<option value=03>3</option>
@@ -302,11 +314,13 @@ function validateform() {
 			<option value=30>30</option>
 			<option value=31>31</option>
 		</select> <br> <br> What date do you want to begin searching for
-		events? <select id="year_arrive" name="year_arrive">
+		events? 
+			<select id="year_arrive" name="year_arrive">
 			<option value=2016>2016</option>
 			<option value=2017>2017</option>
 			<option value=2018>2018</option>
-		</select> / Month <select id="month_arrive" name="month_arrive">
+		</select> 
+			Month <select id="month_arrive" name="month_arrive">
 			<option value=01>1</option>
 			<option value=02>2</option>
 			<option value=03>3</option>
@@ -319,7 +333,8 @@ function validateform() {
 			<option value=10>10</option>
 			<option value=11>11</option>
 			<option value=12>12</option>
-		</select> / Day <select id="day_arrive" name="day_arrive">
+		</select>
+			Day <select id="day_arrive" name="day_arrive">
 			<option value=01>1</option>
 			<option value=02>2</option>
 			<option value=03>3</option>
