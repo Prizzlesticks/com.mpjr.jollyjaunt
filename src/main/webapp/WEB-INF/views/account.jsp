@@ -36,6 +36,8 @@
 
 				<td><form action="eventdetail" method="GET">
 					<input type="hidden" name="tripid" value = "${trip.tripid}">
+					<input type="hidden" name="fullname" value = "${fullname}">
+					<input type="hidden" name="email" value = "${email}">
 						<input type="submit" value="View" />
 					</form>
 				</td>
@@ -46,6 +48,8 @@
 	<form action="account" method="GET">
 		<input type="submit" value="Start a NEW Trip" />
 	</form>
+	
+	
 
 </body>
 </html>

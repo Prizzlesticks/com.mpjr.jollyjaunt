@@ -24,7 +24,11 @@
 			</tr>
 		</c:forEach>
 	</table>
-	<a href="home">Go Back</a>
-
+	<form action="home" method="GET">
+					<%-- <input type="hidden" name="tripid" value = "${tripid}"> --%>
+					<input type="hidden" name="fullname" value = "${fullname}">
+					<input type="hidden" name="email" value = "${email}">
+						<input type="submit" value="Go Back" />
+					</form>
 </body>
 </html>

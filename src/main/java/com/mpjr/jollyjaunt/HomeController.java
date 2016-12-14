@@ -581,23 +581,20 @@ public class HomeController {
 	public String getEventDetails(Model model, HttpServletRequest request) {
 		// displays name, city, date for each event of trip
 		
-//		HttpSession session = request.getSession();
-//		String tripid = session.getAttribute("tripid").toString();
-//		int id1 = Integer.parseInt(tripid);
+		
 		
 		int id2 = Integer.parseInt(request.getParameter("tripid"));
+		String fullname = request.getParameter("fullname");
+		String email = request.getParameter("email");
+		
+//		model.addAttribute("tripid", id2);
+		model.addAttribute("fullname", fullname);
+		model.addAttribute("email", email);
 		
 		List<EventDetail> events = DAO.getTripEvents(id2);
 		model.addAttribute("eventlist", events);
 		
-//		String[] events = request.getParameterValues("event");
-//		String[] date = request.getParameterValues("date");
-//		String[] city = request.getParameterValues("venue");
-//	
-//		model.addAttribute("events");
-//		model.addAttribute("date");
-//		model.addAttribute("city");
-		
+
 		return "eventdetail";
 
 	}
