@@ -43,11 +43,11 @@ Venue: ${eventInfo2.getEmb().getEvents().get(i).get_embedded().getVenues().get(0
 </c:if>
 
 <c:if test="${eventInfo3.getEmb().getEvents().size() > 0}">
+<h2>${destination3}: </h2>
+		<c:forEach var="i" begin="0" end="${eventInfo3.getEmb().getEvents().size()-1}">
 <form action="eventadded" method="post" 
 	target="mywindow" 
 	onsubmit="window.open('','mywindow','width=600,height=300,menubar=no,resizable=no,scrollbars=no,location=no,toolbar=no,status=no')">
-<h2>${destination3}: </h2>
-		<c:forEach var="i" begin="0" end="${eventInfo3.getEmb().getEvents().size()-1}">
 <br>
 Event: 
 <a href="${eventInfo3.getEmb().getEvents().get(i).getUrl()}" target=blank>
@@ -65,16 +65,16 @@ Venue: ${eventInfo3.getEmb().getEvents().get(i).get_embedded().getVenues().get(0
 <input type=hidden name="url" value="${eventInfo3.getEmb().getEvents().get(i).getUrl()}">
 <input type="submit" value="Add Event">
 <br><br>
-		</c:forEach>
 </form>
+		</c:forEach>
 </c:if>
 
 <c:if test="${eventInfo4.getEmb().getEvents().size() > 0}">
+<h2>${destination4}: </h2>
+		<c:forEach var="i" begin="0" end="${eventInfo4.getEmb().getEvents().size()-1}">
 <form action="eventadded" method="post" 
 	target="mywindow" 
 	onsubmit="window.open('','mywindow','width=600,height=300,menubar=no,resizable=no,scrollbars=no,location=no,toolbar=no,status=no')">
-<h2>${destination4}: </h2>
-		<c:forEach var="i" begin="0" end="${eventInfo4.getEmb().getEvents().size()-1}">
 <br>
 Event: 
 <a href="${eventInfo4.getEmb().getEvents().get(i).getUrl()}" target=blank>
@@ -92,16 +92,16 @@ Venue: ${eventInfo4.getEmb().getEvents().get(i).get_embedded().getVenues().get(0
 <input type=hidden name="url" value="${eventInfo4.getEmb().getEvents().get(i).getUrl()}">
 <input type="submit" value="Add Event">
 <br><br>
-		</c:forEach>
 </form>
+		</c:forEach>
 </c:if>
 
 <c:if test="${eventInfo5.getEmb().getEvents().size() > 0}">
+<h2>${destination5}: </h2>
+		<c:forEach var="i" begin="0" end="${eventInfo5.getEmb().getEvents().size()-1}">
 <form action="eventadded" method="post" 
 	target="mywindow" 
 	onsubmit="window.open('','mywindow','width=600,height=300,menubar=no,resizable=no,scrollbars=no,location=no,toolbar=no,status=no')">
-<h2>${destination5}: </h2>
-		<c:forEach var="i" begin="0" end="${eventInfo5.getEmb().getEvents().size()-1}">
 <br>
 Event: 
 <a href="${eventInfo5.getEmb().getEvents().get(i).getUrl()}" target=blank>
@@ -119,16 +119,16 @@ Venue: ${eventInfo5.getEmb().getEvents().get(i).get_embedded().getVenues().get(0
 <input type=hidden name="url" value="${eventInfo5.getEmb().getEvents().get(i).getUrl()}">
 <input type="submit" value="Add Event">
 <br><br>
-		</c:forEach>
 </form>
+		</c:forEach>
 </c:if>
 
 <c:if test="${eventInfo6.getEmb().getEvents().size() > 0}">
+<h2>${destination6}: </h2>
+		<c:forEach var="i" begin="0" end="${eventInfo6.getEmb().getEvents().size()-1}">
 <form action="eventadded" method="post" 
 	target="mywindow" 
 	onsubmit="window.open('','mywindow','width=600,height=300,menubar=no,resizable=no,scrollbars=no,location=no,toolbar=no,status=no')">
-<h2>${destination6}: </h2>
-		<c:forEach var="i" begin="0" end="${eventInfo6.getEmb().getEvents().size()-1}">
 <br>
 Event: 
 <a href="${eventInfo6.getEmb().getEvents().get(i).getUrl()}" target=blank>
@@ -146,15 +146,15 @@ Venue: ${eventInfo6.getEmb().getEvents().get(i).get_embedded().getVenues().get(0
 <input type=hidden name="url" value="${eventInfo6.getEmb().getEvents().get(i).getUrl()}">
 <input type="submit" value="Add Event">
 <br><br>
-		</c:forEach>
 </form>
+		</c:forEach>
 </c:if>
 
+<h2>${destination}: </h2>
+		<c:forEach var="i" begin="0" end="${eventInfo.getEmb().getEvents().size()-1}">
 <form action="eventadded" method="post" 
 	target="mywindow" 
 	onsubmit="window.open('','mywindow','width=600,height=300,menubar=no,resizable=no,scrollbars=no,location=no,toolbar=no,status=no')">
-<h2>${destination}: </h2>
-		<c:forEach var="i" begin="0" end="${eventInfo.getEmb().getEvents().size()-1}">
 <br>
 Event: 
 <a href="${eventInfo.getEmb().getEvents().get(i).getUrl()}" target=blank>
@@ -172,11 +172,11 @@ Venue: ${eventInfo.getEmb().getEvents().get(i).get_embedded().getVenues().get(0)
 <input type=hidden name="url" value="${eventInfo.getEmb().getEvents().get(i).getUrl()}">
 <input type="submit" value="Add Event">
 <br><br>
-		</c:forEach>
 </form>
+		</c:forEach>
 
 		
-	<form action="events">
+	<form action="events" method="get">
 		<input type="hidden" name="origin" value="${origin}"> 
 		<input type="hidden" name="destination" value="${destination}">
 		<input type="hidden" name="destination2" value="${destination2}">
