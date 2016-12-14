@@ -542,10 +542,17 @@ public class HomeController {
 	
 	@RequestMapping(value = "/events", method = RequestMethod.GET)
 	public String getMapSummary(Model model, HttpServletRequest request) {
+		
+		HttpSession session = request.getSession();
+		int tripid = Integer.parseInt(session.getAttribute("tripid").toString());
 		String origin = request.getParameter("origin");
 		String destination = request.getParameter("destination");
-		String[] events = request.getParameterValues("event");
+		//String[] events = request.getParameterValues("event");
 		
+		
+		List<EventDetail> events = DAO.getTripEvents(tripid);
+		
+		//model.addAttribute("eventlist", events);
 		model.addAttribute("events", events);
 		model.addAttribute("destination", destination);
 		model.addAttribute("origin", origin);

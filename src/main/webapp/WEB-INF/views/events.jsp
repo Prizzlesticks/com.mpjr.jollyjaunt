@@ -16,6 +16,7 @@
 	<h1>Events</h1>
 	
 <c:if test="${eventInfo2.getEmb().getEvents().size() > 0}">	
+<%-- <c:if test="${destination2}"> --%>
 <h2>${destination2}:</h2>
 		<c:forEach var="i" begin="0" end="${eventInfo2.getEmb().getEvents().size()-1}">
 <form action="eventadded" method="post" 
@@ -40,10 +41,12 @@ Venue: ${eventInfo2.getEmb().getEvents().get(i).get_embedded().getVenues().get(0
 <br><br>
 </form>
 		</c:forEach>
-</c:if>
+		</c:if>
+<%-- </c:if> --%>
 
 <c:if test="${eventInfo3.getEmb().getEvents().size() > 0}">
-<h2>${destination3}: </h2>
+<%-- <c:if test=${destination3 != ","}> --%>
+<h2>${destination3}:</h2>
 		<c:forEach var="i" begin="0" end="${eventInfo3.getEmb().getEvents().size()-1}">
 <form action="eventadded" method="post" 
 	target="mywindow" 
@@ -67,10 +70,12 @@ Venue: ${eventInfo3.getEmb().getEvents().get(i).get_embedded().getVenues().get(0
 <br><br>
 </form>
 		</c:forEach>
-</c:if>
+		</c:if>
+<%-- </c:if> --%>
 
 <c:if test="${eventInfo4.getEmb().getEvents().size() > 0}">
-<h2>${destination4}: </h2>
+<%-- <c:if test=${destination4 != ","}> --%>
+<h2>${destination4}:</h2>
 		<c:forEach var="i" begin="0" end="${eventInfo4.getEmb().getEvents().size()-1}">
 <form action="eventadded" method="post" 
 	target="mywindow" 
@@ -94,10 +99,12 @@ Venue: ${eventInfo4.getEmb().getEvents().get(i).get_embedded().getVenues().get(0
 <br><br>
 </form>
 		</c:forEach>
-</c:if>
+		</c:if>
+<%-- </c:if> --%>
 
 <c:if test="${eventInfo5.getEmb().getEvents().size() > 0}">
-<h2>${destination5}: </h2>
+<%-- <c:if test=${destination5 != ","}> --%>
+<h2>${destination5}:</h2>
 		<c:forEach var="i" begin="0" end="${eventInfo5.getEmb().getEvents().size()-1}">
 <form action="eventadded" method="post" 
 	target="mywindow" 
@@ -121,10 +128,12 @@ Venue: ${eventInfo5.getEmb().getEvents().get(i).get_embedded().getVenues().get(0
 <br><br>
 </form>
 		</c:forEach>
-</c:if>
+		</c:if>
+<%-- </c:if> --%>
 
 <c:if test="${eventInfo6.getEmb().getEvents().size() > 0}">
-<h2>${destination6}: </h2>
+<%-- <c:if test=${destination6 != ","}> --%>
+<h2>${destination6}:</h2>
 		<c:forEach var="i" begin="0" end="${eventInfo6.getEmb().getEvents().size()-1}">
 <form action="eventadded" method="post" 
 	target="mywindow" 
@@ -148,9 +157,11 @@ Venue: ${eventInfo6.getEmb().getEvents().get(i).get_embedded().getVenues().get(0
 <br><br>
 </form>
 		</c:forEach>
-</c:if>
+		</c:if>
+<%-- </c:if> --%>
 
-<h2>${destination}: </h2>
+<%-- <c:if test=${destination != ","}> --%>
+<h2>${destination}:</h2>
 		<c:forEach var="i" begin="0" end="${eventInfo.getEmb().getEvents().size()-1}">
 <form action="eventadded" method="post" 
 	target="mywindow" 
@@ -174,6 +185,7 @@ Venue: ${eventInfo.getEmb().getEvents().get(i).get_embedded().getVenues().get(0)
 <br><br>
 </form>
 		</c:forEach>
+		<%-- </c:if> --%>
 
 		
 	<form action="events" method="get">
