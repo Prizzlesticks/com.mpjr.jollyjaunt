@@ -18,8 +18,9 @@
 	<a href="#" onclick="signOut();">Sign out</a> Please log in and then
 	click below to access your account:
 	<form name="variable" action="home">
-		<input type="hidden" name="fullname" /> <input type="hidden"
-			name="email" /> <br> <input type="submit" value="Continue" />
+		<input type="hidden" name="fullname" /> 
+		<input type="hidden" name="email" /> 
+		<br> <input type="submit" value="Continue" />
 	</form>
 	<script>
 		function signOut() {
