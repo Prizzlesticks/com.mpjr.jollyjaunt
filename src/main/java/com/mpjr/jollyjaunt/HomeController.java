@@ -547,15 +547,30 @@ public class HomeController {
 		int tripid = Integer.parseInt(session.getAttribute("tripid").toString());
 		String origin = request.getParameter("origin");
 		String destination = request.getParameter("destination");
+
 		//String[] events = request.getParameterValues("event");
 		
 		
 		List<EventDetail> events = DAO.getTripEvents(tripid);
+
+
+		//String[] events = request.getParameterValues("event");
+		String destination2 = request.getParameter("destination2");
+		String destination3 = request.getParameter("destination3");
+		String destination4 = request.getParameter("destination4");
+		String destination5 = request.getParameter("destination5");
+		String destination6 = request.getParameter("destination6");
+
 		
 		//model.addAttribute("eventlist", events);
 		model.addAttribute("events", events);
 		model.addAttribute("destination", destination);
 		model.addAttribute("origin", origin);
+		model.addAttribute("destination2", destination2);
+		model.addAttribute("destination3", destination3);
+		model.addAttribute("destination4", destination4);
+		model.addAttribute("destination5", destination5);
+		model.addAttribute("destination6", destination6);
 
 		return "routemapevents";
 		// shows the route map as well as any events chosen by user
