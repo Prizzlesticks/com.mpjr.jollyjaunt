@@ -24,6 +24,7 @@
 			</tr>
 		</c:forEach>
 	</table>
+
 	<form action="home" method="GET">
 					<%-- <input type="hidden" name="tripid" value = "${tripid}"> --%>
 					<input type="hidden" name="fullname" value = "${fullname}">
