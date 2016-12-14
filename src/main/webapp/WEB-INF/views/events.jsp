@@ -199,7 +199,12 @@ Venue: ${eventInfo.getEmb().getEvents().get(i).get_embedded().getVenues().get(0)
 		<input type="submit" value="Continue">
 	</form>
 	
-	<script>
+			<form action="home" method="GET">
+					<input type="hidden" name="fullname" value = "${fullname}">
+					<input type="hidden" name="email" value = "${email}">
+					<input type="submit" value="Return to Account" />
+			</form>
+	<!-- <script>
 		function getOriginDestination() {
 			document.forms["eventform"]["origin"].value = $
 			{
@@ -212,6 +217,6 @@ Venue: ${eventInfo.getEmb().getEvents().get(i).get_embedded().getVenues().get(0)
 			}
 			;
 		}
-	</script>
+	</script> -->
 </body>
 </html>

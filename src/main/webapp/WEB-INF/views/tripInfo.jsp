@@ -381,9 +381,15 @@
 			<option value="sports">Sports
 			<option value="family">Family
 			<option value="none">Doesn't Matter
-		</select> <br> <br> <input type="submit" value="Get Event List"> 
+		</select> <br> <br> <input type="submit" value="Continue"> 
 
 </form>
+
+			<form action="home" method="GET">
+					<input type="hidden" name="fullname" value = "${fullname}">
+					<input type="hidden" name="email" value = "${email}">
+					<input type="submit" value="Return to Account" />
+			</form>
     	
 </body>
 </html>

@@ -38,13 +38,15 @@ public class HomeController {
 	public String addNewUser(Model model, HttpServletRequest request, HttpServletResponse response) {
 		String fullname = request.getParameter("fullname");
 		String email = request.getParameter("email");
-
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("fullname", fullname);
+		session.setAttribute("email", email);
 		// pull user information from db, retrieve userid if email on file
 		if ((DAO.getUserId(email) != 0)) {
 
 			int userid = (DAO.getUserId(email));
-
-			HttpSession session = request.getSession();
+			
 			session.setAttribute("userid", userid);
 
 			model.addAttribute("userid", userid);
@@ -66,42 +68,38 @@ public class HomeController {
 			// details
 			// add user info (full name, email) to database and generate user id
 
-			// String email = user.getEmail();
-
 			user.setEmail(email);
 			int userid = DAO.addUserDetail(user);
 
 			model.addAttribute("userid", userid);
 			model.addAttribute("email", email);
 			model.addAttribute("fullname", fullname);
-			HttpSession session = request.getSession();
+			
 			session.setAttribute("userid", userid);
 			String useridstring = Integer.toString(userid);
 			// this will show no saved trips, just trip table
-
-			// List<TripDetail> trips = DAO.getAllTrips(userid);
-			// model.addAttribute("triplist", trips);
 
 			return "account";
 
 		}
 	}
 
-	// handles requests for the application googleview (map) page
-	@RequestMapping(value = "/Google1", method = RequestMethod.GET)
-	public String buildMap(Model model) {
-		return "googleview";
-	}
-
 	// handles requests for the trip info page (where user inputs trip info)
 	@RequestMapping(value = "/account", method = RequestMethod.GET)
-	public String account(Model model) {
+	public String account(Model model, HttpServletRequest request) {
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG);
 		
 		String formattedDate = dateFormat.format(date);
 		
 		model.addAttribute(formattedDate);
+		
+		String fullname = request.getParameter("fullname");
+		String email = request.getParameter("email");
+		
+		model.addAttribute("fullname", fullname);
+		model.addAttribute("email", email);
+		
 		return "tripInfo";
 	}
 
@@ -112,7 +110,11 @@ public class HomeController {
 		// takes in user input of trip info (title, origin, dest,dates,etc)
 		HttpSession session = request.getSession();
 		String userid = session.getAttribute("userid").toString();
-
+		String fullname = session.getAttribute("fullname").toString();
+		String email = session.getAttribute("email").toString();
+		
+		model.addAttribute("fullname",fullname);
+		model.addAttribute("email",email);
 		
 		String title = request.getParameter("title");
 		String cityStart = request.getParameter("cityStart");
@@ -234,7 +236,6 @@ public class HomeController {
 			else {
 				model.addAttribute("genre");
 			}
-			// "https://app.ticketmaster.com/discovery/v2/events.json?city=chicago&startDateTime=2016-12-20T15:00:00Z&endDateTime=2017-01-01T15:00:00Z&apikey=UA08AxXZd7TGbabcIQ4jEMVFE6BiLQ1d";
 
 			// provide events based on city selected, show events from arrival
 			// date through end date
@@ -287,13 +288,7 @@ public class HomeController {
 						// parse json data from ticketmaster API
 						Gson gson = new Gson();
 						eventInfo = gson.fromJson(response.toString(), EventInfo.class);
-						// for (int i=0;
-						// i<eventInfo.getEmb().getEvents().size();
-						// i++) {
-						// name = name +
-						// eventInfo.getEmb().getEvents().get(i).getName() +
-						// "<br>";
-						// }
+						
 					} else {
 
 					}
@@ -323,7 +318,6 @@ public class HomeController {
 
 						while ((inputLine = in.readLine()) != null) {
 							response.append(inputLine);
-							// System.out.println(inputLine);
 						}
 						in.close();
 
@@ -361,7 +355,6 @@ public class HomeController {
 
 						while ((inputLine = in.readLine()) != null) {
 							response.append(inputLine);
-							// System.out.println(inputLine);
 						}
 						in.close();
 
@@ -398,7 +391,6 @@ public class HomeController {
 
 						while ((inputLine = in.readLine()) != null) {
 							response.append(inputLine);
-							// System.out.println(inputLine);
 						}
 						in.close();
 
@@ -436,7 +428,6 @@ public class HomeController {
 
 						while ((inputLine = in.readLine()) != null) {
 							response.append(inputLine);
-							// System.out.println(inputLine);
 						}
 						in.close();
 
@@ -474,7 +465,6 @@ public class HomeController {
 
 						while ((inputLine = in.readLine()) != null) {
 							response.append(inputLine);
-							// System.out.println(inputLine);
 						}
 						in.close();
 
@@ -504,14 +494,15 @@ public class HomeController {
 			
 			return "events";
 		} else {
+			
 			return "routemap";
 			// if user does not want to select events, go to routemap view
 			// and display map of route based on destinations selected
 		}
 	}
 
-	// handles requests for routemapevents application page
 	
+	// handles requests for eventadded application page
 	@RequestMapping(value = "/eventadded", method = RequestMethod.POST)
 	public String addEvent(Model model, HttpServletRequest request) {
 		
@@ -538,8 +529,8 @@ public class HomeController {
 		return "eventadded";
 	}
 	
-	//CHANGED MAPPING TO EVENTS FROM ROUTEMAPEVENTS
 	
+	// handles requests for routemapevents application page
 	@RequestMapping(value = "/events", method = RequestMethod.GET)
 	public String getMapSummary(Model model, HttpServletRequest request) {
 		
@@ -547,22 +538,21 @@ public class HomeController {
 		int tripid = Integer.parseInt(session.getAttribute("tripid").toString());
 		String origin = request.getParameter("origin");
 		String destination = request.getParameter("destination");
+		
+		String fullname = session.getAttribute("fullname").toString();
+		String email = session.getAttribute("email").toString();
+	
+		model.addAttribute("fullname", fullname);
+		model.addAttribute("email", email);
 
-		//String[] events = request.getParameterValues("event");
-		
-		
 		List<EventDetail> events = DAO.getTripEvents(tripid);
-
-
-		//String[] events = request.getParameterValues("event");
+		
 		String destination2 = request.getParameter("destination2");
 		String destination3 = request.getParameter("destination3");
 		String destination4 = request.getParameter("destination4");
 		String destination5 = request.getParameter("destination5");
 		String destination6 = request.getParameter("destination6");
 
-		
-		//model.addAttribute("eventlist", events);
 		model.addAttribute("events", events);
 		model.addAttribute("destination", destination);
 		model.addAttribute("origin", origin);
@@ -581,13 +571,10 @@ public class HomeController {
 	public String getEventDetails(Model model, HttpServletRequest request) {
 		// displays name, city, date for each event of trip
 		
-		
-		
 		int id2 = Integer.parseInt(request.getParameter("tripid"));
 		String fullname = request.getParameter("fullname");
 		String email = request.getParameter("email");
-		
-//		model.addAttribute("tripid", id2);
+	
 		model.addAttribute("fullname", fullname);
 		model.addAttribute("email", email);
 		
