@@ -27,6 +27,8 @@
  	var es5 = document.forms["form2"]["stateEnd5"].value;
  	var ec6 = document.forms["form2"]["cityEnd6"].value;
  	var es6 = document.forms["form2"]["stateEnd6"].value;
+ 	var choice = document.forms["form2"]["choice"].value;
+ 	var genre = document.forms["form2"]["genre"].value;
 	
 	
  	var sy = document.forms["form2"]["year_start"];
@@ -45,132 +47,136 @@
  	var arrivaldate = ya + "-" + ma + "-" + da;
  	var enddate = ey + "-" + em + "-" + ed;
 	
+ 	
+ 	var valid = true;
  	var  letters = /^[A-Za-z]+$/;  
  	var message="";
  	 
  	if (ttl === "") {
  		message +="Enter a Trip Title. \n";
-     	return false;
+ 		valid = false;
  	}
      if (document.forms["form2"]["cityStart"].value === "") {
      	message +="Enter trip location starting city. \n";
-     	return false;
+     	valid = false;
    		 } else if (!(document.forms["form2"]["cityStart"].value.match(letters))) {
     		message +="Enter trip location starting city. \n";
-       		return false;
+    		valid = false;
      } 
      if (ss === "")   {
      	message +="Enter trip location starting state. \n";
-        return false;
+     	valid = false;
         	 }  else if (!(ss.value.match(letters))) {
         	message +="Enter trip location starting state. \n";
-             return false;
+        	valid = false;
      }
      if (ec === "") {
          message +="Enter trip location starting city. \n";
-         return false;
+         valid = false;
         	 } else if (!(ec.value.match(letters))) {
          	message +="Enter trip location starting city. \n";
-             return false;
+         	valid = false;
      } 
      if (es === "")   {
          message +="Enter trip location starting state. \n";
-         return false;
+         valid = false;
          }  else if (!(es.value.match(letters))) {
              message +="Enter trip location starting state. \n";
-             return false;
+             valid = false;
      }
      if (ec2 === "") {
          ;
          } else if (!(ec2.value.match(letters))) {
             message +="Enter trip location starting city. \n";
-            return false;
+            valid = false;
      } 
      if (es2 === "")   {
              ;
          }  else if (!(es2.value.match(letters))) {
              message +="Enter trip location starting state. \n";
-             return false;
+             valid = false;
      }
      if (ec3 === "") {
          ;
          } else if (!(ec3.value.match(letters))) {
            message +="Enter trip location starting city. \n";
-            return false;
+           valid = false;
      } 
      if (es3 === "")   {
          ;
          }  else if (!(es3.value.match(letters))) {
             message +="Enter trip location starting state. \n";
-             return false;
+            valid = false;
      }
      if (ec4 === "") {
          ;
          } else if (!(ec4.value.match(letters))) {
             message +="Enter trip location starting city. \n";
-            return false;
+            valid = false;
      } 
      if (es4 === "")   {
          ;
          }  else if (!(es4.value.match(letters))) {
              message +="Enter trip location starting state. \n";
-             return false;
+             valid = false;
      }
      if (ec5 === "") {
          ;
          } else if (!(ec5.value.match(letters))) {
             message +="Enter trip location starting city. \n";
-            return false;
+            valid = false;
      } 
      if (es5 === "")   {
          ;
          }  else if (!(es5.value.match(letters))) {
              message +="Enter trip location starting state. \n";
-             return false;
+             valid = false;
      }
      if (ec6 === "") {
          ;
      } else if (!(ec6.value.match(letters))) {
         message +="Enter trip location starting city. \n";
-        return false;
+        valid = false;
      } 
      if (es6 === "")   {
          ;
          }  else if (!(es6.value.match(letters))) {
             message +="Enter trip location starting state. \n";
-            return false;
+            valid = false;
      }
  			if (startdate > "${formattedDate}") {
  				message += "Please choose a date later than today. \n";
- 				return false;
+ 				valid = false;
  			}
  			if (enddate > ("${formattedDate}") && (startdate)) {
  				message += "Please choose a date later than today. \n";
- 				return false;
+ 				valid = false;
  			}
  			if (arrivaldate > ("${formattedDate}") && (startdate)) {
  				message += "Please choose a date later than today. \n";
- 				return false;
+ 				valid = false;
  			}
 			if (choice === "choose") {
  				message += "Please choose an option for Event Search. \n";
- 				return false;
+ 				valid = false;
  			}
  			if (genre === "nada") {
  				message += "Please choose an event type or No event. \n";
- 				return false;
+ 				valid = false;
  			} else if (genre === "none") {
 				message += "Please choose an event type or No event. \n";
- 				return false;
+ 				valid = false;
  			}
- 		        	if(message !== ""){
- 		        		document.getElementById("errorlog").innerHTML = "" + message + "";
- 		        	}
- 		        	return valid
- 				}
+ 			
+        	if(!valid){
+        		//document.getElementById("errorlog").innerHTML = "" + message + "";
+        		alert(message);
+        	} 
+        	return valid;
+		}
 		
  </script> 
-	<div id="formErrors" class="error"></div>       
+	<div id="errorlog" class="errorlog"></div>       
 
 	<form name="form2" action="tripInfo" onsubmit="return validateform()" method="POST">
 
