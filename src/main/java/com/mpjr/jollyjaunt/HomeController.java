@@ -9,7 +9,6 @@ import java.net.URL;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;
-
 //import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -76,7 +75,7 @@ public class HomeController {
 			model.addAttribute("fullname", fullname);
 			
 			session.setAttribute("userid", userid);
-			String useridstring = Integer.toString(userid);
+			
 			// this will show no saved trips, just trip table
 
 			return "account";
@@ -92,7 +91,7 @@ public class HomeController {
 		
 		String formattedDate = dateFormat.format(date);
 		
-		model.addAttribute(formattedDate);
+		model.addAttribute("date", formattedDate);
 		
 		String fullname = request.getParameter("fullname");
 		String email = request.getParameter("email");
@@ -222,42 +221,62 @@ public class HomeController {
 		model.addAttribute("enddate", enddate);
 		model.addAttribute("arrivaldate", arrivaldate);
 		
-
 		// option to choose events, if yes, goes to events page which shows
 		// events listed in destination choices (through ticketmaster API)
-		if (request.getParameter("choice").equals("yes")) {
+		if (request.getParameter("genre") != "none") {
+
+			String url = "";
+			String url2 = "";
+			String url3 = "";
+			String url4 = "";
+			String url5 = "";
+			String url6 = "";
 
 			String genre = request.getParameter("genre");
-			if (genre.equals(" ")){
-				;
-			} else if (genre.equals("none")) {
-				;
-			}		
-			else {
-				model.addAttribute("genre");
-			}
+			if (request.getParameter("genre").equals("all")){
+				url = "https://app.ticketmaster.com/discovery/v2/events.json?city=" + cityEnd + "&startDateTime="
+						+ arrivaldate + "T15:00:00Z&endDateTime=" + enddate
+						+ "T15:00:00Z&apikey=UA08AxXZd7TGbabcIQ4jEMVFE6BiLQ1d";
+				url2 = "https://app.ticketmaster.com/discovery/v2/events.json?city=" + cityEnd2 + "&classificationName="+genre+"&startDateTime="
+						+ arrivaldate + "T15:00:00Z&endDateTime=" + enddate
+						+ "T15:00:00Z&apikey=UA08AxXZd7TGbabcIQ4jEMVFE6BiLQ1d";
+				url3 = "https://app.ticketmaster.com/discovery/v2/events.json?city=" + cityEnd3 + "&classificationName="+genre+"&startDateTime="
+						+ arrivaldate + "T15:00:00Z&endDateTime=" + enddate
+						+ "T15:00:00Z&apikey=UA08AxXZd7TGbabcIQ4jEMVFE6BiLQ1d";
+				url4 = "https://app.ticketmaster.com/discovery/v2/events.json?city=" + cityEnd4 + "&classificationName="+genre+"&startDateTime="
+						+ arrivaldate + "T15:00:00Z&endDateTime=" + enddate
+						+ "T15:00:00Z&apikey=UA08AxXZd7TGbabcIQ4jEMVFE6BiLQ1d";
+				url5 = "https://app.ticketmaster.com/discovery/v2/events.json?city=" + cityEnd5 + "&classificationName="+genre+"&startDateTime="
+						+ arrivaldate + "T15:00:00Z&endDateTime=" + enddate
+						+ "T15:00:00Z&apikey=UA08AxXZd7TGbabcIQ4jEMVFE6BiLQ1d";
+				url6 = "https://app.ticketmaster.com/discovery/v2/events.json?city=" + cityEnd6 + "&classificationName="+genre+"&startDateTime="
+						+ arrivaldate + "T15:00:00Z&endDateTime=" + enddate
+						+ "T15:00:00Z&apikey=UA08AxXZd7TGbabcIQ4jEMVFE6BiLQ1d";
+			} else {
+			model.addAttribute("genre", genre);
 
 			// provide events based on city selected, show events from arrival
 			// date through end date
-			String url = "https://app.ticketmaster.com/discovery/v2/events.json?city=" + cityEnd + "&classificationName="+genre+"&startDateTime="
+			url = "https://app.ticketmaster.com/discovery/v2/events.json?city=" + cityEnd + "&classificationName="+genre+"&startDateTime="
 					+ arrivaldate + "T15:00:00Z&endDateTime=" + enddate
 					+ "T15:00:00Z&apikey=UA08AxXZd7TGbabcIQ4jEMVFE6BiLQ1d";
-			String url2 = "https://app.ticketmaster.com/discovery/v2/events.json?city=" + cityEnd2 + "&classificationName="+genre+"&startDateTime="
+			url2 = "https://app.ticketmaster.com/discovery/v2/events.json?city=" + cityEnd2 + "&classificationName="+genre+"&startDateTime="
 					+ arrivaldate + "T15:00:00Z&endDateTime=" + enddate
 					+ "T15:00:00Z&apikey=UA08AxXZd7TGbabcIQ4jEMVFE6BiLQ1d";
-			String url3 = "https://app.ticketmaster.com/discovery/v2/events.json?city=" + cityEnd3 + "&classificationName="+genre+"&startDateTime="
+			url3 = "https://app.ticketmaster.com/discovery/v2/events.json?city=" + cityEnd3 + "&classificationName="+genre+"&startDateTime="
 					+ arrivaldate + "T15:00:00Z&endDateTime=" + enddate
 					+ "T15:00:00Z&apikey=UA08AxXZd7TGbabcIQ4jEMVFE6BiLQ1d";
-			String url4 = "https://app.ticketmaster.com/discovery/v2/events.json?city=" + cityEnd4 + "&classificationName="+genre+"&startDateTime="
+			url4 = "https://app.ticketmaster.com/discovery/v2/events.json?city=" + cityEnd4 + "&classificationName="+genre+"&startDateTime="
 					+ arrivaldate + "T15:00:00Z&endDateTime=" + enddate
 					+ "T15:00:00Z&apikey=UA08AxXZd7TGbabcIQ4jEMVFE6BiLQ1d";
-			String url5 = "https://app.ticketmaster.com/discovery/v2/events.json?city=" + cityEnd5 + "&classificationName="+genre+"&startDateTime="
+			url5 = "https://app.ticketmaster.com/discovery/v2/events.json?city=" + cityEnd5 + "&classificationName="+genre+"&startDateTime="
 					+ arrivaldate + "T15:00:00Z&endDateTime=" + enddate
 					+ "T15:00:00Z&apikey=UA08AxXZd7TGbabcIQ4jEMVFE6BiLQ1d";
-			String url6 = "https://app.ticketmaster.com/discovery/v2/events.json?city=" + cityEnd6 + "&classificationName="+genre+"&startDateTime="
+			url6 = "https://app.ticketmaster.com/discovery/v2/events.json?city=" + cityEnd6 + "&classificationName="+genre+"&startDateTime="
 					+ arrivaldate + "T15:00:00Z&endDateTime=" + enddate
 					+ "T15:00:00Z&apikey=UA08AxXZd7TGbabcIQ4jEMVFE6BiLQ1d";
-
+			}
+			
 			URL urlObj;
 			EventInfo eventInfo = null;
 			EventInfo eventInfo2 = null;
@@ -494,7 +513,6 @@ public class HomeController {
 			
 			return "events";
 		} else {
-			
 			return "routemap";
 			// if user does not want to select events, go to routemap view
 			// and display map of route based on destinations selected

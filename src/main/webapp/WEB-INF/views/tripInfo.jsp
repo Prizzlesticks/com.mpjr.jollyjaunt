@@ -9,8 +9,8 @@
 </head>
 <!--View of form to input trip information, option to go to events page if selected  -->
 <body>
-	<h1>Let's plan your trip!</h1>
-	
+	<h1>Let's plan your trip! </h1>
+	 <b>Today's Date: ${date}</b>
 <script>
  function validateform() {
  	var ttl = document.forms["form2"]["title"].value;
@@ -32,23 +32,25 @@
  	var genre = document.forms["form2"]["genre"].value;
 	
 	
- 	var sy = document.forms["form2"]["year_start"];
- 	var sm = document.forms["form2"]["month_start"];
- 	var sd = document.forms["form2"]["day_start"];
+ 	var ys = document.forms["form2"]["year_start"];
+ 	var ms = document.forms["form2"]["month_start"];
+ 	var ds = document.forms["form2"]["day_start"];
 
- 	var ey = document.forms["form2"]["year_end"];
- 	var em = document.forms["form2"]["month_end"];
-	var ed = document.forms["form2"]["day_end"];
+ 	var ye = document.forms["form2"]["year_end"];
+ 	var me = document.forms["form2"]["month_end"];
+	var de = document.forms["form2"]["day_end"];
 
  	var ya = document.forms["form2"]["year_arrive"];
  	var ma = document.forms["form2"]["month_arrive"];
 	var da = document.forms["form2"]["day_arrive"];
 	
- 	var startdate = sy + "-" + sm + "-" + sd;
- 	var arrivaldate = ya + "-" + ma + "-" + da;
- 	var enddate = ey + "-" + em + "-" + ed;
+// 	Date startdate = new Date;
+// 	Date arrivaldate = new Date;
+// 	Date enddate = new Date;
 	
- 	//test
+//  	Date startdate = date.UTC(ms + "-" + ds + "-" + ys);
+//  	Date arrivaldate = date.UTC(ma + "-" + da + "-" + ya);
+//  	Date enddate = date.UTC(me + "-" + de + "-" + ye);
  	
  	var valid = true;
  	var  letters = /^[A-Za-z]+$/;  
@@ -146,18 +148,18 @@
             message +="Enter trip location starting state. \n";
             valid = false;
      }
- 			if (startdate > "${formattedDate}") {
- 				message += "Please choose a date later than today. \n";
- 				valid = false;
- 			}
- 			if (enddate > ("${formattedDate}") && (startdate)) {
- 				message += "Please choose a date later than today. \n";
- 				valid = false;
- 			}
- 			if (arrivaldate > ("${formattedDate}") && (startdate)) {
- 				message += "Please choose a date later than today. \n";
- 				valid = false;
- 			}
+//  			if (startdate < "${date}") {
+//  				message += "Please choose a date later than today. \n";
+//  				valid = false;
+//  			}
+//  			if (enddate < startdate) {
+//  				message += "Please choose a date later than today. \n";
+//  				valid = false;
+//  			}
+//  			if (arrivaldate > enddate) {
+//  				message += "Please choose a date later than today. \n";
+//  				valid = false;
+//  			}
 			if (choice === "choose") {
  				message += "Please choose an option for Event Search. \n";
  				valid = false;
@@ -179,10 +181,14 @@
 		
  </script> 
 	<div id="errorlog" class="errorlog"></div>       
-
+<script>
+		
+		document.write(startdate);
+		</script>
 	<form name="form2" action="tripInfo" onsubmit="return validateform()" method="POST">
 
 		<br>Trip Name: <input type="text" name="title"> <br>
+		
 		<h2>Starting and Ending Locations</h2>
 			<br>Starting City: 
 			<br>City  &nbsp; <input type="text" name="cityStart"> 
@@ -394,8 +400,11 @@
 			<option value=30>30</option>
 			<option value=31>31</option>
 		</select>
-		<br> 
-		<br>
+		
+			
+		
+		<br> <br>
+
 			<input type="submit" value="Continue"> 
 
 </form>
