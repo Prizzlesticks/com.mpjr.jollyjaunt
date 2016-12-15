@@ -292,7 +292,7 @@ var today = new Date();
 			<h2>Additional Stops You Would Like to Make</h2>
 			<br>Stop 1: <br>City<input type="text" name="cityEnd2">
 			<br>State:<input type="text" name="stateEnd2"> 
-			<br>Arrival Date: <input type="text" id="datepicker2" name="arrivald2" value="" /> <br>
+			<br>Arrival Date: <input type="text" id="datepicker3" name="arrivald2" value="" /> <br>
 			
 			<br>Stop 2: 
 			<br>City: <input type="text" name="cityEnd3"> 
