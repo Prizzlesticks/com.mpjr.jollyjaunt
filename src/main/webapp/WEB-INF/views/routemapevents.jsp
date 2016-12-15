@@ -62,7 +62,8 @@
 	<h1>View Your Route</h1>
 	<div id= Right-Panel;>Your Starting point is ${origin}
 	<br> Your End point is ${destination}</div>
-	
+	<div id="map"
+		Style="height: 300px; width: 400px; align: right; border: 5px solid black;"></div>
 
 		
 	<script>
