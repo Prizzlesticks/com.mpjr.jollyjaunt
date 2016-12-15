@@ -87,12 +87,12 @@ td, th {
   font-size:15px;
   padding:10px 24px;
   border-radius:8px;
-  background-color:#66ccff;
+  background-color:white;
   
   
 }
 .button1{
-background-color:#66ccff;
+background-color:white;
 
 }
 
