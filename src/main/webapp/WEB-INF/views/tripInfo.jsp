@@ -398,11 +398,11 @@
 		
 			<option value= "nada"> Please Select a Type of Event
 			<option value="none"> No events Please
-			<option value="arts & theatre">Arts and Theater  
+			<option value="arts & theatre">Arts and Theater
 			<option value="music">Music
 			<option value="sports">Sports
 			<option value="family">Family
-			<option value="none">Doesn't Matter
+			<option value="all">Doesn't Matter
 			
 		</select> 
 		<br> <br> 
