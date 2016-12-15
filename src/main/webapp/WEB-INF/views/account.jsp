@@ -10,12 +10,13 @@
 </head>
 
 <body>
-	<h1>Account Information</h1>
+	<h1 align="center">Account Information</h1>
 
-	Welcome ${fullname} Click a trip ID to open a saved trip or click new
-	trip to create a trip! Your saved trips:
+	Welcome ${fullname}
+	<br><br>
+	 
 
-	<table border="1">
+	<table >
 		<tr>
 			<th>Trip Name</th>
 			<th>Origin</th>
@@ -38,7 +39,7 @@
 					<input type="hidden" name="tripid" value = "${trip.tripid}">
 					<input type="hidden" name="fullname" value = "${fullname}">
 					<input type="hidden" name="email" value = "${email}">
-						<input type="submit" value="View" />
+						<input class="button"  type="submit" value="View" />
 					</form>
 				</td>
 			</tr>
@@ -49,10 +50,42 @@
 					<%-- <input type="hidden" name="tripid" value = "${trip.tripid}"> --%>
 					<input type="hidden" name="fullname" value = "${fullname}">
 					<input type="hidden" name="email" value = "${email}">
-		<input type="submit" value="Start a NEW Trip" />
+		<input class="button1"  type="submit" value="Start a NEW Trip" />
 	</form>
+	</body>
 	
-	
+	<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 120%;
+}
 
-</body>
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+.button,.button1{
+
+  border: none;
+  color:black;
+  cursor:pointer;
+  margin: 4px 2px;
+  font-size:15px;
+  padding:10px 24px;
+  border-radius:8px;
+  
+  
+}
+.button1{
+background-color:#66ccff;
+
+}
+
+</style>
 </html>
