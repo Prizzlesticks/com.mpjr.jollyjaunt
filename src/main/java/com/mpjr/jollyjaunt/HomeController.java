@@ -9,7 +9,6 @@ import java.net.URL;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;
-
 //import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -92,7 +91,7 @@ public class HomeController {
 		
 		String formattedDate = dateFormat.format(date);
 		
-		model.addAttribute(formattedDate);
+		model.addAttribute("date", formattedDate);
 		
 		String fullname = request.getParameter("fullname");
 		String email = request.getParameter("email");
