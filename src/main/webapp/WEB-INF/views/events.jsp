@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Events</title>
+<link rel="stylesheet" href= "resources/events.css">
 </head>
 <!--View the event information based on city/dates user selected -->
 <!--The information displayed here is parsed from Ticketmaster API -->
@@ -160,6 +161,7 @@ Venue: ${eventInfo6.getEmb().getEvents().get(i).get_embedded().getVenues().get(0
 		</c:if>
 </c:if>
 
+<c:if test="${eventInfo6.getEmb().getEvents().size() > 0}">
 <c:if test="${destination != ', '}">
 <h2>${destination}:</h2>
 		<c:forEach var="i" begin="0" end="${eventInfo.getEmb().getEvents().size()-1}">
@@ -185,6 +187,7 @@ Venue: ${eventInfo.getEmb().getEvents().get(i).get_embedded().getVenues().get(0)
 <br><br>
 </form>
 		</c:forEach>
+	</c:if>
 	</c:if>
 	
 	<form action="events" method="get">

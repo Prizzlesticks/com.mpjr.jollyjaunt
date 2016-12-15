@@ -10,18 +10,36 @@
 </head>
 <!-- View the home page, with google login/OAuth-->
 <body>
-	<h1>Welcome to Jolly Jaunt!</h1>
 
-	<h2>Please Log In</h2>
 
-	<div class="g-signin2" data-onsuccess="onSignIn"></div>
-	<a href="#" onclick="signOut();">Sign out</a> Please log in and then
-	click below to access your account:
+	<h1 align="center">Welcome to Jolly Jaunt!</h1>
+
+<table align=center  >
+ <tr><th colspan=2 align=center >
+      <font size=5>Login</font>
+</tr>
+<tr>
+    <td>Google Signin</td>
+	<td> <div class="g-signin2" data-onsuccess="onSignIn"> </div> </td>
+	</tr>
+	<tr>
+	<td> Google Signout</td>
+	<td> <a href="#" onclick="signOut();">Sign out</a> </td>
+	<!-- <a href="#" onclick="signOut();">Sign out</a> -->
+	</table>
+	<br><br><br>
+	<p align="center">Log in and then click continue</p>
 	<form name="variable" action="home">
+
 		<input type="hidden" name="fullname" /> 
-		<input type="hidden" name="email" /> 
-		<br> <input type="submit" value="Continue" />
+		<input type="hidden" name="email" /> <br> 
+
+			<div class="wrapper" align="center">
+			<input class="button" type="submit" value="Continue" />
+			</div>
+
 	</form>
+	
 	<script>
 		function signOut() {
 			var auth2 = gapi.auth2.getAuthInstance();
@@ -58,4 +76,49 @@
 	</script>
 
 </body>
+<style>
+table{
+    background-color:#E6E6FA;
+  
+  width:100%
+  cellpadding:4;
+  cellspacing:2 ;
+   border: 1px solid black;
+
+}
+td{
+  text-align:left;
+  padding:10px
+}
+
+td,th{
+color:black;
+}
+.button{
+ background-color:#E6E6FA;
+  border: none;
+  color:black;
+  cursor:pointer;
+  margin: 4px 2px;
+  font-size:15px;
+  padding:10px 24px;
+  border-radius:8px;
+  
+  
+}
+body{
+background-repeat: no-repeat;
+background-size: 1300px 1200px;
+  background-position: center;
+  font-family: Verdana;
+  color: white;
+
+   background-size:100%;
+   background-image: url("https://storage.googleapis.com/wzukusers/user-25852961/images/5851ae2f4a2b7s6TWdhD/BG1_d1450.jpg");
+ }
+
+
+
+</style>
+
 </html>
