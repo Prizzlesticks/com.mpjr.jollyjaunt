@@ -7,6 +7,10 @@
         font-family: 'Roboto','sans-serif';
         line-height: 30px;
         padding-left: 10px;
+        text-align: center;
+      }
+      h1 {
+      text-align: center;
       }
 
       #right-panel select, #right-panel input {

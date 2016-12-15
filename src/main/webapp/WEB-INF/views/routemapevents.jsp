@@ -6,42 +6,63 @@
 <meta charset="utf-8">
 <title>Directions service</title>
 <style>
+  #right-panel {
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+        text-align: center;
+      }
+      h1 {
+      text-align: center;
+      }
 
-header,
-section,
-aside,
-footer {
-  margin: 0 1.5% 24px 1.5%;
-}
-header {
-text-align:center;
-}
+      #right-panel select, #right-panel input {
+        font-size: 15px;
+      }
 
-section {
-  float: left;
-  width: 47%;
-}
-aside {
-  float: right;
- 
-  height: 300px; width: 400px; align: right; border: 5px solid black
-}
-footer {
-text-align: center;
-  clear: both;
-  margin-bottom: 0;
-}
-</style>
+      #right-panel select {
+        width: 100%;
+      }
+
+      #right-panel i {
+        font-size: 12px;
+      }
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+        float: left;
+        width: 70%;
+        height: 100%;
+      }
+      #right-panel {
+        margin: 20px;
+        border-width: 2px;
+        width: 20%;
+        height: 400px;
+        float: left;
+        text-align: left;
+        padding-top: 0;
+      }
+      #directions-panel {
+        margin-top: 10px;
+        background-color: #FFEE77;
+        padding: 10px;
+      }
+    </style>
 </head>
 <!--View route on map based on origin and destinations selected  -->
 <!--Link to google maps for full directions/mapping -->
 <!--View events selected/submitted from the events view page -->
 <body style="text-align: left;">
-	<header>
+	
 	<h1>View Your Route</h1>
-	Your Starting point is ${origin}
-	<br> Your End point is ${destination}
-	</header>
+	<div id= Right-Panel;>Your Starting point is ${origin}
+	<br> Your End point is ${destination}</div>
+	
 
 		
 	<script>
