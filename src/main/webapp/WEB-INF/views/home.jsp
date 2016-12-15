@@ -94,6 +94,7 @@ td{
 td,th{
 color:black;
 }
+
 .button{
  background-color:#E6E6FA;
   border: none;

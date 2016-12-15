@@ -6,8 +6,30 @@
 <meta charset="utf-8">
 <title>Directions service</title>
 <style>
-#map {
-	height: 100%;
+
+header,
+section,
+aside,
+footer {
+  margin: 0 1.5% 24px 1.5%;
+}
+header {
+text-align:center;
+}
+
+section {
+  float: left;
+  width: 47%;
+}
+aside {
+  float: right;
+ 
+  height: 300px; width: 400px; align: right; border: 5px solid black
+}
+footer {
+text-align: center;
+  clear: both;
+  margin-bottom: 0;
 }
 </style>
 </head>
@@ -15,12 +37,13 @@
 <!--Link to google maps for full directions/mapping -->
 <!--View events selected/submitted from the events view page -->
 <body style="text-align: left;">
+	<header>
 	<h1>View Your Route</h1>
 	Your Starting point is ${origin}
 	<br> Your End point is ${destination}
-	<div id="map"
-		Style="height: 300px; width: 400px; align: right; border: 5px solid black;"></div>
+	</header>
 
+		
 	<script>
 		var link = "http://www.google.com/maps/dir/" + "${origin}" + "/";
 
@@ -44,12 +67,15 @@
 				
 	</script>
 
+<section>
 	<h2>For Full Directions and Voice Mapping</h2>
 	<script>
 		document.write('<a href="' + link + '" target = blank;>click here</a>');
 	</script>
-	<div id="directions-panel"></div>
+	</section>
+	<aside>
 	<script>
+	
 	//initial map
 		function initMap() {
 			var directionsService = new google.maps.DirectionsService;
@@ -62,6 +88,9 @@
 
 			calculateAndDisplayRoute(directionsService, directionsDisplay);
 		}
+		</script>
+		</aside><section>
+		<script>
 		//map of route based on input (using google maps)
 		function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 			//waypts = [ "${destination2}" , "${destination3}", "${destination4}", "${destination5}", "${destination6}" ];
@@ -130,12 +159,13 @@
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzbMMCLqhLp1yFuvPmidlbGCMvIgCm4wg&callback=initMap">
 		
 	</script>
-
+</section>
 	<!-- listing events chosen by user from events view page-->
 	<br>
+<footer>
 	<h3>Your Trip Events:</h3>
 	<br>
-	<table border="1">
+	<table border="1" align="center">
 		<tr>
 			<th>Event</th>
 			<th>City</th>
@@ -156,6 +186,6 @@
 			<input type="submit" value="Return to Account" />
 		</form>
 			
-
+</footer>
 </body>
 </html>

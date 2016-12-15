@@ -17,7 +17,10 @@
 <br>${name}
 <br>${date}
 <br><a href="${url}">Tickets</a>
-<input type="submit" value="Close Window">
+<div class="wrapper" align="center">
+			<input class="button" type="submit" value="Close Window" />
+			</div>
+
 </form>
 </body>
 </html>
