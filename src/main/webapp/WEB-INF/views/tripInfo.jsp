@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Select Trip Information</title>
+<link rel="stylesheet" href= "resources/tripinfo.css">
 </head>
 <!--View of form to input trip information, option to go to events page if selected  -->
 <body>
@@ -184,14 +185,14 @@
 		<br>Trip Name: <input type="text" name="title"> <br>
 		<h2>Starting and Ending Locations</h2>
 			<br>Starting City: 
-			<br>City <input type="text" name="cityStart"> 
+			<br>City  <input type="text" name="cityStart"> 
 			<br>State <input type="text" name="stateStart"> <br> 
 			
 			<br>Ending City: 
 			<br>City <input type="text" name="cityEnd"> 
 			<br>State <input type="text" name="stateEnd"> <br>
 			
-			<h2>Additional Stops You'ld Like to Make</h2>
+			<h2>Additional Stops You Would Like to Make</h2>
 			<br>Stop 1: <br>City<input type="text" name="cityEnd2">
 			<br>State<input type="text" name="stateEnd2"> <br> 
 			
@@ -321,7 +322,15 @@
 			<option value=30>30</option>
 			<option value=31>31</option>
 		</select> 
-		<br> <br> 
+		<br> 
+		<!-- If yes is selected and submit pressed, goes to events view by pressing continue-->
+		<br>
+		<br>Look up events at your destination(s) during your trip? <br>
+			<input type="radio" name="choice" value="choose" checked> Choose Yes or No <br>
+			<input type="radio" name="choice" value="yes">Yes <br>
+			<input type="radio" name="choice" value="no">No 
+		<br> 
+		<br>
 	What date do you want to begin searching for events? 
 	<br> Year
 		<select id="year_arrive" name="year_arrive">
@@ -378,15 +387,7 @@
 			<option value=30>30</option>
 			<option value=31>31</option>
 		</select>
-
-		<!-- If yes is selected and submit pressed, goes to events view -->
-
 		<br>
-		<br>Look up events at your destination during your trip? <br>
-			<input type="radio" name="choice" value="choose" checked> Please choose Yes or No <br>
-			<input type="radio" name="choice" value="yes">Yes <br>
-			<input type="radio" name="choice" value="no">No 
-		
 		<br>Genre<select id="genre" name="genre">
 		
 			<option value= "nada"> Please Select a Type of Event
