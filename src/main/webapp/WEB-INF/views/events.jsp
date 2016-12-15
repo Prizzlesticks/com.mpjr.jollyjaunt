@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Events</title>
+<link rel="stylesheet" href= "resources/events.css">
 </head>
 <!--View the event information based on city/dates user selected -->
 <!--The information displayed here is parsed from Ticketmaster API -->

@@ -1,0 +1,39 @@
+@CHARSET "UTF-8";
+
+h1{
+  	text-align: center;
+  
+	font-family: Lucida Console;
+	font-size: 18pt;
+	color: white;
+	border-style: groove;
+	border-width: 5px;
+	border-color: white;
+	border-radius: 5px;
+  	
+ 
+ 
+  margin: 0em;
+  
+}
+
+body{
+  background-image: url("https://storage.googleapis.com/wzukusers/user-25852961/images/5851ae2f4a2b7s6TWdhD/BG1_d1450.jpg");
+background-repeat: no-repeat;
+background-size: 1300px 1200px;
+  background-position: center;
+  font-family: Verdana;
+  color: white;
+}
+
+ form{
+	color: white;
+}
+
+input {
+  border-radius: 20px;
+  background-color: white;
+    color: black;
+    border: 2px solid #000000;
+ } 
+

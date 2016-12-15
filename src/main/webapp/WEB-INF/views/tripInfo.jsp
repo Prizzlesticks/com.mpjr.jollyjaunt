@@ -185,31 +185,31 @@
 		<br>Trip Name: <input type="text" name="title"> <br>
 		<h2>Starting and Ending Locations</h2>
 			<br>Starting City: 
-			<br>City  <input type="text" name="cityStart"> 
+			<br>City  &nbsp; <input type="text" name="cityStart"> 
 			<br>State <input type="text" name="stateStart"> <br> 
 			
 			<br>Ending City: 
-			<br>City <input type="text" name="cityEnd"> 
+			<br>City &nbsp;	<input type="text" name="cityEnd"> 
 			<br>State <input type="text" name="stateEnd"> <br>
 			
 			<h2>Additional Stops You Would Like to Make</h2>
-			<br>Stop 1: <br>City<input type="text" name="cityEnd2">
+			<br>Stop 1: <br>City &nbsp;<input type="text" name="cityEnd2">
 			<br>State<input type="text" name="stateEnd2"> <br> 
 			
 			<br>Stop 2: 
-			<br>City <input type="text" name="cityEnd3"> 
+			<br>City &nbsp;<input type="text" name="cityEnd3"> 
 			<br>State<input type="text" name="stateEnd3"> <br> 
 			
 			<br>Stop 3: 
-			<br>City<input type="text" name="cityEnd4"> 
+			<br>City &nbsp;<input type="text" name="cityEnd4"> 
 			<br>State<input type="text" name="stateEnd4"> <br> 
 			
 			<br>Stop 4: 
-			<br>City<input type="text" name="cityEnd5"> 
+			<br>City &nbsp;<input type="text" name="cityEnd5"> 
 			<br>State<input type="text" name="stateEnd5"> <br> 
 			
 			<br>Stop 5: 
-			<br>City<input type="text" name="cityEnd6"> 
+			<br>City &nbsp;<input type="text" name="cityEnd6"> 
 			<br>State<input type="text" name="stateEnd6"> <br> 
 			
 	<br>Start Date : Year 
@@ -323,16 +323,23 @@
 			<option value=31>31</option>
 		</select> 
 		<br> 
-		<!-- If yes is selected and submit pressed, goes to events view by pressing continue-->
+		<!-- If event type is selected, goes to events view by pressing continue-->
 		<br>
-		<br>Look up events at your destination(s) during your trip? <br>
-			<input type="radio" name="choice" value="choose" checked> Choose Yes or No <br>
-			<input type="radio" name="choice" value="yes">Yes <br>
-			<input type="radio" name="choice" value="no">No 
-		<br> 
+		</select>
+		<br>Genre<select id="genre" name="genre">
+		
+			<option value="all"> All Events
+			<option value="none"> No Events 
+			<option value="arts & theatre">Arts and Theater  
+			<option value="music">Music
+			<option value="sports">Sports
+			<option value="family">Family
+				
+		</select> 
 		<br>
 	What date do you want to begin searching for events? 
-	<br> Year
+	<br> 
+	Year
 		<select id="year_arrive" name="year_arrive">
 			<option value=2016>2016</option>
 			<option value=2017>2017</option>
@@ -387,19 +394,8 @@
 			<option value=30>30</option>
 			<option value=31>31</option>
 		</select>
+		<br> 
 		<br>
-		<br>Genre<select id="genre" name="genre">
-		
-			<option value= "nada"> Please Select a Type of Event
-			<option value="none"> No events Please
-			<option value="arts & theatre">Arts and Theater  
-			<option value="music">Music
-			<option value="sports">Sports
-			<option value="family">Family
-			<option value="none">Doesn't Matter
-			
-		</select> 
-		<br> <br> 
 			<input type="submit" value="Continue"> 
 
 </form>
