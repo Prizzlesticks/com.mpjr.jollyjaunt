@@ -56,6 +56,13 @@
 	</body>
 	
 	<style>
+body {
+	color: white;
+	background-image:
+		url("https://storage.googleapis.com/wzukusers/user-25852961/images/5851ae2f4a2b7s6TWdhD/BG1_d1450.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	}
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -68,9 +75,9 @@ td, th {
     padding: 8px;
 }
 
-tr:nth-child(even) {
+/* tr {
     background-color: #dddddd;
-}
+} */
 .button,.button1{
 
   border: none;

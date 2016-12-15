@@ -265,7 +265,9 @@ var today = new Date();
 		<br>Trip Name: <input type="text" name="title"> <br>
 		
 		<h2>Starting and Ending Locations</h2>
-		Start Date: <input type="text" id="datepicker1" name="startd" value="" /><br>
+		Start Date: <input type="text" id="datepicker1" name="startd" value="" />
+		<br>End Date: <input type="text" id="datepicker3" name="endd" value="" /> 
+		<br>
 			<br>Starting City: 
 			<br>City:  &nbsp;&nbsp;<input type="text" name="cityStart"> 
 			<br>State: <input type="text" name="stateStart"> <br>
@@ -275,13 +277,11 @@ var today = new Date();
 			<br>State: <input type="text" name="stateEnd"> <br>
 			<br>Arrival Date: <input type="text" id="datepicker2" name="arrivald1" value="" />
 			
-			<br>End Date: <input type="text" id="datepicker3" name="endd" value="" /> 
 			<br>
 			<h2>Additional Stops You Would Like to Make</h2>
 			<br>Stop 1: 
 			<br>City: &nbsp;<input type="text" name="cityEnd2">
 			<br>State:<input type="text" name="stateEnd2">
-			<br> 
 			<!-- <br>Arrival Date: <input type="text" id="datepicker4" name="arrivald2" value="" /> <br> -->
 			
 			<br>Stop 2: 

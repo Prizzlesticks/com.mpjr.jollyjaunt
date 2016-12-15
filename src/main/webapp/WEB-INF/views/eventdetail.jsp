@@ -60,8 +60,6 @@ td, th {
     padding: 8px;
 }
 
-tr:nth-child(even) {
-    background-color: #dddddd;
-}
+
 </style>
 </html>
