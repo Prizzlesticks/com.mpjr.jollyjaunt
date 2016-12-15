@@ -14,10 +14,6 @@
 
 	<h1 align="center">Welcome to Jolly Jaunt!</h1>
 
-	<h2>Please Log In</h2>
-
-
-	
 <table align=center  >
  <tr><th colspan=2 align=center >
       <font size=5>Login</font>
@@ -37,14 +33,11 @@
 
 		<input type="hidden" name="fullname" /> <input type="hidden"
 			name="email" /> <br> 
-			<div class="wrapper" align="center">
-			<input class="button" type="submit" value="Continue" />
-			</div>
-			
-
 		<input type="hidden" name="fullname" /> 
 		<input type="hidden" name="email" /> 
-		<br> <input type="submit" value="Continue" />
+	 <div class="wrapper" align="center">
+			<input class="button" type="submit" value="Continue" />
+			</div>
 
 	</form>
 	
@@ -87,10 +80,11 @@
 <style>
 table{
     background-color:#E6E6FA;
-  border:1px;
+  
   width:100%
   cellpadding:4;
   cellspacing:2 ;
+   border: 1px solid black;
 
 }
 td{
@@ -98,7 +92,9 @@ td{
   padding:10px
 }
 
-
+td,th{
+color:black;
+}
 .button{
  background-color:#E6E6FA;
   border: none;
@@ -112,8 +108,14 @@ td{
   
 }
 body{
-  background-image: url("http://webneel.com/daily/sites/default/files/images/daily/03-2013/8-forest-road-landscape-photography.jpg");
+background-repeat: no-repeat;
+background-size: 1300px 1200px;
+  background-position: center;
+  font-family: Verdana;
+  color: white;
+
    background-size:100%;
+   background-image: url("https://storage.googleapis.com/wzukusers/user-25852961/images/5851ae2f4a2b7s6TWdhD/BG1_d1450.jpg");
  }
 
 

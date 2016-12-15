@@ -59,7 +59,7 @@
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    width: 120%;
+    width: 100%;
 }
 
 td, th {
@@ -80,6 +80,7 @@ tr:nth-child(even) {
   font-size:15px;
   padding:10px 24px;
   border-radius:8px;
+  background-color:#66ccff;
   
   
 }
