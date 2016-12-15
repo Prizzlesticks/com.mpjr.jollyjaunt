@@ -40,11 +40,6 @@
 			<div class="wrapper" align="center">
 			<input class="button" type="submit" value="Continue" />
 			</div>
-			
-
-		<input type="hidden" name="fullname" /> 
-		<input type="hidden" name="email" /> 
-		<br> <input type="submit" value="Continue" />
 
 	</form>
 	
