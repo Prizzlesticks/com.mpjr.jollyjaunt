@@ -87,6 +87,8 @@ public class HomeController {
 	@RequestMapping(value = "/account", method = RequestMethod.GET)
 	public String account(Model model, HttpServletRequest request) {
 		Date date = new Date();
+		
+		
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG);
 		
 		String formattedDate = dateFormat.format(date);
