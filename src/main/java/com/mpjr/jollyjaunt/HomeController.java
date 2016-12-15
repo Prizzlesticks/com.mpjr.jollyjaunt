@@ -223,7 +223,9 @@ public class HomeController {
 		
 		// option to choose events, if yes, goes to events page which shows
 		// events listed in destination choices (through ticketmaster API)
-		if (request.getParameter("genre") != "none") {
+		if (request.getParameter("genre").equals("none")) {
+			return "routemap";
+		} else {
 
 			String url = "";
 			String url2 = "";
@@ -253,7 +255,6 @@ public class HomeController {
 						+ arrivaldate + "T15:00:00Z&endDateTime=" + enddate
 						+ "T15:00:00Z&apikey=UA08AxXZd7TGbabcIQ4jEMVFE6BiLQ1d";
 			} else {
-			model.addAttribute("genre", genre);
 
 			// provide events based on city selected, show events from arrival
 			// date through end date
@@ -276,6 +277,7 @@ public class HomeController {
 					+ arrivaldate + "T15:00:00Z&endDateTime=" + enddate
 					+ "T15:00:00Z&apikey=UA08AxXZd7TGbabcIQ4jEMVFE6BiLQ1d";
 			}
+			model.addAttribute("genre", genre);
 			
 			URL urlObj;
 			EventInfo eventInfo = null;
@@ -512,8 +514,7 @@ public class HomeController {
 			model.addAttribute("eventInfo6", eventInfo6);
 			
 			return "events";
-		} else {
-			return "routemap";
+		
 			// if user does not want to select events, go to routemap view
 			// and display map of route based on destinations selected
 		}
