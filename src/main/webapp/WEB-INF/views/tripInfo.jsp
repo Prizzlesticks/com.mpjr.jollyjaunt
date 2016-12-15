@@ -316,21 +316,17 @@ var today = new Date();
 
 		<br> 
 		<!-- If yes is selected and submit pressed, goes to events view by pressing continue-->
-		<br>Look up events at your destination(s) during your trip? <br>
-			<input type="radio" name="choice" value="choose" checked> Choose Yes or No <br>
-			<input type="radio" name="choice" value="yes">Yes <br>
-			<input type="radio" name="choice" value="no">No 
-		<br>
+		
 		<br>
 		<br>Genre<select id="genre" name="genre">
 		
-			<option value= "nada"> Please Select a Type of Event
+			<option value="all">All Events
 			<option value="none"> No events Please
 			<option value="arts & theatre">Arts and Theater  
 			<option value="music">Music
 			<option value="sports">Sports
 			<option value="family">Family
-			<option value="none">Doesn't Matter
+			
 			
 		</select> 
 		<br> <br> 
