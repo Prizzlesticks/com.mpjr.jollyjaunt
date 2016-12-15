@@ -70,6 +70,7 @@ text-align: center;
 <section>
 	<h2>For Full Directions and Voice Mapping</h2>
 	<script>
+	//link to google maps
 		document.write('<a href="' + link + '" target = blank;>click here</a>');
 	</script>
 	</section>
