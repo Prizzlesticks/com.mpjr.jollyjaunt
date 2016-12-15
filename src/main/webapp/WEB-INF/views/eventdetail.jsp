@@ -7,6 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>View Event Details</title>
+<link rel="stylesheet" href= "resources/eventdetails.css">
 </head>
 <body>
 	<h1>Event Details</h1>
