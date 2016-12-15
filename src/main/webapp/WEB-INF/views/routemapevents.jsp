@@ -6,14 +6,10 @@
 <meta charset="utf-8">
 <title>Directions service</title>
 <style>
-  #right-panel {
+      #right-panel {
         font-family: 'Roboto','sans-serif';
         line-height: 30px;
         padding-left: 10px;
-        text-align: center;
-      }
-      h1 {
-      text-align: center;
       }
 
       #right-panel select, #right-panel input {
@@ -44,7 +40,7 @@
         width: 20%;
         height: 400px;
         float: left;
-        text-align: left;
+        text-align: center;
         padding-top: 0;
       }
       #directions-panel {
@@ -53,18 +49,31 @@
         padding: 10px;
       }
     </style>
+    <style>
+#map {
+	height: 100%;
+}
+header {
+ text-align:center;
+}
+section {
+ text-align: center;
+}
+</style>
+
 </head>
 <!--View route on map based on origin and destinations selected  -->
 <!--Link to google maps for full directions/mapping -->
 <!--View events selected/submitted from the events view page -->
 <body style="text-align: left;">
-	
+	<header>
 	<h1>View Your Route</h1>
+	</header>
 	<div id= Right-Panel;>Your Starting point is ${origin}
 	<br> Your End point is ${destination}</div>
-	
+	<div id="map"
+		Style="height: 300px; width: 400px; align: right; border: 5px solid black;"></div>
 
-		
 	<script>
 		var link = "http://www.google.com/maps/dir/" + "${origin}" + "/";
 
@@ -88,31 +97,28 @@
 				
 	</script>
 
-<section>
 	<h2>For Full Directions and Voice Mapping</h2>
 	<script>
-	//link to google maps
 		document.write('<a href="' + link + '" target = blank;>click here</a>');
 	</script>
-	</section>
-	<aside>
+	<div id="directions-panel"></div>
 	<script>
-	
 	//initial map
 		function initMap() {
 			var directionsService = new google.maps.DirectionsService;
 			var directionsDisplay = new google.maps.DirectionsRenderer;
 			var map = new google.maps.Map(document.getElementById('map'), {
 				zoom : 7,
+				center: {
+					lat: 41.85, 
+					lng: -87.65
+				}
 				
 			});
 			directionsDisplay.setMap(map);
 
 			calculateAndDisplayRoute(directionsService, directionsDisplay);
 		}
-		</script>
-		</aside><section>
-		<script>
 		//map of route based on input (using google maps)
 		function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 			//waypts = [ "${destination2}" , "${destination3}", "${destination4}", "${destination5}", "${destination6}" ];
@@ -181,33 +187,30 @@
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzbMMCLqhLp1yFuvPmidlbGCMvIgCm4wg&callback=initMap">
 		
 	</script>
-</section>
-	<!-- listing events chosen by user from events view page-->
-	<br>
-<footer>
-	<h3>Your Trip Events:</h3>
-	<br>
-	<table border="1" align="center">
-		<tr>
-			<th>Event</th>
-			<th>City</th>
-			<th>Date</th>
-		</tr>
-		<c:forEach items="${events}" var="event">
-			<tr>
-				<td>${event.event}</td>
-				<td>${event.city}</td>
-				<td>${event.date}</td>
-			</tr>
-		</c:forEach>
-	</table>
-
-		<form action="home" method="GET">
-			<input type="hidden" name="fullname" value = "${fullname}">
-			<input type="hidden" name="email" value = "${email}">
-			<input type="submit" value="Return to Account" />
-		</form>
-			
-</footer>
+	<section>
+	<br><br>
+	 <h3>Your Trip Events:</h3>
+	 </section>
+    <table border="1" align="center">
+       <tr>
+            <th>Event</th>
+            <th>City</th>
+            <th>Date</th>
+        </tr>
+        <c:forEach items="${events}" var="event">
+            <tr>
+                <td>${event.event}</td>
+                <td>${event.city}</td>
+                <td>${event.date}</td>
+            </tr>
+        </c:forEach>
+    </table>
+	
+	<form action="home" align="center" method="GET">
+		<input type="hidden" name="fullname" value = "${fullname}">
+		<input type="hidden" name="email" value = "${email}">
+		<input type="submit" align="center" value="Return to Account" />
+	</form>
+	
 </body>
 </html>
