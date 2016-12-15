@@ -7,7 +7,7 @@
 
 	<class name="com.mpjr.jollyjaunt.EventDetail" table="events">
 		<id name="eventid" column="eventid" type="int">
-			<generator class="increment"></generator>
+			<generator class="native"></generator>
 		</id>
 		<property name="event" column="event" type="string"></property>
 		<property name="tripid" column="trip_id" type="int"></property>
