@@ -237,19 +237,19 @@ public class HomeController {
 				url = "https://app.ticketmaster.com/discovery/v2/events.json?city=" + cityEnd + "&startDateTime="
 						+ arrivaldate + "T15:00:00Z&endDateTime=" + enddate
 						+ "T15:00:00Z&apikey=UA08AxXZd7TGbabcIQ4jEMVFE6BiLQ1d";
-				url2 = "https://app.ticketmaster.com/discovery/v2/events.json?city=" + cityEnd2 + "&classificationName="+genre+"&startDateTime="
+				url2 = "https://app.ticketmaster.com/discovery/v2/events.json?city=" + cityEnd2 + "&startDateTime="
 						+ arrivaldate + "T15:00:00Z&endDateTime=" + enddate
 						+ "T15:00:00Z&apikey=UA08AxXZd7TGbabcIQ4jEMVFE6BiLQ1d";
-				url3 = "https://app.ticketmaster.com/discovery/v2/events.json?city=" + cityEnd3 + "&classificationName="+genre+"&startDateTime="
+				url3 = "https://app.ticketmaster.com/discovery/v2/events.json?city=" + cityEnd3 + "&startDateTime="
 						+ arrivaldate + "T15:00:00Z&endDateTime=" + enddate
 						+ "T15:00:00Z&apikey=UA08AxXZd7TGbabcIQ4jEMVFE6BiLQ1d";
-				url4 = "https://app.ticketmaster.com/discovery/v2/events.json?city=" + cityEnd4 + "&classificationName="+genre+"&startDateTime="
+				url4 = "https://app.ticketmaster.com/discovery/v2/events.json?city=" + cityEnd4 + "&startDateTime="
 						+ arrivaldate + "T15:00:00Z&endDateTime=" + enddate
 						+ "T15:00:00Z&apikey=UA08AxXZd7TGbabcIQ4jEMVFE6BiLQ1d";
-				url5 = "https://app.ticketmaster.com/discovery/v2/events.json?city=" + cityEnd5 + "&classificationName="+genre+"&startDateTime="
+				url5 = "https://app.ticketmaster.com/discovery/v2/events.json?city=" + cityEnd5 + "&startDateTime="
 						+ arrivaldate + "T15:00:00Z&endDateTime=" + enddate
 						+ "T15:00:00Z&apikey=UA08AxXZd7TGbabcIQ4jEMVFE6BiLQ1d";
-				url6 = "https://app.ticketmaster.com/discovery/v2/events.json?city=" + cityEnd6 + "&classificationName="+genre+"&startDateTime="
+				url6 = "https://app.ticketmaster.com/discovery/v2/events.json?city=" + cityEnd6 + "&startDateTime="
 						+ arrivaldate + "T15:00:00Z&endDateTime=" + enddate
 						+ "T15:00:00Z&apikey=UA08AxXZd7TGbabcIQ4jEMVFE6BiLQ1d";
 			} else {
