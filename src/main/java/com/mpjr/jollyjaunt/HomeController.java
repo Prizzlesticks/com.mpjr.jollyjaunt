@@ -211,6 +211,14 @@ public class HomeController {
 		model.addAttribute("enddate", enddate);
 		model.addAttribute("arrivaldate", arrivaldate);
 		
+		String[] sdParts = startdate.split("/");
+		String[] edParts = enddate.split("/");
+		String[] adParts = arrivaldate.split("/");
+		
+		startdate = sdParts[2]+"-"+sdParts[0]+"-"+sdParts[1];
+		enddate = edParts[2]+"-"+edParts[0]+"-"+edParts[1];
+		arrivaldate = adParts[2]+"-"+adParts[0]+"-"+adParts[1];
+		
 		// option to choose events, if yes, goes to events page which shows
 		// events listed in destination choices (through ticketmaster API)
 		if (request.getParameter("genre").equals("none")) {
