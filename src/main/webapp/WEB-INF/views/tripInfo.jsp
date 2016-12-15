@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Select Trip Information</title>
+<link rel="stylesheet" href= "resources/tripinfo.css">
 </head>
 <!--View of form to input trip information, option to go to events page if selected  -->
 <body>
@@ -47,6 +48,7 @@
  	var arrivaldate = ya + "-" + ma + "-" + da;
  	var enddate = ey + "-" + em + "-" + ed;
 	
+ 	//test
  	
  	var valid = true;
  	var  letters = /^[A-Za-z]+$/;  
@@ -182,39 +184,42 @@
 
 		<br>Trip Name: <input type="text" name="title"> <br>
 		<h2>Starting and Ending Locations</h2>
-			<br>Starting City: <br>City<input type="text"
-			name="cityStart"> <br>State<input type="text"
-			name="stateStart"> <br> 
+			<br>Starting City: 
+			<br>City  <input type="text" name="cityStart"> 
+			<br>State <input type="text" name="stateStart"> <br> 
 			
-			<br>Ending City: <br>City<input
-			type="text" name="cityEnd"> <br>State<input type="text"
-			name="stateEnd"> <br>
+			<br>Ending City: 
+			<br>City <input type="text" name="cityEnd"> 
+			<br>State <input type="text" name="stateEnd"> <br>
 			
-			<h2>Additional Stops You'ld Like to Make</h2>
+			<h2>Additional Stops You Would Like to Make</h2>
 			<br>Stop 1: <br>City<input type="text" name="cityEnd2">
 			<br>State<input type="text" name="stateEnd2"> <br> 
 			
-			<br>Stop 2: <br>City<input type="text" name="cityEnd3"> <br>State<input
-			type="text" name="stateEnd3"> <br> 
+			<br>Stop 2: 
+			<br>City <input type="text" name="cityEnd3"> 
+			<br>State<input type="text" name="stateEnd3"> <br> 
 			
-			<br>Stop 3: <br>City<input
-			type="text" name="cityEnd4"> <br>State<input type="text"
-			name="stateEnd4"> <br> 
+			<br>Stop 3: 
+			<br>City<input type="text" name="cityEnd4"> 
+			<br>State<input type="text" name="stateEnd4"> <br> 
 			
-			<br>Stop 4: <br>City<input type="text" name="cityEnd5"> <br>State<input type="text"
-			name="stateEnd5"> <br> 
+			<br>Stop 4: 
+			<br>City<input type="text" name="cityEnd5"> 
+			<br>State<input type="text" name="stateEnd5"> <br> 
 			
-			<br>Stop 5: <br>City<input
-			type="text" name="cityEnd6"> <br>State<input type="text"
-			name="stateEnd6"> <br> 
+			<br>Stop 5: 
+			<br>City<input type="text" name="cityEnd6"> 
+			<br>State<input type="text" name="stateEnd6"> <br> 
 			
-			<br>Start Date : Year <select
-			id="year_start" name="year_start">
+	<br>Start Date : Year 
+		<select id="year_start" name="year_start">
 			<option value=2016>2016</option>
 			<option value=2017>2017</option>
 			<option value=2018>2018</option>
-			</select> 
-			 Month <select id="month_start" name="month_start">
+		</select> 
+	 Month 
+	 	<select id="month_start" name="month_start">
 			<option value=01>1</option>
 			<option value=02>2</option>
 			<option value=03>3</option>
@@ -228,7 +233,8 @@
 			<option value=11>11</option>
 			<option value=12>12</option>
 		</select> 
-			 Day <select id="day_start" name="day_start">
+	Day 
+		<select id="day_start" name="day_start">
 			<option value=01>1</option>
 			<option value=02>2</option>
 			<option value=03>3</option>
@@ -261,12 +267,14 @@
 			<option value=30>30</option>
 			<option value=31>31</option>
 		</select> <br> <br> 
-			End Date: Year <select id="year_end"
-			name="year_end">
+	End Date: Year 
+		<select id="year_end" name="year_end">
 			<option value=2016>2016</option>
 			<option value=2017>2017</option>
 			<option value=2018>2018</option>
-		</select> Month <select id="month_end" name="month_end">
+		</select> 
+	Month 
+		<select id="month_end" name="month_end">
 			<option value=01>1</option>
 			<option value=02>2</option>
 			<option value=03>3</option>
@@ -280,7 +288,8 @@
 			<option value=11>11</option>
 			<option value=12>12</option>
 		</select> 
-			Day <select id="day_end" name="day_end">
+	Day 
+		<select id="day_end" name="day_end">
 			<option value=01>1</option>
 			<option value=02>2</option>
 			<option value=03>3</option>
@@ -312,90 +321,96 @@
 			<option value=29>29</option>
 			<option value=30>30</option>
 			<option value=31>31</option>
-		</select> <br> <br> What date do you want to begin searching for
-		events? 
-			<select id="year_arrive" name="year_arrive">
-			<option value=2016>2016</option>
-			<option value=2017>2017</option>
-			<option value=2018>2018</option>
 		</select> 
-			Month <select id="month_arrive" name="month_arrive">
-			<option value=01>1</option>
-			<option value=02>2</option>
-			<option value=03>3</option>
-			<option value=04>4</option>
-			<option value=05>5</option>
-			<option value=06>6</option>
-			<option value=07>7</option>
-			<option value=08>8</option>
-			<option value=09>9</option>
-			<option value=10>10</option>
-			<option value=11>11</option>
-			<option value=12>12</option>
-		</select>
-			Day <select id="day_arrive" name="day_arrive">
-			<option value=01>1</option>
-			<option value=02>2</option>
-			<option value=03>3</option>
-			<option value=04>4</option>
-			<option value=05>5</option>
-			<option value=06>6</option>
-			<option value=07>7</option>
-			<option value=08>8</option>
-			<option value=09>9</option>
-			<option value=10>10</option>
-			<option value=11>11</option>
-			<option value=12>12</option>
-			<option value=13>13</option>
-			<option value=14>14</option>
-			<option value=15>15</option>
-			<option value=16>16</option>
-			<option value=17>17</option>
-			<option value=18>18</option>
-			<option value=19>19</option>
-			<option value=20>20</option>
-			<option value=21>21</option>
-			<option value=22>22</option>
-			<option value=23>23</option>
-			<option value=24>24</option>
-			<option value=25>25</option>
-			<option value=26>26</option>
-			<option value=27>27</option>
-			<option value=28>28</option>
-			<option value=29>29</option>
-			<option value=30>30</option>
-			<option value=31>31</option>
-		</select>
-
-		<!-- If yes is selected and submit pressed, goes to events view -->
-
+		<br> 
+		<!-- If yes is selected and submit pressed, goes to events view by pressing continue-->
 		<br>
-		<br>Look up events at your destination during your trip? <br>
-		<input type="radio" name="choice" value="choose" checked> Please choose Yes or No <br>
-		<input type="radio" name="choice" value="yes">Yes <br>
-		<input type="radio" name="choice" value="no">No 
-		
+		<br>Look up events at your destination(s) during your trip? <br>
+			<input type="radio" name="choice" value="choose" checked> Choose Yes or No <br>
+			<input type="radio" name="choice" value="yes">Yes <br>
+			<input type="radio" name="choice" value="no">No 
+		<br> 
+		<br>
+	What date do you want to begin searching for events? 
+	<br> Year
+		<select id="year_arrive" name="year_arrive">
+			<option value=2016>2016</option>
+			<option value=2017>2017</option>
+			<option value=2018>2018</option>
+		</select> 
+	Month 
+		<select id="month_arrive" name="month_arrive">
+			<option value=01>1</option>
+			<option value=02>2</option>
+			<option value=03>3</option>
+			<option value=04>4</option>
+			<option value=05>5</option>
+			<option value=06>6</option>
+			<option value=07>7</option>
+			<option value=08>8</option>
+			<option value=09>9</option>
+			<option value=10>10</option>
+			<option value=11>11</option>
+			<option value=12>12</option>
+		</select>
+	Day 
+		<select id="day_arrive" name="day_arrive">
+			<option value=01>1</option>
+			<option value=02>2</option>
+			<option value=03>3</option>
+			<option value=04>4</option>
+			<option value=05>5</option>
+			<option value=06>6</option>
+			<option value=07>7</option>
+			<option value=08>8</option>
+			<option value=09>9</option>
+			<option value=10>10</option>
+			<option value=11>11</option>
+			<option value=12>12</option>
+			<option value=13>13</option>
+			<option value=14>14</option>
+			<option value=15>15</option>
+			<option value=16>16</option>
+			<option value=17>17</option>
+			<option value=18>18</option>
+			<option value=19>19</option>
+			<option value=20>20</option>
+			<option value=21>21</option>
+			<option value=22>22</option>
+			<option value=23>23</option>
+			<option value=24>24</option>
+			<option value=25>25</option>
+			<option value=26>26</option>
+			<option value=27>27</option>
+			<option value=28>28</option>
+			<option value=29>29</option>
+			<option value=30>30</option>
+			<option value=31>31</option>
+		</select>
+		<br>
 		<br>Genre<select id="genre" name="genre">
 		
 			<option value= "nada"> Please Select a Type of Event
-			
 			<option value="none"> No events Please
-		
 			<option value="arts & theatre">Arts and Theater  
-			
 			<option value="music">Music
 			<option value="sports">Sports
 			<option value="family">Family
 			<option value="none">Doesn't Matter
-		</select> <br> <br> <input type="submit" value="Continue"> 
+			
+		</select> 
+		<br> <br> 
+			<input type="submit" value="Continue"> 
 
 </form>
 
-			<form action="home" method="GET">
-					<input type="hidden" name="fullname" value = "${fullname}">
-					<input type="hidden" name="email" value = "${email}">
-					<input type="submit" value="Return to Account" />
-			</form>
+	<form action="home" method="GET">
+		<input type="hidden" name="fullname" value = "${fullname}">
+		<input type="hidden" name="email" value = "${email}">
+		<input type="submit" value="Return to Account" />
+	</form>
+			
+
     	
 </body>
 </html>

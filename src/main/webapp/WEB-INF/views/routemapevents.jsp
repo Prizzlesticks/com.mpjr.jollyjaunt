@@ -150,11 +150,12 @@
 		</c:forEach>
 	</table>
 
-			<form action="home" method="GET">
-					<input type="hidden" name="fullname" value = "${fullname}">
-					<input type="hidden" name="email" value = "${email}">
-					<input type="submit" value="Return to Account" />
-			</form>
+		<form action="home" method="GET">
+			<input type="hidden" name="fullname" value = "${fullname}">
+			<input type="hidden" name="email" value = "${email}">
+			<input type="submit" value="Return to Account" />
+		</form>
+			
 
 </body>
 </html>

@@ -1,6 +1,7 @@
 package com.mpjr.jollyjaunt;
 
 //creates trip detail fields, instance variables, constructors and getters/setters 
+//TripDetail Pojo
 public class TripDetail {
 	private int tripid;
 	private int userid;

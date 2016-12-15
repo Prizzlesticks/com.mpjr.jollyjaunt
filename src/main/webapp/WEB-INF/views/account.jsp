@@ -52,6 +52,7 @@
 					<input type="hidden" name="email" value = "${email}">
 		<input class="button1"  type="submit" value="Start a NEW Trip" />
 	</form>
+
 	</body>
 	
 	<style>
@@ -86,6 +87,21 @@ tr:nth-child(even) {
 background-color:#66ccff;
 
 }
+
+
+	<form action="/" onsubmit="return signOut()" method="get">
+		<input type="submit" value="Sign Out">
+	</form>
+	
+	<script>
+		function signOut() {
+			var auth2 = gapi.auth2.getAuthInstance();
+			auth2.signOut().then(function() {
+				console.log('User signed out.');
+			});
+		}
+	</script>
+
 
 </style>
 </html>

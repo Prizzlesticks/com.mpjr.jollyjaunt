@@ -31,5 +31,18 @@
 					<input type="hidden" name="email" value = "${email}">
 						<input type="submit" value="Go Back" />
 					</form>
+	
+	<form action="/" onsubmit="return signOut()" method="get">
+		<input type="submit" value="Sign Out">
+	</form>
+	
+	<script>
+		function signOut() {
+			var auth2 = gapi.auth2.getAuthInstance();
+			auth2.signOut().then(function() {
+				console.log('User signed out.');
+			});
+		}
+	</script>
 </body>
 </html>

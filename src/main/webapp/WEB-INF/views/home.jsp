@@ -11,7 +11,11 @@
 <!-- View the home page, with google login/OAuth-->
 <body>
 
+
 	<h1 align="center">Welcome to Jolly Jaunt!</h1>
+
+	<h2>Please Log In</h2>
+
 
 	
 <table align=center  >
@@ -30,12 +34,18 @@
 	<br><br><br>
 	<p align="center">Log in and then click continue</p>
 	<form name="variable" action="home">
+
 		<input type="hidden" name="fullname" /> <input type="hidden"
 			name="email" /> <br> 
 			<div class="wrapper" align="center">
 			<input class="button" type="submit" value="Continue" />
 			</div>
 			
+
+		<input type="hidden" name="fullname" /> 
+		<input type="hidden" name="email" /> 
+		<br> <input type="submit" value="Continue" />
+
 	</form>
 	
 	<script>
