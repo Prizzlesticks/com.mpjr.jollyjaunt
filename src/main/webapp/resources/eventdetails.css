@@ -4,7 +4,7 @@ h1{
   
 	font-family: Lucida Console;
 	font-size: 18pt;
-	color: white;
+	color: black;
 	border-style: groove;
 	border-width: 5px;
 	border-color: white;
@@ -17,12 +17,8 @@ h1{
 }
 
 body{
-  background-image: url("https://storage.googleapis.com/wzukusers/user-25852961/images/5851ae2f4a2b7s6TWdhD/BG1_d1450.jpg");
-background-repeat: no-repeat;
-background-size: cover;
-  background-position: center;
   font-family: Verdana;
-  color: white;
+  color: black;
 }
 
  form{
@@ -33,5 +29,5 @@ input {
   border-radius: 20px;
   background-color: white;
     color: black;
-    border: 2px solid #000000;
+    border: 2px solid gray;
  } 

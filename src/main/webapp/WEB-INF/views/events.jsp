@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -21,7 +21,7 @@
 
 <h2>${destination2}:</h2>
 		<c:forEach var="i" begin="0" end="${eventInfo2.getEmb().getEvents().size()-1}">
-		<div class = "eventstyling"> 
+		
 <form action="eventadded" method="post" 
 	target="mywindow" 
 	onsubmit="window.open('','mywindow','width=600,height=300,menubar=no,resizable=no,scrollbars=no,location=no,toolbar=no,status=no')">
@@ -41,7 +41,7 @@ Venue: ${eventInfo2.getEmb().getEvents().get(i).get_embedded().getVenues().get(0
 <input type=hidden name="date" value="${eventInfo2.getEmb().getEvents().get(i).getDates().getStart().getLocalDate()}">
 <input type=hidden name="url" value="${eventInfo2.getEmb().getEvents().get(i).getUrl()}">
 <input type="submit" value="Add Event">
-<br><br></div>
+<br><br>
 </form>
 		</c:forEach>
 		</c:if>
