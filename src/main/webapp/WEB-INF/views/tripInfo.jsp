@@ -24,24 +24,12 @@
 </script>
 <script>
 var today = new Date();
-// 	var dd = today.getDate();
-// 	var mm = today.getMonth()+1; //January is 0!
-
-// 	var yyyy = today.getFullYear();
-// 	if(dd<10){
-// 	    dd='0'+dd
-// 	} 
-// 	if(mm<10){
-// 	    mm='0'+mm
-// 	} 
-// 	var today = dd+'/'+mm+'/'+yyyy;
-// 	document.getElementById("DATE").value = today;
 </script>
 </head>
 <!--View of form to input trip information, option to go to events page if selected  -->
 <body>
 	<h1>Let's plan your trip! </h1>
-	 <b>Todays Date: ${date}</b>
+	 <b>Today's Date: ${date}</b>
 <script>
  function validateform() {
 	 var valid = true;
@@ -279,49 +267,51 @@ var today = new Date();
 		<h2>Starting and Ending Locations</h2>
 		Start Date: <input type="text" id="datepicker1" name="startd" value="" /><br>
 			<br>Starting City: 
-			<br>City:  <input type="text" name="cityStart"> 
+			<br>City:  &nbsp;&nbsp;<input type="text" name="cityStart"> 
 			<br>State: <input type="text" name="stateStart"> <br>
 			
 			<br>Ending City: 
-			<br>City: <input type="text" name="cityEnd"> 
+			<br>City: &nbsp;&nbsp;<input type="text" name="cityEnd"> 
 			<br>State: <input type="text" name="stateEnd"> <br>
-			<br>Arrival Date: <input type="text" id="datepicker2" name="arrivald1" value="" /> <br>
+			<br>Arrival Date: <input type="text" id="datepicker2" name="arrivald1" value="" />
 			
 			<br>End Date: <input type="text" id="datepicker3" name="endd" value="" /> 
 			<br>
 			<h2>Additional Stops You Would Like to Make</h2>
-			<br>Stop 1: <br>City<input type="text" name="cityEnd2">
-			<br>State:<input type="text" name="stateEnd2"> 
-			<br>Arrival Date: <input type="text" id="datepicker3" name="arrivald2" value="" /> <br>
+			<br>Stop 1: 
+			<br>City: &nbsp;<input type="text" name="cityEnd2">
+			<br>State:<input type="text" name="stateEnd2">
+			<br> 
+			<!-- <br>Arrival Date: <input type="text" id="datepicker4" name="arrivald2" value="" /> <br> -->
 			
 			<br>Stop 2: 
-			<br>City: <input type="text" name="cityEnd3"> 
+			<br>City: &nbsp;<input type="text" name="cityEnd3"> 
 			<br>State:<input type="text" name="stateEnd3"> 
-			<br>Arrival Date: <input type="text" id="datepicker4" name="arrivald3" value="" /> <br> 
-			
+			<!-- <br>Arrival Date: <input type="text" id="datepicker5" name="arrivald3" value="" /> <br> 
+			 -->
 			<br>Stop 3: 
-			<br>City:<input type="text" name="cityEnd4"> 
+			<br>City:&nbsp;&nbsp;<input type="text" name="cityEnd4"> 
 			<br>State:<input type="text" name="stateEnd4"> 
-			<br>Arrival Date: <input type="text" id="datepicker5" name="arrivald4" value="" /> <br> 
+			<!-- <br>Arrival Date: <input type="text" id="datepicker6" name="arrivald4" value="" /> <br>  -->
 			
 			<br>Stop 4: 
-			<br>City:<input type="text" name="cityEnd5"> 
+			<br>City:&nbsp;&nbsp;<input type="text" name="cityEnd5"> 
 			<br>State:<input type="text" name="stateEnd5"> 
-			<br>Arrival Date: <input type="text" id="datepicker6" name="arrivald5" value="" /> <br> 
-			
+			<!-- <br>Arrival Date: <input type="text" id="datepicker7" name="arrivald5" value="" /> <br> 
+			 -->
 			<br>Stop 5: 
-			<br>City:<input type="text" name="cityEnd6"> 
+			<br>City:&nbsp;&nbsp;<input type="text" name="cityEnd6"> 
 			<br>State:<input type="text" name="stateEnd6"> 
-			<br>Arrival Date: <input type="text" id="datepicker7" name="arrivald6" value="" /><br> 
+			<!-- <br>Arrival Date: <input type="text" id="datepicker8" name="arrivald6" value="" /><br> --> 
 
 		<br> 
-		<!-- If yes is selected and submit pressed, goes to events view by pressing continue-->
+		<!-- If a genre is selected, goes to events view by pressing continue-->
 		
 		<br>
 		<br>Genre<select id="genre" name="genre">
 		
 			<option value="all">All Events
-			<option value="none"> No events Please
+			<option value="none"> No Events 
 			<option value="arts & theatre">Arts and Theater  
 			<option value="music">Music
 			<option value="sports">Sports

@@ -179,22 +179,10 @@ public class HomeController {
 			cityEnd6 = parts[0] + "%20" + part2;
 		}
 
-		String sy = request.getParameter("year_start");
-		String sm = request.getParameter("month_start");
-		String sd = request.getParameter("day_start");
-
-		String ey = request.getParameter("year_end");
-		String em = request.getParameter("month_end");
-		String ed = request.getParameter("day_end");
-
-		String ya = request.getParameter("year_arrive");
-		String ma = request.getParameter("month_arrive");
-		String da = request.getParameter("day_arrive");
-
-		String startdate = sy + "-" + sm + "-" + sd;
-		String arrivaldate = ya + "-" + ma + "-" + da;
-		String enddate = ey + "-" + em + "-" + ed;
-
+		String startdate = request.getParameter("startd");
+		String enddate = request.getParameter("endd");
+		String arrivaldate = request.getParameter("arrivald1");
+		
 		// creates new trip detail specific to this trip's user input & sets it
 		TripDetail td = new TripDetail();
 
@@ -222,6 +210,14 @@ public class HomeController {
 		model.addAttribute("startdate", startdate);
 		model.addAttribute("enddate", enddate);
 		model.addAttribute("arrivaldate", arrivaldate);
+		
+		String[] sdParts = startdate.split("/");
+		String[] edParts = enddate.split("/");
+		String[] adParts = arrivaldate.split("/");
+		
+		startdate = sdParts[2]+"-"+sdParts[0]+"-"+sdParts[1];
+		enddate = edParts[2]+"-"+edParts[0]+"-"+edParts[1];
+		arrivaldate = adParts[2]+"-"+adParts[0]+"-"+adParts[1];
 		
 		// option to choose events, if yes, goes to events page which shows
 		// events listed in destination choices (through ticketmaster API)
