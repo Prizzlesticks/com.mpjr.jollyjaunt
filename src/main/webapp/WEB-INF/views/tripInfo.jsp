@@ -50,7 +50,6 @@ var today = new Date();
  	var es5 = document.forms["form2"]["stateEnd5"].value;
  	var ec6 = document.forms["form2"]["cityEnd6"].value;
  	var es6 = document.forms["form2"]["stateEnd6"].value;
- 	var choice = document.forms["form2"]["choice"].value;
  	var genre = document.forms["form2"]["genre"].value;
  	var startd;
  	var endd;
