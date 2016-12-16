@@ -11,15 +11,12 @@
         line-height: 30px;
         padding-left: 10px;
       }
-
       #right-panel select, #right-panel input {
         font-size: 15px;
       }
-
       #right-panel select {
         width: 100%;
       }
-
       #right-panel i {
         font-size: 12px;
       }
@@ -72,11 +69,10 @@ section {
 	<div id= Right-Panel;>Your Starting point is ${origin}
 	<br> Your End point is ${destination}</div>
 	<div id="map"
-		Style="height: 300px; width: 400px; align: right; border: 5px solid black;"></div>
+		Style="height: 400px; width: 500px; align: right; border: 5px solid black;"></div>
 
 	<script>
 		var link = "http://www.google.com/maps/dir/" + "${origin}" + "/";
-
 				if ("${destination2}" !== ", "){
 					link += "${destination2}" + "/";
 				}
@@ -116,14 +112,12 @@ section {
 				
 			});
 			directionsDisplay.setMap(map);
-
 			calculateAndDisplayRoute(directionsService, directionsDisplay);
 		}
 		//map of route based on input (using google maps)
 		function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 			//waypts = [ "${destination2}" , "${destination3}", "${destination4}", "${destination5}", "${destination6}" ];
 			var ways= [ ]; 
-
 			if ("${destination2}" !== ", "){
 				ways.push({
 					location: "${destination2}",
