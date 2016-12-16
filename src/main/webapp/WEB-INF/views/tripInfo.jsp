@@ -54,11 +54,11 @@ var today = new Date();
  	var startd;
  	var endd;
  	var arrivald1;
- 	var arrivald2;
- 	var arrivald3;
- 	var arrivald4;
- 	var arrivald5;
- 	var arrivald6;
+//  	var arrivald2;
+//  	var arrivald3;
+//  	var arrivald4;
+//  	var arrivald5;
+//  	var arrivald6;
  	var startdayStr = document.forms["form2"]["startd"].value;
  	if ((startdayStr !== "") && (startdayStr !== null)) {
 		startd = new Date(startdayStr);
@@ -80,26 +80,26 @@ var today = new Date();
  		message += "Please enter an Arrival Date for your End City. \n";
  		valid = false;
  	}
- 	var arrivaldayStr2 = document.forms["form2"]["arrivald2"].value;
- 	if ((arrivaldayStr2 !== "") && (arrivaldayStr2 !== null)) {
-		startd = new Date(arrivaldayStr2);
- 	}
- 	var arrivaldayStr3 = document.forms["form2"]["arrivald3"].value;
- 	if ((arrivaldayStr3 !== "") && (arrivaldayStr3 !== null)) {
-		startd = new Date(arrivaldayStr3);
- 	}
- 	var arrivaldayStr4 = document.forms["form2"]["arrivald4"].value;
- 	if ((arrivaldayStr4 !== "") && (arrivaldayStr4 !== null)) {
-		startd = new Date(arrivaldayStr4);
- 	}
- 	var arrivaldayStr5 = document.forms["form2"]["arrivald5"].value;
- 	if ((arrivaldayStr5 !== "") && (arrivaldayStr5 !== null)) {
-		startd = new Date(arrivaldayStr5);
- 	}
- 	var arrivaldayStr6 = document.forms["form2"]["arrivald6"].value;
- 	if ((arrivaldayStr6 !== "") && (arrivaldayStr6 !== null)) {
-		startd = new Date(arrivaldayStr6);
- 	}
+//  	var arrivaldayStr2 = document.forms["form2"]["arrivald2"].value;
+//  	if ((arrivaldayStr2 !== "") && (arrivaldayStr2 !== null)) {
+// 		arrivald2 = new Date(arrivaldayStr2);
+//  	}
+//  	var arrivaldayStr3 = document.forms["form2"]["arrivald3"].value;
+//  	if ((arrivaldayStr3 !== "") && (arrivaldayStr3 !== null)) {
+// 		arrivald3 = new Date(arrivaldayStr3);
+//  	}
+//  	var arrivaldayStr4 = document.forms["form2"]["arrivald4"].value;
+//  	if ((arrivaldayStr4 !== "") && (arrivaldayStr4 !== null)) {
+// 		arrivald4 = new Date(arrivaldayStr4);
+//  	}
+//  	var arrivaldayStr5 = document.forms["form2"]["arrivald5"].value;
+//  	if ((arrivaldayStr5 !== "") && (arrivaldayStr5 !== null)) {
+// 		arrivald5 = new Date(arrivaldayStr5);
+//  	}
+//  	var arrivaldayStr6 = document.forms["form2"]["arrivald6"].value;
+//  	if ((arrivaldayStr6 !== "") && (arrivaldayStr6 !== null)) {
+// 		arrivald6 = new Date(arrivaldayStr6);
+//  	}
 	today1 = new Date();
  		 
  	if (ttl === "") {
@@ -209,41 +209,41 @@ var today = new Date();
  				message += "Please choose an Arrival Date for your End City later than the Start Date. \n";
  				valid = false;
  			} 
- 			if ((arrivald6 == "") || (arrivald6 == null)) {
- 				;
- 			} else if ((arrivald5 !== "") || (arrivald5 !== null) && (arrivald6 < arrivald5)) {
+//  			if ((arrivald6 == "") || (arrivald6 == null)) {
+//  				;
+//  			} else if ((arrivald5 !== "") || (arrivald5 !== null) && (arrivald6 < arrivald5)) {
  				
- 				message += "Please choose an Arrival Date for Stop 5 later than the Stop 4. \n";
- 				valid = false;
- 			}
- 			if ((arrivald5 == "") || (arrivald5 == null)) {
- 				;
- 			} else if ((arrivald4 !== "") || (arrivald4 !== null) && (arrivald5 < arrivald4)) {
+//  				message += "Please choose an Arrival Date for Stop 5 later than the Stop 4. \n";
+//  				valid = false;
+//  			}
+//  			if ((arrivald5 == "") || (arrivald5 == null)) {
+//  				;
+//  			} else if ((arrivald4 !== "") || (arrivald4 !== null) && (arrivald5 < arrivald4)) {
  				
- 				message += "Please choose an Arrival Date for Stop 4 later than the Stop 3. \n";
- 				valid = false;
- 			}
- 			if ((arrivald4 == "") || (arrivald4 == null)) {
- 				;
- 			} else if ((arrivald3 !== "") || (arrivald3 !== null) && (arrivald4 < arrivald3)) {
+//  				message += "Please choose an Arrival Date for Stop 4 later than the Stop 3. \n";
+//  				valid = false;
+//  			}
+//  			if ((arrivald4 == "") || (arrivald4 == null)) {
+//  				;
+//  			} else if ((arrivald3 !== "") || (arrivald3 !== null) && (arrivald4 < arrivald3)) {
  				
- 				message += "Please choose an Arrival Date for Stop 3 later than the Stop 2. \n";
- 				valid = false;
- 			}
- 			if ((arrivald3 == "") || (arrivald3 == null)) {
- 				;
- 			} else if ((arrivald2 !== "") || (arrivald2 !== null) && (arrivald3 < arrivald2)) {
+//  				message += "Please choose an Arrival Date for Stop 3 later than the Stop 2. \n";
+//  				valid = false;
+//  			}
+//  			if ((arrivald3 == "") || (arrivald3 == null)) {
+//  				;
+//  			} else if ((arrivald2 !== "") || (arrivald2 !== null) && (arrivald3 < arrivald2)) {
  				
- 				message += "Please choose an Arrival Date for Stop 2 later than the Stop 1. \n";
- 				valid = false;
- 			}
- 			if ((arrivald2 == "") || (arrivald2 == null)) {
- 				;
- 			} else if ((arrivald1 !== "") || (arrivald1 !== null) && (arrivald2 < arrivald1)) {
+//  				message += "Please choose an Arrival Date for Stop 2 later than the Stop 1. \n";
+//  				valid = false;
+//  			}
+//  			if ((arrivald2 == "") || (arrivald2 == null)) {
+//  				;
+//  			} else if ((arrivald1 !== "") || (arrivald1 !== null) && (arrivald2 < arrivald1)) {
  				
- 				message += "Please choose an Arrival Date for Stop 1 later than the End City Arrival Date. \n";
- 				valid = false;
- 			}
+//  				message += "Please choose an Arrival Date for Stop 1 later than the End City Arrival Date. \n";
+//  				valid = false;
+//  			}
  		    if (arrivald1 < startd) {
  				message += "Please choose an Arrival Date for your End City after yoru Start Date. \n";
  				valid = false;
